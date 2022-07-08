@@ -1,0 +1,13 @@
+{
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "module": "Node16",
+        "baseUrl": "./",
+        "paths": {
+            "#lib/*": ["./src/lib/*"],
+            "#files/*": ["./src/files/*"],
+            "#managers/*": ["./src/managers/*"],
+            "#constants/*": ["./src/constants/*"]
+        }
+    }
+}

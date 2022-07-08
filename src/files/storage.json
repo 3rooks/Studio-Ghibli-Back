@@ -1,1 +1,34 @@
-[]
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "Lapiz",
+            "price": "15",
+            "thumbnail": "google.com"
+        },
+        {
+            "id": "2",
+            "name": "Regla",
+            "price": "20",
+            "thumbnail": "google.com"
+        },
+        {
+            "id": "3",
+            "name": "Calculadora",
+            "price": "25",
+            "thumbnail": "google.com"
+        },
+        {
+            "id": "4",
+            "name": "Libro",
+            "price": "30",
+            "thumbnail": "google.com"
+        },
+        {
+            "id": "5",
+            "name": "Marcador",
+            "price": "35",
+            "thumbnail": "google.com"
+        }
+    ]
+}
