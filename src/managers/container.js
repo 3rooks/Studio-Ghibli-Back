@@ -3,16 +3,14 @@ import fs from 'fs';
 const URL = 'src/files/storage.json';
 
 export class Container {
-    static countId = 1;
-
     getAll = async () => {
         try {
             if (fs.existsSync(URL)) {
                 const allData = await fs.promises.readFile(URL, 'utf-8');
-                const allProducts = await JSON.parse(allData);
-                return allProducts;
+                const products = await JSON.parse(allData);
+                return products;
             } else {
-                return {};
+                return [];
             }
         } catch (err) {
             console.log(`error read ${err}`);
@@ -21,13 +19,12 @@ export class Container {
 
     addProduct = async (product) => {
         try {
-            const allProducts = await this.getAll();
-            if (allProducts.length >= 0) {
-                product.id = `${Container.countId++}`;
-                allProducts.push(product);
+            const products = await this.getAll();
+            if (products.length >= 0) {
+                products.push(product);
                 await fs.promises.writeFile(
                     URL,
-                    JSON.stringify(allProducts, null, '\t')
+                    JSON.stringify(products, null, '\t')
                 );
             }
         } catch (err) {
@@ -37,40 +34,41 @@ export class Container {
 
     getById = async (id) => {
         try {
-            const allProducts = await this.getAll();
-            const findById = await allProducts.find((item) => item.id === id);
-            if (findById) {
-                console.log(
-                    `#${findById.id}- Title: ${findById.name}, Price: ${findById.price}, Thumbnail: ${findById.thumbnail}\n`
-                );
-            } else {
-                console.log(`not found ID: ${id}\n`);
-            }
+            const products = await this.getAll();
+            const findById = await products.find((item) => item.id === id);
+            if (!findById) return 'Not Found';
+            return findById;
         } catch (err) {
-            console.log(`"error search by ID ${err}`);
+            console.log(`error search by ID ${err}`);
+        }
+    };
+
+    putById = async (id) => {
+        try {
+            const products = await this.getAll();
+            const findById = await products.find((item) => item.id === id);
+            if (!findById) return 'Not Found';
+            return findById;
+        } catch (err) {
+            console.log(`error put by ID ${err}`);
         }
     };
 
     deleteById = async (id) => {
         try {
-            const allProducts = await this.getAll();
-            const productsNoDeleted = [];
-            allProducts.filter((item) => {
-                if (item.id !== id) {
-                    return productsNoDeleted.push(item);
-                } else {
-                    console.log(`Item Deleted ID: ${item.id}\n`);
-                }
-                return item;
-            });
-
-            const currentProducts = productsNoDeleted;
-            await fs.promises.writeFile(
-                URL,
-                JSON.stringify(currentProducts, null, '\t')
-            );
+            const products = await this.getAll();
+            const itemIndex = products.findIndex((item) => item.id === id);
+            if (itemIndex === -1) return 'Not Found';
+            else {
+                products.splice(itemIndex, 1);
+                await fs.promises.writeFile(
+                    URL,
+                    JSON.stringify(products, null, '\t')
+                );
+                return `Item Deleted`;
+            }
         } catch (err) {
-            console.log('error delete by id');
+            console.log(`error delete by ID ${err}`);
         }
     };
 

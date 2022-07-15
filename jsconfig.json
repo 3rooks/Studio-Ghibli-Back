@@ -7,7 +7,9 @@
             "#lib/*": ["./src/lib/*"],
             "#files/*": ["./src/files/*"],
             "#managers/*": ["./src/managers/*"],
-            "#constants/*": ["./src/constants/*"]
+            "#constants/*": ["./src/constants/*"],
+            "#routes/*": ["./src/routes/*"],
+            "#public/*": ["./src/public/*"]
         }
     }
 }
