@@ -9,7 +9,10 @@
             "#managers/*": ["./src/managers/*"],
             "#constants/*": ["./src/constants/*"],
             "#routes/*": ["./src/routes/*"],
-            "#public/*": ["./src/public/*"]
+            "#public/*": ["./src/public/*"],
+            "#utils/*": ["./src/utils/*"],
+            "#views/*": ["./src/views/*"],
+            "#config/*": ["./src/config/*"]
         }
     }
 }

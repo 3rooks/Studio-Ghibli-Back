@@ -3,36 +3,36 @@
 		"id": "972b3ef1-54f5-473b-b012-9a4aa27882be",
 		"name": "Lapiz",
 		"price": "15",
-		"thumbnail": "google.com"
+		"thumbnail": "1658523309557-cat.jpg"
 	},
 	{
 		"id": "a11cb4c6-a070-40f6-9c65-4296c5ac8d09",
 		"name": "Regla",
 		"price": "20",
-		"thumbnail": "google.com"
+		"thumbnail": "1658523309557-cat.jpg"
 	},
 	{
 		"id": "ce485305-604f-4af2-ba3b-7a997e395a30",
 		"name": "Calculadora",
 		"price": "25",
-		"thumbnail": "google.com"
+		"thumbnail": "1658523309557-cat.jpg"
 	},
 	{
 		"id": "e8d22cd0-5746-440d-9011-22ea25ac4a02",
 		"name": "Libro",
 		"price": "30",
-		"thumbnail": "google.com"
+		"thumbnail": "1658523309557-cat.jpg"
 	},
 	{
 		"id": "bb6c0cae-f6c5-41b3-b719-2bdb90445be7",
 		"name": "Marcador",
 		"price": "35",
-		"thumbnail": "google.com"
+		"thumbnail": "1658523309557-cat.jpg"
 	},
 	{
-		"id": "c6b47ad2-c757-4c71-9328-7229eb0aab4e",
-		"name": "Bicicleta",
-		"price": "50",
-		"thumbnail": "google.com"
+		"id": "533492f3-622f-433f-a596-77d8cda3cd65",
+		"name": "Cat",
+		"price": "510",
+		"thumbnail": "1658523309557-cat.jpg"
 	}
 ]

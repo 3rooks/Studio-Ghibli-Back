@@ -1,8 +1,8 @@
+import { STORAGE_PATH } from '#utils/paths.js';
 import fs from 'fs';
 
-const URL = 'src/files/storage.json';
-
-export class Container {
+const URL = STORAGE_PATH;
+class Container {
     getAll = async () => {
         try {
             if (fs.existsSync(URL)) {
@@ -98,3 +98,5 @@ export class Container {
         }
     };
 }
+
+export default Container;

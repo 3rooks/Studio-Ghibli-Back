@@ -1,12 +1,15 @@
+import { IMG_PATH } from '#utils/paths.js';
 import multer from 'multer';
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, `src/public/images`);
+        cb(null, IMG_PATH);
     },
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}-${file.originalname}`);
     }
 });
 
-export const upload = multer({ storage });
+const upload = multer({ storage });
+
+export default upload;

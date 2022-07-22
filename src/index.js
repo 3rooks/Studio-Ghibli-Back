@@ -1,17 +1,10 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import { products } from '#routes/products.js';
+import '#config/env.js';
+import httpServer from '#config/http.js';
 
-dotenv.config();
-const PORT = process.env.PORT;
+const bootstrap = () => {
+    httpServer.listen(process.env.PORT, () => {
+        console.log(`listening in port ${process.env.PORT}`);
+    });
+};
 
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-app.use('/api', products);
-
-app.listen(PORT, () => {
-    console.log(`listening port: ${PORT}`);
-});
+bootstrap();
