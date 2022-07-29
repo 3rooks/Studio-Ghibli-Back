@@ -1,38 +1,8 @@
 [
 	{
-		"id": "972b3ef1-54f5-473b-b012-9a4aa27882be",
-		"name": "Lapiz",
-		"price": "15",
-		"thumbnail": "1658523309557-cat.jpg"
-	},
-	{
-		"id": "a11cb4c6-a070-40f6-9c65-4296c5ac8d09",
-		"name": "Regla",
-		"price": "20",
-		"thumbnail": "1658523309557-cat.jpg"
-	},
-	{
-		"id": "ce485305-604f-4af2-ba3b-7a997e395a30",
-		"name": "Calculadora",
-		"price": "25",
-		"thumbnail": "1658523309557-cat.jpg"
-	},
-	{
-		"id": "e8d22cd0-5746-440d-9011-22ea25ac4a02",
-		"name": "Libro",
-		"price": "30",
-		"thumbnail": "1658523309557-cat.jpg"
-	},
-	{
-		"id": "bb6c0cae-f6c5-41b3-b719-2bdb90445be7",
-		"name": "Marcador",
-		"price": "35",
-		"thumbnail": "1658523309557-cat.jpg"
-	},
-	{
-		"id": "533492f3-622f-433f-a596-77d8cda3cd65",
+		"id": "a86c78a9-0558-46f3-ac49-664bf31f6f82",
 		"name": "Cat",
-		"price": "510",
-		"thumbnail": "1658523309557-cat.jpg"
+		"price": "123",
+		"thumbnail": "http://res.cloudinary.com/brookslynx/image/upload/v1658883790/pgvlewfpyodxljkulis0.jpg"
 	}
 ]

@@ -6,6 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>STORAGE</title>
     </head>
+    <style>
+        #chat {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column-reverse;
+        }
+        #chat div {
+            width: 75%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
     <body>
         <h1>Products: <%= products.length %></h1>
         <form
@@ -28,7 +42,6 @@
             </label>
             <button type="submit">SEND</button>
         </form>
-        <hr />
         <div>
             <% if (products.length === 0) { %>
             <P>Not products yet</P>
@@ -39,7 +52,7 @@
                 <li>
                     <b>Thumbnail:</b>
                     <img
-                        src="http://localhost:8080/images/<%= item.thumbnail %>"
+                        src="<%= item.thumbnail %>"
                         alt="( ˇ෴ˇ )"
                         width="500"
                         height="300"
@@ -49,65 +62,39 @@
             <hr />
             <% })} %>
         </div>
+        <div>
+            <form id="form">
+                <label
+                    >Message:
+                    <input type="text" />
+                </label>
+                <button type="submit">SEND</button>
+            </form>
+            <hr />
+            <div id="chat"></div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
         <script>
-            // POST strings
-            // const form = document.querySelector('.form');
-            // form.addEventListener('submit', (e) => {
-            //     e.preventDefault();
-            //     const formData = new FormData(form);
-            //     const sendData = {};
-            //     formData.forEach((value, key) => (sendData[key] = value));
-            //     const post = async () => {
-            //         try {
-            //             await fetch('http://localhost:8080/', {
-            //                 method: 'POST',
-            //                 headers: {
-            //                     'Content-Type': 'application/json'
-            //                 },
-            //                 body: JSON.stringify(sendData)
-            //             });
-            //         } catch (err) {
-            //             console.log(err);
-            //         }
-            //     };
-            //     post();
-            // });
+            const socket = io();
+            const form = document.querySelector('#form');
+            form.addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                const message = { message: ev.target[0].value.trim() };
+                socket.emit('message', message);
+                ev.target[0].value = '';
+            });
 
-            // POST files + strings
-            // const form = document.querySelector('.form');
-            // form.addEventListener('submit', (e) => {
-            //     e.preventDefault();
-            //     const formData = new FormData(form);
-            //     const post = async () => {
-            //         try {
-            //             await fetch('http://localhost:8080/', {
-            //                 method: 'POST',
-            //                 body: formData
-            //             });
-            //         } catch (err) {
-            //             console.log(err);
-            //         }
-            //     };
-            //     post();
-            // });
+            // Listeners
+            socket.on('allMessage', (data) => {
+                const chat = document.querySelector('#chat');
+                const div = document.createElement('div');
 
-            // Get APIrest
-            // const req = async () => {
-            //     try {
-            //         const res = await fetch(
-            //             'http://localhost:8080/api/products'
-            //         );
-            //         if (res.status === 200) {
-            //             const data = await res.json();
-            //             console.log(data);
-            //         } else {
-            //             throw new Error('>:(');
-            //         }
-            //     } catch (err) {
-            //         console.log(err);
-            //     }
-            // };
-            // req();
+                data.map((message) => {
+                    const data = `<div><i>@${message.userID}</i></div><div><i>TIME=${message.date}</i></div><div><b>Message-------> ${message.message}</b></div>`;
+                    div.innerHTML = data;
+                    chat.appendChild(div);
+                });
+            });
         </script>
     </body>
 </html>

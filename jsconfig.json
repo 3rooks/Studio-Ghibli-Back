@@ -6,13 +6,14 @@
         "paths": {
             "#lib/*": ["./src/lib/*"],
             "#files/*": ["./src/files/*"],
-            "#managers/*": ["./src/managers/*"],
+            "#controllers/*": ["src/controllers/*"],
             "#constants/*": ["./src/constants/*"],
             "#routes/*": ["./src/routes/*"],
             "#public/*": ["./src/public/*"],
             "#utils/*": ["./src/utils/*"],
             "#views/*": ["./src/views/*"],
-            "#config/*": ["./src/config/*"]
+            "#config/*": ["./src/config/*"],
+            "#errors/*": ["./src/errors/*"]
         }
     }
 }
