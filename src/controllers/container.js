@@ -36,7 +36,7 @@ class Container {
         try {
             const products = await this.getAll();
             const findById = await products.find((item) => item.id === id);
-            if (!findById) return 'Not Found';
+            if (!findById) return 'Product not found';
             return findById;
         } catch (err) {
             console.log(`error search by ID ${err}`);
@@ -47,7 +47,7 @@ class Container {
         try {
             const products = await this.getAll();
             const findById = await products.find((item) => item.id === id);
-            if (!findById) return 'Not Found';
+            if (!findById) return 'Product not found';
             return findById;
         } catch (err) {
             console.log(`error put by ID ${err}`);
@@ -69,23 +69,6 @@ class Container {
             }
         } catch (err) {
             console.log(`error delete by ID ${err}`);
-        }
-    };
-
-    showAllbyConsole = async () => {
-        try {
-            const allProducts = await this.getAll();
-            if (allProducts.length >= 0) {
-                allProducts.map((item) =>
-                    console.log(
-                        `ID: ${item.id}, Title: ${item.name}, Price: ${item.price}, Thumbnail: ${item.thumbnail}\n`
-                    )
-                );
-            } else {
-                console.log(`empty`);
-            }
-        } catch (err) {
-            console.log(`show info console ${err}`);
         }
     };
 
