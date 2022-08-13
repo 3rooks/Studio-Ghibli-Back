@@ -1,4 +1,5 @@
 import { Server } from 'socket.io';
+import db from './sqlite.js';
 
 const socketIo = (server) => {
     const io = new Server(server);
@@ -6,18 +7,22 @@ const socketIo = (server) => {
     io.on('connection', (socket) => {
         console.log('new connection: ' + socket.id);
 
-        const history = [];
+        socket.on('message', async (data) => {
+            const { message: messages } = data;
 
-        socket.on('message', (data) => {
-            const { message } = data;
             const newMessage = {
-                userID: socket.id,
-                message,
-                date: new Date()
+                id: socket.id,
+                messages
             };
-            history.push(newMessage);
-            socket.broadcast.emit();
-            io.emit('allMessage', history);
+
+            try {
+                await db('messages').insert(newMessage);
+                const mss = await db('messages').select('*');
+                socket.broadcast.emit();
+                io.emit('allMessage', mss);
+            } catch (err) {
+                console.log(err);
+            }
         });
     });
 };

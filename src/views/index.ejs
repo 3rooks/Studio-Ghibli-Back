@@ -4,69 +4,30 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>STORAGE</title>
+        <title>CHAT</title>
     </head>
     <style>
         #chat {
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            flex-direction: column-reverse;
+            height: 50vh;
+            width: 75vw;
+            margin: auto;
+            overflow: scroll;
         }
         #chat div {
-            width: 75%;
-            margin: 0 auto;
             display: flex;
-            justify-content: space-around;
+            padding: 0.2rem;
+        }
+
+        #chat div i {
+            font-size: 0.8rem;
         }
     </style>
     <body>
-        <h1>Products: <%= products.length %></h1>
-        <form
-            action="/"
-            method="POST"
-            enctype="multipart/form-data"
-            class="form"
-        >
-            <label
-                >name:
-                <input type="text" name="name" required />
-            </label>
-            <label
-                >price:
-                <input type="text" name="price" required />
-            </label>
-            <label
-                >img:
-                <input type="file" name="img" required />
-            </label>
-            <button type="submit">SEND</button>
-        </form>
-        <div>
-            <% if (products.length === 0) { %>
-            <P>Not products yet</P>
-            <% } else {%> <% products.forEach(item => { %>
-            <ul>
-                <li><b>Name:</b> <%= item.name %></li>
-                <li><b>Price:</b> <%= item.price %></li>
-                <li>
-                    <b>Thumbnail:</b>
-                    <img
-                        src="<%= item.thumbnail %>"
-                        alt="( ˇ෴ˇ )"
-                        width="500"
-                        height="300"
-                    />
-                </li>
-            </ul>
-            <hr />
-            <% })} %>
-        </div>
         <div>
             <form id="form">
                 <label
                     >Message:
-                    <input type="text" />
+                    <input type="text" required />
                 </label>
                 <button type="submit">SEND</button>
             </form>
@@ -88,9 +49,8 @@
             socket.on('allMessage', (data) => {
                 const chat = document.querySelector('#chat');
                 const div = document.createElement('div');
-
                 data.map((message) => {
-                    const data = `<div><i>@${message.userID}</i></div><div><i>TIME=${message.date}</i></div><div><b>Message-------> ${message.message}</b></div>`;
+                    const data = `<div><i>@${message.id}</i></div><div><i>TIME=${message.created_at}</i></div><div><b>Message-------> ${message.messages}</b></div>`;
                     div.innerHTML = data;
                     chat.appendChild(div);
                 });
