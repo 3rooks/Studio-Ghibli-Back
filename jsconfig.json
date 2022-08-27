@@ -14,7 +14,8 @@
             "#views/*": ["./src/views/*"],
             "#config/*": ["./src/config/*"],
             "#errors/*": ["./src/errors/*"],
-            "#schemas/*": ["./src/schemas/*"]
+            "#schemas/*": ["./src/schemas/*"],
+            "#dao/*": ["./src/dao/*"]
         }
     }
 }

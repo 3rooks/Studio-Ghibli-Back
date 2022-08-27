@@ -1,32 +1,11 @@
 [
     {
-        "id": "ce4b2ac9-9fdc-4f31-baa6-504d006b7cec",
-        "timestamp": 1659851980655,
-        "name": "Dog",
-        "description": "GUAU GUAU",
-        "price": "000",
-        "code": "2183918293",
-        "stock": "3",
-        "thumbnail": "http://res.cloudinary.com/brookslynx/image/upload/v1658883790/pgvlewfpyodxljkulis0.jpg"
-    },
-    {
-        "id": "ce4b2ac9-9fdc-4f31-baa6-504d006b7ced",
-        "timestamp": 1659851980657,
+        "id": "1eb1679c-42aa-40c7-bc7d-708aa25c02aa",
         "name": "Cat",
-        "description": "MIAU MIAU",
-        "price": "222",
-        "code": "2183918294",
-        "stock": "2",
-        "thumbnail": "http://res.cloudinary.com/brookslynx/image/upload/v1658883790/pgvlewfpyodxljkulis0.jpg"
-    },
-    {
-        "id": "ce4b2ac9-9fdc-4f31-baa6-504d006b7cee",
-        "timestamp": 1659851980659,
-        "name": "Snake",
-        "description": "Ssssssssssss",
-        "price": "333",
-        "code": "218391829234",
-        "stock": "1",
+        "description": "Miau Miau Miau",
+        "price": 322,
+        "code": 101010,
+        "stock": 1,
         "thumbnail": "http://res.cloudinary.com/brookslynx/image/upload/v1658883790/pgvlewfpyodxljkulis0.jpg"
     }
 ]

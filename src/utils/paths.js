@@ -9,6 +9,5 @@ const PUBLIC_PATH = resolve(__dirname, '../public');
 const STORAGE_PATH = resolve(__dirname, '../files/storage.json');
 const CART_PATH = resolve(__dirname, '../files/cart.json');
 const VIEWS_PATH = resolve(__dirname, '../views');
-const DB_PATH = resolve(__dirname, '../../db.sqlite');
 
-export { IMG_PATH, PUBLIC_PATH, STORAGE_PATH, VIEWS_PATH, CART_PATH, DB_PATH };
+export { IMG_PATH, PUBLIC_PATH, STORAGE_PATH, VIEWS_PATH, CART_PATH };

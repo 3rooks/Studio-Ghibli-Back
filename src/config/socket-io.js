@@ -1,5 +1,4 @@
 import { Server } from 'socket.io';
-import db from './sqlite.js';
 
 const socketIo = (server) => {
     const io = new Server(server);
@@ -16,10 +15,9 @@ const socketIo = (server) => {
             };
 
             try {
-                await db('messages').insert(newMessage);
-                const mss = await db('messages').select('*');
+                console.log(newMessage)
                 socket.broadcast.emit();
-                io.emit('allMessage', mss);
+                io.emit('allMessage', );
             } catch (err) {
                 console.log(err);
             }

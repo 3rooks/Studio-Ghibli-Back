@@ -1,6 +1,5 @@
 import cloudinary from '#config/cloudinary.js';
 import upload from '#config/multer.js';
-import db from '#config/sqlite.js';
 import uuidV4 from '#lib/uuidRandom.js';
 import { Router } from 'express';
 import { unlink } from 'fs/promises';
@@ -8,14 +7,7 @@ import { unlink } from 'fs/promises';
 const views = Router();
 
 views.get('/', async (req, res) => {
-    // const products = await MY_STORAGE.getAll();
-    // res.render('index', { products });
-    try {
-        const products = await db('products').select('*');
-        res.render('index', { products });
-    } catch (err) {
-        console.log(err);
-    }
+    res.render('index', {});
 });
 
 views.post('/', upload.single('img'), async (req, res) => {
@@ -55,7 +47,7 @@ views.post('/', upload.single('img'), async (req, res) => {
             thumbnail
         };
         await unlink(path);
-        await db('products').insert(toSend);
+        console.log(toSend);
         res.redirect('/');
     } catch (err) {
         console.log(err);
