@@ -1,4 +1,4 @@
-import uuidV4 from '#lib/uuidRandom.js';
+import uuid from 'uuid-random';
 import { Router } from 'express';
 import { PRODUCTS } from '#dao/dao.js';
 
@@ -21,7 +21,7 @@ products.post('/products', async (req, res) => {
         return res.status(400).send({ error: 'Bad Request' });
 
     const newProduct = {
-        id: uuidV4(),
+        id: uuid(),
         name,
         description,
         price,

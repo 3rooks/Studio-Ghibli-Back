@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-export const collection = 'product';
+export const collection = 'products';
 export const productSchema = new Schema(
     {
         id: { type: String, require: true, unique: true },

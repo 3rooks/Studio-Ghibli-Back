@@ -6,21 +6,19 @@ const socketIo = (server) => {
     io.on('connection', (socket) => {
         console.log('new connection: ' + socket.id);
 
-        socket.on('message', async (data) => {
-            const { message: messages } = data;
+        const history = [];
 
+        socket.on('message', async (data) => {
+            const { message } = data;
             const newMessage = {
                 id: socket.id,
-                messages
+                message
             };
 
-            try {
-                console.log(newMessage)
-                socket.broadcast.emit();
-                io.emit('allMessage', );
-            } catch (err) {
-                console.log(err);
-            }
+            history.push(newMessage);
+            socket.broadcast.emit();
+            console.log(history);
+            io.emit('allMessage', history);
         });
     });
 };

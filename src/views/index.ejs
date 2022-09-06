@@ -50,7 +50,7 @@
                 const chat = document.querySelector('#chat');
                 const div = document.createElement('div');
                 data.map((message) => {
-                    const data = `<div><i>@${message.id}</i></div><div><i>TIME=${message.created_at}</i></div><div><b>Message-------> ${message.messages}</b></div>`;
+                    const data = `<div><i>@${message.id}</i></div><div><b>Message-------> ${message.message}</b></div>`;
                     div.innerHTML = data;
                     chat.appendChild(div);
                 });

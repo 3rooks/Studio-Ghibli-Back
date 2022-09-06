@@ -1,6 +1,6 @@
 import cloudinary from '#config/cloudinary.js';
 import upload from '#config/multer.js';
-import uuidV4 from '#lib/uuidRandom.js';
+import uuid from 'uuid-random';
 import { Router } from 'express';
 import { unlink } from 'fs/promises';
 
@@ -19,7 +19,7 @@ views.post('/', upload.single('img'), async (req, res) => {
     //     // await cloudinary.v2.uploader.destroy(public_id);
     //     // cloudinary.v2.image("",{})
     //     const newProduct = {
-    //         id: uuidV4(),
+    //         id: uuid(),
     //         name,
     //         price,
     //         thumbnail
@@ -38,7 +38,7 @@ views.post('/', upload.single('img'), async (req, res) => {
         const { url: thumbnail } = await cloudinary.v2.uploader.upload(path);
 
         const toSend = {
-            id: uuidV4(),
+            id: uuid(),
             name,
             description,
             price,

@@ -1,4 +1,4 @@
-import uuidV4 from '#lib/uuidRandom.js';
+import uuid from 'uuid-random';
 import { Router } from 'express';
 import { CARTS } from '#dao/dao.js';
 
@@ -16,7 +16,8 @@ carts.get('/carts/:id', async (req, res) => {
 
 carts.post('/carts', async (req, res) => {
     const newCart = {
-        id: uuidV4()
+        id: uuid(),
+        products: []
     };
     const results = await CARTS.saveOne(newCart);
     return res.status(201).json({ results });
@@ -33,24 +34,22 @@ carts.get('/carts/:id/products', async (req, res) => {
 });
 
 carts.post('/carts/:id/products', async (req, res) => {
-    // const { id, quantity } = req.body;
-    // const newProduct = {
-    //     product: id,
-    //     quantity
-    // };
-    // const results = await CARTS.getByIdAndUpdateProducts(
-    //     req.params.id,
-    //     newProduct
-    // );
-    // return res.status(201).json({ results });
+    const { product, quantity } = req.body;
+    const newProduct = {
+        product,
+        quantity
+    };
+    const results = await CARTS.getByIdAndUpdateProducts(
+        req.params.id,
+        newProduct
+    );
+    return res.status(201).json({ results });
 });
 
 carts.delete('/carts/:idCart/products/:idProduct', async (req, res) => {
-    // const { idCart, idProduct } = req.params;
-    // const itemDeleted = await MY_CART.deleteProductInCart(idCart, idProduct);
-    // if (itemDeleted === 'Cart not found')
-    //     return res.status(404).json({ error: 'Cart not found' });
-    // return res.status(202).json({ success: itemDeleted });
+    const { idCart, idProduct } = req.params;
+    const results = await CARTS.deleteProductInCartById(idCart, idProduct);
+    return res.status(202).json({ results });
 });
 
 export default carts;

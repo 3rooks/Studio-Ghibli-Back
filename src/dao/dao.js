@@ -4,7 +4,9 @@ const type =
     PERSISTENCE_FORMATS[`${process.env.PERSISTENCE}`] ||
     PERSISTENCE_FORMATS.RAM;
 
-const { PRODUCTS } = await import(`#dao/${type}-dao/${type}-dao-products.js`); // Works
-const { CARTS } = await import(`#dao/${type}-dao/${type}-dao-carts.js`); // idc
+const { PRODUCTS } = await import(`#dao/${type}-dao/${type}-dao-products.js`);
+const { CARTS } = await import(`#dao/${type}-dao/${type}-dao-carts.js`);
+const { USERS } = await import(`#dao/${type}-dao/${type}-dao-users.js`);
+const { POSTS } = await import(`#dao/${type}-dao/${type}-dao-posts.js`);
 
-export { PRODUCTS, CARTS };
+export { PRODUCTS, CARTS, USERS, POSTS };

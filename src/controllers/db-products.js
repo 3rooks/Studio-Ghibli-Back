@@ -12,7 +12,7 @@ export default class Products {
     }
 
     async getById(id) {
-        const results = await this.model.findById(id);
+        const results = await this.model.find(id);
         return results;
     }
 

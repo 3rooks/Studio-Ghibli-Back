@@ -17,23 +17,16 @@ export default class Carts {
     }
 
     async getByIdAndShowProducts(id) {
-        const results = await this.getById(id);
+        const results = await this.model.findById(id);
         return results.products;
     }
 
     async getByIdAndUpdateProducts(id, data) {
-        // in progress
-        const { product, quantity } = data;
-        const a = await this.getById(id);
-
-        const newProduct = {
-            product,
-            quantity
-        };
-
-        a.products.push(newProduct);
-
-        return a;
+        const results = await this.model.findById(id);
+        results.products.push(data);
+        await this.model.findOneAndUpdate(id, results);
+        // await this.model.updateOne({ _id: id }, { $set: results });
+        return results;
     }
 
     async saveOne(data) {
@@ -43,26 +36,23 @@ export default class Carts {
 
     async saveMany(_) {}
 
-    async updateById(id, data) {
-        // const resolve = await this.model.updateOne(
-        //     await this.getById(id),
-        //     data
-        // );
-        // return resolve;
-    }
+    async updateById(_) {}
 
-    async updateMany(_) {
-        // const resolve = await this.model.updateMany(_);
-        // return resolve;
-    }
+    async updateMany(_) {}
 
     async deleteById(id) {
-        const resolve = await this.model.deleteOne(await this.getById(id));
+        const resolve = await this.model.findByIdAndDelete(id);
+        // const resolve = await this.model.deleteOne(await this.getById(id));
         return resolve;
     }
 
-    async deleteMany(_) {
-        // const resolve = await this.model.deleteMany(_);
-        // return resolve;
+    async deleteProductInCartById(idCart, idProduct) {
+        const results = await this.model.findById(idCart);
+        const item = results.products.findIndex((i) => i._id === idProduct);
+        results.products.splice(item, 1);
+        await this.model.findOneAndUpdate(idCart, results);
+        return results;
     }
+
+    async deleteMany(_) {}
 }

@@ -1,5 +1,5 @@
 import multer from 'multer';
-import uuidV4 from '#lib/uuidRandom.js';
+import uuid from 'uuid-random';
 import IMAGE_FORMATS from '#constants/image-formats.js';
 import { extname } from 'path';
 import { IMG_PATH } from '#utils/paths.js';
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, IMG_PATH);
     },
     filename: (req, file, cb) => {
-        cb(null, `${uuidV4()}${extname(file.originalname)}`);
+        cb(null, `${uuid()}${extname(file.originalname)}`);
     }
 });
 
