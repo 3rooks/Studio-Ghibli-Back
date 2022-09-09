@@ -15,4 +15,9 @@ export default class Users {
         const resolve = await this.model.create(data);
         return resolve;
     }
+
+    async getByEmail(email) {
+        const results = await this.model.findOne({ email });
+        return results;
+    }
 }
