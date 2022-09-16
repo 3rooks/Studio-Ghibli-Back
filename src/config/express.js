@@ -8,6 +8,8 @@ import views from '#routes/views.routes.js';
 import tests from '#routes/tests.routes.js';
 import posts from '#routes/posts.routes.js';
 import { PUBLIC_PATH, VIEWS_PATH } from '#utils/paths.js';
+import { initPassport } from './passport.js';
+import passport from 'passport';
 
 const expressApp = express();
 // Middlewares
@@ -25,6 +27,9 @@ expressApp.use(
         }
     })
 );
+initPassport();
+expressApp.use(passport.initialize());
+expressApp.use(passport.session());
 expressApp.use(express.urlencoded({ extended: false }));
 expressApp.use(express.static(PUBLIC_PATH));
 // Set template

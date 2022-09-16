@@ -20,4 +20,14 @@ export default class Users {
         const results = await this.model.findOne({ email });
         return results;
     }
+
+    async getByUsername(username) {
+        const results = await this.model.findOne({ username });
+        return results;
+    }
+
+    async getById(id) {
+        const results = await this.model.findById(id);
+        return results;
+    }
 }
