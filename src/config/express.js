@@ -10,6 +10,8 @@ import posts from '#routes/posts.routes.js';
 import { PUBLIC_PATH, VIEWS_PATH } from '#utils/paths.js';
 import { initPassport } from './passport.js';
 import passport from 'passport';
+import info from '#routes/info.routes.js';
+import random from '#routes/random.routes.js';
 
 const expressApp = express();
 // Middlewares
@@ -41,6 +43,8 @@ expressApp.use('/api', products);
 expressApp.use('/api', carts);
 expressApp.use('/api', tests);
 expressApp.use('/api', posts);
+expressApp.use('/api', info);
+expressApp.use('/api', random);
 expressApp.use('/', views);
 
 export default expressApp;
