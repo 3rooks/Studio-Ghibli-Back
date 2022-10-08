@@ -1,0 +1,10 @@
+1- moverse a la carpeta
+   - npm i
+   - pm2 start ecosystem.config.cjs
+2- abrir nginx
+   - ./nginx.exe
+   - http://localhost
+3- cerrar todos los procesos
+   - ./nginx.exe -s quit
+   - pm2 stop all
+   - pm2 kill

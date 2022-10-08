@@ -1,0 +1,33 @@
+2022/10/08 15:38:16 [emerg] 3236#25128: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:54
+2022/10/08 15:38:20 [emerg] 21740#15152: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:54
+2022/10/08 15:38:21 [emerg] 21576#19772: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:54
+2022/10/08 15:38:22 [emerg] 23040#20224: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:54
+2022/10/08 15:40:18 [emerg] 23416#18608: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:40:20 [emerg] 23316#19312: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:40:21 [emerg] 24204#23084: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:40:28 [emerg] 25404#22624: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:40:59 [emerg] 8332#22388: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:41:00 [emerg] 24120#22568: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:42:31 [emerg] 22512#21892: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:42:32 [emerg] 23140#13332: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:42:32 [emerg] 24160#14848: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:42:37 [emerg] 19132#17812: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:22 [emerg] 9512#2960: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:23 [emerg] 764#18732: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:24 [emerg] 14844#9528: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:24 [emerg] 17140#25404: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:25 [emerg] 24840#5508: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:25 [emerg] 25088#20012: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:26 [emerg] 24120#22568: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:26 [emerg] 6112#12520: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:27 [emerg] 23872#23272: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:28 [emerg] 14172#24716: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:28 [emerg] 23736#25284: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:43:33 [emerg] 12200#18588: invalid URL prefix in C:\nginx\nginx-1.23.1/conf/nginx.conf:52
+2022/10/08 15:46:25 [error] 24764#25288: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8082/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2022/10/08 15:58:11 [error] 18136#5508: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8082/", host: "localhost"
+2022/10/08 15:59:37 [error] 25072#24244: *27 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8082/", host: "localhost"
+2022/10/08 16:02:09 [error] 25072#24244: *42 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8082/", host: "localhost"
+2022/10/08 16:18:07 [notice] 17912#25292: signal process started
+2022/10/08 16:29:18 [notice] 3900#13592: signal process started
+2022/10/08 16:49:02 [notice] 14628#20500: signal process started
