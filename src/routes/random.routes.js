@@ -8,7 +8,7 @@ random.get('/random', (req, res) => {
     res.send();
 });
 
-random.post('/random/:num', (req, res) => {
+random.get('/random/:num', (req, res) => {
     const { num } = req.params;
     const child = fork(RANDOM_PATH);
     child.send(num);

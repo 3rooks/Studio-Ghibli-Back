@@ -12,8 +12,30 @@ import { initPassport } from './passport.js';
 import passport from 'passport';
 import info from '#routes/info.routes.js';
 import random from '#routes/random.routes.js';
+import { pinoHttp } from 'pino-http';
+import uuid from 'uuid-random';
 
 const expressApp = express();
+const httpLogger = pinoHttp({
+    genReqId: () => uuid(),
+    transport: {
+        customLogLevel: (req, res) => {
+            if (res.statusCode < 400) return 'info';
+            return 'error';
+        },
+        pipeline: [
+            {
+                target: 'pino-pretty',
+                options: {
+                    levelFirst: true,
+                    // minimunLevel: 'error',
+                    destination: 1,
+                    translateTime: 'yyyy-mm-dd HH:MM:ss.1 o'
+                }
+            }
+        ]
+    }
+});
 // Middlewares
 expressApp.use(express.json());
 expressApp.use(
@@ -34,6 +56,20 @@ expressApp.use(passport.initialize());
 expressApp.use(passport.session());
 expressApp.use(express.urlencoded({ extended: false }));
 expressApp.use(express.static(PUBLIC_PATH));
+expressApp.use((req, res, next) => {
+    httpLogger(req, res);
+    next();
+});
+expressApp.use((err, req, res, next) => {
+    res.err = {
+        message: err.message,
+        stack: err.stack
+    };
+    next(err);
+});
+expressApp.use((err, req, res, next) => {
+    return res.status(500).send(err.message);
+});
 // Set template
 expressApp.set('views', VIEWS_PATH);
 expressApp.set('view engine', 'ejs');
