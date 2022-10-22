@@ -2,7 +2,7 @@ import PERSISTENCE_FORMATS from '#constants/persistence-types.js';
 
 const type =
     PERSISTENCE_FORMATS[`${process.env.PERSISTENCE}`] ||
-    PERSISTENCE_FORMATS.RAM;
+    PERSISTENCE_FORMATS.DB;
 
 const { PRODUCTS } = await import(`#dao/${type}-dao/${type}-dao-products.js`);
 const { CARTS } = await import(`#dao/${type}-dao/${type}-dao-carts.js`);
