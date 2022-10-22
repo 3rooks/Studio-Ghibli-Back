@@ -72,7 +72,7 @@ expressApp.use((err, req, res, next) => {
 });
 // Set template
 expressApp.set('views', VIEWS_PATH);
-expressApp.set('view engine', 'ejs');
+// expressApp.set('view engine', 'ejs');
 // Routes
 expressApp.use('/api', sessions);
 expressApp.use('/api', products);
