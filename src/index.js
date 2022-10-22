@@ -4,7 +4,7 @@ import socketIo from '#config/socket-io.js';
 
 const bootstrap = () => {
     // Express && http config
-    const APP_SERVER = httpServer.listen(process.env.PORT, () => {
+    const APP_SERVER = httpServer.listen(process.env.PORT || 8080, () => {
         console.log(`listening on port: http://localhost:${process.env.PORT}`);
     });
     // Socket.io
