@@ -17,7 +17,6 @@ const socketIo = (server) => {
 
             history.push(newMessage);
             socket.broadcast.emit();
-            console.log(history);
             io.emit('allMessage', history);
         });
     });
