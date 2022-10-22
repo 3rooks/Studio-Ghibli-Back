@@ -71,8 +71,8 @@ expressApp.use((err, req, res, next) => {
     return res.status(500).send(err.message);
 });
 // Set template
-// expressApp.set('views', VIEWS_PATH);
-// expressApp.set('view engine', 'ejs');
+expressApp.set('views', VIEWS_PATH);
+expressApp.set('view engine', 'ejs');
 // Routes
 expressApp.use('/api', sessions);
 expressApp.use('/api', products);
