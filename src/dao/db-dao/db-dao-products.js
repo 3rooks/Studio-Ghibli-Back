@@ -1,6 +1,6 @@
 import connectDB from '#config/db.js';
-import Products from '#controllers/db-products.js';
 import { collection, productSchema } from '#schemas/products.schema.js';
+import Products from '#services/db-products.js';
 
 class DatabaseDAO extends Products {
     constructor() {

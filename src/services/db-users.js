@@ -30,4 +30,14 @@ export default class Users {
         const results = await this.model.findById(id);
         return results;
     }
+
+    async updateById(id, data) {
+        const resolve = await this.model.findByIdAndUpdate(id, data);
+        return resolve;
+    }
+
+    async deleteById(id) {
+        const resolve = await this.model.findByIdAndDelete(id);
+        return resolve;
+    }
 }

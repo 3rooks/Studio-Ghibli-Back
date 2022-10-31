@@ -2,21 +2,22 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-export const collection = 'products';
+export const collection = 'Products';
 export const productSchema = new Schema(
     {
-        id: { type: String, require: true, unique: true },
-        name: { type: String, require: true, minLength: 2, maxLength: 20 },
-        description: {
-            type: String,
-            require: true,
-            minLength: 10,
-            maxLength: 500
-        },
-        price: { type: Number, require: true, min: 1 },
-        code: { type: Number, require: true },
-        stock: { type: Number, require: true, min: 1 },
-        thumbnail: { type: String, require: true }
+        _id: { type: String, _id: false, require: true, unique: true },
+        title: { type: String, unique: true },
+        originalTitle: { type: String },
+        originalTitleRomanised: { type: String },
+        image: { type: String },
+        movieBanner: { type: String },
+        description: { type: String },
+        director: { type: String },
+        producer: { type: String },
+        releaseYear: { type: String },
+        minDuration: { type: String },
+        info: { type: String },
+        price: { type: String }
     },
     {
         timestamps: true,

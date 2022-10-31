@@ -1,4 +1,4 @@
-import Products from '#controllers/fs-products.js';
+import Products from '#services/fs-products.js';
 
 class FilesystemDAO extends Products {
     constructor() {

@@ -15,7 +15,10 @@
             "#config/*": ["./src/config/*"],
             "#errors/*": ["./src/errors/*"],
             "#schemas/*": ["./src/schemas/*"],
-            "#dao/*": ["./src/dao/*"]
+            "#dao/*": ["./src/dao/*"],
+            "#services/*": ["./src/services/*"],
+            "#repositories/*": ["./src/repositories/*"],
+            "#dto/*": ["./src/dto/*"]
         }
     }
 }

@@ -1,82 +1,24 @@
-import uuid from 'uuid-random';
 import { Router } from 'express';
-import { PRODUCTS } from '#dao/dao.js';
-import { handleWrapper } from '#lib/handleWrapper.js';
+import productCreateDTO from '#dto/product-create.dto.js';
+import productCreateController from '#controllers/product-create.controller.js';
+import productDeleteDTO from '#dto/product-delete.dto.js';
+import productDeleteController from '#controllers/product-delete.controller.js';
+import productListController from '#controllers/product-list.controller.js';
+import productIdController from '#controllers/product-id.controller.js';
+import productIdDTO from '#dto/product-id.dto.js';
 
-const products = Router();
+const productRoutes = Router();
 
-products.get(
-    '/products',
-    handleWrapper(async (req, res, next) => {
-        const results = await PRODUCTS.getAll();
-        return res.status(200).json({ results });
-    })
-);
+productRoutes.get('/products', productListController);
 
-products.get(
+productRoutes.get('/products/:id', productIdDTO, productIdController);
+
+productRoutes.post('/products', productCreateDTO, productCreateController);
+
+productRoutes.delete(
     '/products/:id',
-    handleWrapper(async (req, res, next) => {
-        const results = await PRODUCTS.getById(req.params.id);
-        return res.status(200).json({ results });
-    })
+    productDeleteDTO,
+    productDeleteController
 );
 
-products.post(
-    '/products',
-    handleWrapper(async (req, res, next) => {
-        const { name, description, code, price, thumbnail, stock } = req.body;
-
-        if (!name || !price || !thumbnail || !description || !code || !stock)
-            return res.status(400).send({ error: 'Bad Request' });
-
-        const newProduct = {
-            id: uuid(),
-            name,
-            description,
-            price,
-            code,
-            stock,
-            thumbnail
-        };
-
-        const results = await PRODUCTS.saveOne(newProduct);
-        return res.status(201).json({ results });
-    })
-);
-
-products.patch(
-    '/products/:id',
-    handleWrapper(async (req, res, next) => {
-        const { name, description, price, code, stock, thumbnail } = req.body;
-
-        if (!req.params.id)
-            return res.status(400).send({ error: 'Bad Request' });
-        if (!name || !price || !thumbnail || !description || !code || !stock)
-            return res.status(400).send({ error: 'Bad Request' });
-
-        const newProduct = {
-            name,
-            description,
-            price,
-            code,
-            stock,
-            thumbnail
-        };
-
-        const results = await PRODUCTS.updateById(req.params.id, newProduct);
-        return res.status(202).json({ results });
-    })
-);
-
-products.delete(
-    '/products/:id',
-    handleWrapper(async (req, res, next) => {
-        if (!req.params.id)
-            return res.status(400).json({ error: 'Bad Request' });
-
-        const results = await PRODUCTS.deleteById(req.params.id);
-        return res.status(202).json({ results });
-    })
-);
-
-export default products;
+export default productRoutes;

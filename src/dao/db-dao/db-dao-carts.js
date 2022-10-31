@@ -1,5 +1,5 @@
-import Carts from '#controllers/db-carts.js';
 import { collection, cartSchema } from '#schemas/carts.chema.js';
+import Carts from '#services/db-carts.js';
 
 class DatabaseDAO extends Carts {
     constructor() {
