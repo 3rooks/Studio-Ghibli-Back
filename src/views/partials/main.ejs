@@ -1,0 +1,22 @@
+<%- include('./head.ejs', {title:''}) %>
+<main>
+    <div class="grid gap-4 grid-cols-4 grid-rows-7">
+        <% results.forEach(e => { %>
+        <article class="border-double border-4 border-gray-500 p-1">
+            <img src="<%= e.image %>" class="object-contain h-58 w-96" />
+            <p class="font-bold underline"><%= e.title %></p>
+            <p class="truncate">Description: <%= e.description %></p>
+            <p>
+                Original title: <%= e.originalTitle %> (<%=
+                e.originalTitleRomanised %>)
+            </p>
+            <p>Director: <%= e.director %></p>
+            <p>Producer: <%= e.producer %></p>
+            <p>Release Year: <%= e.releaseYear %></p>
+            <p>Duration: <%= e.minDuration %>min</p>
+            <p>Price: <%= e.price %>$</p>
+            <a href="<%= e.info %>" target="_blank">More info...</a>
+        </article>
+        <% }) %>
+    </div>
+</main>

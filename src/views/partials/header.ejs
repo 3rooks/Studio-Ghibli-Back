@@ -1,0 +1,29 @@
+<header class="flex justify-between px-16 h-16 items-center">
+    <h1 class="font-bold underline">Studio Ghibli</h1>
+    <nav>
+        <ul class="flex gap-8">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/register">Register</a>
+            </li>
+            <li>
+                <a href="profile">Profile</a>
+            </li>
+            <li>
+                <a href="login">Login</a>
+            </li>
+            <li>
+                <button
+                    onclick="
+                window.localStorage.removeItem('jwt')
+                window.location = '/'
+                "
+                >
+                    Logout
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>

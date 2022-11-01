@@ -1,3 +1,4 @@
+import upload from '#config/multer.js';
 import userLoginController from '#controllers/user-login.controller.js';
 import userProfileController from '#controllers/user-profile.controller.js';
 import userRegisterController from '#controllers/user-register.controller.js';
@@ -12,11 +13,18 @@ import userUnregisterDTO from '#dto/user-unregister.dto.js';
 import userUpdateEmailDTO from '#dto/user-update-email.dto.js';
 import userUpdateImgDTO from '#dto/user-update-img.dto.js';
 import userUpdatePasswordDTO from '#dto/user-update-password.dto.js';
+import multerDTO from '#dto/user-multer.dto.js';
 import { Router } from 'express';
 
 const userRoutes = Router();
 
-userRoutes.post('/register', userRegisterDTO, userRegisterController);
+userRoutes.post(
+    '/register',
+    upload.single('image'),
+    multerDTO,
+    userRegisterDTO,
+    userRegisterController
+);
 userRoutes.post('/login', userLoginDTO, userLoginController);
 userRoutes.get('/profile', userJWTDTO, userProfileController);
 userRoutes.patch(

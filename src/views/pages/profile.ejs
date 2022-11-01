@@ -1,0 +1,38 @@
+<!-- Head -->
+<%- include('../partials/head.ejs',{title:'Profile'}) %>
+<!-- Header -->
+<%-include('../partials/header.ejs') %>
+
+<div id="user-profile"></div>
+
+<script>
+    const fetchApi = async () => {
+        const token = window.localStorage.getItem('jwt');
+        try {
+            const res = await fetch('/api/profile', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(token)}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const userData = await res.json();
+            console.log(userData);
+
+            const userContainer = document.getElementById('user-profile');
+            if (!token) {
+                userContainer.innerHTML = '<h1>Pls login First</h1>';
+            } else {
+                userContainer.innerHTML = `<div>
+                    <img src="${userData.image}"/>
+                    <p>Username: ${userData.username}</p>    
+                    <p>Email: ${userData.email}</p>
+                    </div>`;
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    fetchApi();
+</script>

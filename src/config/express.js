@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import views from '#routes/views.routes.js';
-import { PUBLIC_PATH } from '#utils/paths.js';
+import viewRoutes from '#routes/views.routes.js';
+import { PUBLIC_PATH, VIEWS_PATH } from '#utils/paths.js';
 // import { pinoHttp } from 'pino-http';
 // import uuid from 'uuid-random';
 import userRoutes from '#routes/users.routes.js';
@@ -33,6 +33,9 @@ expressApp.use(cors());
 expressApp.use(express.json());
 expressApp.use(express.urlencoded({ extended: false }));
 expressApp.use(express.static(PUBLIC_PATH));
+// Template engine
+expressApp.set('views', VIEWS_PATH);
+expressApp.set('view engine', 'ejs');
 // expressApp.use((req, res, next) => {
 //     httpLogger(req, res);
 //     next();
@@ -50,6 +53,6 @@ expressApp.use(express.static(PUBLIC_PATH));
 // Routes
 expressApp.use('/api', userRoutes);
 expressApp.use('/api', productRoutes);
-expressApp.use('/', views);
+expressApp.use('/', viewRoutes);
 
 export default expressApp;
