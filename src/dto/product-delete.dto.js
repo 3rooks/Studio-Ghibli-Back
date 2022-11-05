@@ -1,8 +1,6 @@
-import { Type } from '@sinclair/typebox';
-import Ajv from 'ajv';
-import addFormats from 'ajv-formats';
-import addErrors from 'ajv-errors';
+import ajv from '#config/ajv.js';
 import { idDTOSchema } from '#constants/dto-product-types.js';
+import { Type } from '@sinclair/typebox';
 
 const ProductDeleteDTOSchema = Type.Object(
     {
@@ -15,12 +13,6 @@ const ProductDeleteDTOSchema = Type.Object(
         }
     }
 );
-
-const ajv = new Ajv({ allErrors: true })
-    .addKeyword('kind')
-    .addKeyword('modifier');
-addFormats(ajv, ['uuid']);
-addErrors(ajv);
 
 const validateSchema = ajv.compile(ProductDeleteDTOSchema);
 

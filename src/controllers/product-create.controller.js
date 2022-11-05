@@ -1,4 +1,3 @@
-import uuid from 'uuid-random';
 import { PRODUCTS } from '#dao/dao.js';
 
 const productCreateController = async (req, res) => {
@@ -17,7 +16,6 @@ const productCreateController = async (req, res) => {
     } = req.body;
 
     const newProduct = {
-        _id: uuid(),
         title,
         originalTitle,
         originalTitleRomanised,

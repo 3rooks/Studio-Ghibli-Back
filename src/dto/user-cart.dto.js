@@ -1,10 +1,14 @@
 import ajv from '#config/ajv.js';
-import { passwordDTOSchema } from '#constants/dto-user-types.js';
+import {
+    idDTOSchema,
+    quantityDTOSchema
+} from '#constants/dto-product-types.js';
 import { Type } from '@sinclair/typebox';
 
-const UnregisterDTOSchema = Type.Object(
+const UserCartDTOSchema = Type.Object(
     {
-        password: passwordDTOSchema
+        id: idDTOSchema,
+        quantity: quantityDTOSchema
     },
     {
         additionalProperties: false,
@@ -14,9 +18,9 @@ const UnregisterDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(UnregisterDTOSchema);
+const validateSchema = ajv.compile(UserCartDTOSchema);
 
-const userUnregisterDTO = (req, res, next) => {
+const userCartDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
@@ -27,4 +31,4 @@ const userUnregisterDTO = (req, res, next) => {
     next();
 };
 
-export default userUnregisterDTO;
+export default userCartDTO;

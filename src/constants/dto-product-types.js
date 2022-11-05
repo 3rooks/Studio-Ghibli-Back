@@ -3,8 +3,8 @@ import { Type } from '@sinclair/typebox';
 export const idDTOSchema = Type.String({
     format: 'uuid',
     errorMessage: {
-        type: 'Invalid type _id, should be a string',
-        format: 'Invalid format _id, should be uuidv4'
+        type: '${0#} must be a string',
+        format: '${0#} should be a uuidv4'
     }
 });
 
@@ -12,21 +12,21 @@ export const titleDTOSchema = Type.String({
     minLength: 5,
     maxLength: 50,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Title must have at least 5 characters min',
-        maxLength: 'Title must have at least 50 characters max'
+        type: '${0#} must be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 5 letters',
+        maxLength: '${0#} must have a maximum of 50 letters'
     }
 });
 
 export const originalTitleDTOSchema = Type.String({
-    minLength: 2,
+    minLength: 5,
     maxLength: 50,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Original title must have at least 2 characters min',
-        maxLength: 'Original title must have at least 50 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 5 letters',
+        maxLength: '${0#} must have a maximum of 50 letters'
     }
 });
 
@@ -34,23 +34,21 @@ export const originalTitleRomanisedDTOSchema = Type.String({
     minLength: 5,
     maxLength: 50,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength:
-            'Original title romanised must have at least 5 characters min',
-        maxLength:
-            'Original title romanised must have at least 50 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 5 letters',
+        maxLength: '${0#} must have a maximum of 50 letters'
     }
 });
 
 export const imageDTOSchema = Type.String({
     minLength: 10,
-    maxLength: 100,
+    maxLength: 1000,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Image must have at least 10 characters min',
-        maxLength: 'Image must have at least 100 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 100 letters',
+        maxLength: '${0#} must have a maximum of 1000 letters'
     }
 });
 
@@ -58,75 +56,86 @@ export const descriptionDTOSchema = Type.String({
     minLength: 10,
     maxLength: 1000,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Description must have at least 10 characters min',
-        maxLength: 'Description must have at least 1000 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 100 letters',
+        maxLength: '${0#} must have a maximum of 1000 letters'
     }
 });
 
 export const directorDTOSchema = Type.String({
     minLength: 2,
-    maxLength: 50,
+    maxLength: 100,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Director must have at least 2 characters min',
-        maxLength: 'Director must have at least 50 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 2 letters',
+        maxLength: '${0#} must have a maximum of 100 letters'
     }
 });
 
 export const producerDTOSchema = Type.String({
     minLength: 2,
-    maxLength: 50,
+    maxLength: 100,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Producer must have at least 2 characters min',
-        maxLength: 'Producer must have at least 50 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 2 letters',
+        maxLength: '${0#} must have a maximum of 100 letters'
     }
 });
 
-export const releaseYearDTOSchema = Type.String({
-    minLength: 4,
-    maxLength: 4,
+export const releaseYearDTOSchema = Type.Number({
+    minimum: 1700,
+    maximum: 2050,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Release year must have at least 4 characters min',
-        maxLength: 'Release year must have at least 4 characters max'
+        type: '${0#} should be a number',
+        format: '${0#} should be a YYYY',
+        minimum: '${0#} should be above 1700',
+        maximum: '${0#} should be below 2050'
     }
 });
 
-export const minDurationDTOSchema = Type.String({
-    minLength: 2,
-    maxLength: 4,
+export const minDurationDTOSchema = Type.Number({
+    minimum: 60,
+    maximum: 180,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Min duration must have at least 2 characters min',
-        maxLength: 'Min duration must have at least 4 characters max'
+        type: '${0#} should be a number',
+        format: '${0#} should be a hh--MM--ss',
+        minimum: '${0#} should be above 60 minutes',
+        maximum: '${0#} should be below 180 minutes'
     }
 });
 
 export const infoDTOSchema = Type.String({
     minLength: 10,
-    maxLength: 100,
+    maxLength: 1000,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Info have at least 10 characters min',
-        maxLength: 'Info have at least 100 characters max'
+        type: '${0#} should be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 100 letters',
+        maxLength: '${0#} must have a maximum of 1000 letters'
     }
 });
 
-export const priceDTOSchema = Type.String({
-    minLength: 2,
-    maxLength: 4,
+export const priceDTOSchema = Type.Number({
+    minimum: 100,
+    maximum: 500,
     errorMessage: {
-        type: 'Invalid type title, should be a string',
-        format: 'Invalid format title, should be a string',
-        minLength: 'Price must have at least 2 characters min',
-        maxLength: 'Price must have at least 4 characters max'
+        type: '${0#} should be a number',
+        format: '${0#} should be a number',
+        minimum: '${0#} should be above 100',
+        maximum: '${0#} should be below 500'
+    }
+});
+
+export const quantityDTOSchema = Type.Number({
+    minimum: 1,
+    maximum: 100,
+    errorMessage: {
+        type: '${0#} should be a number',
+        format: '${0#} should be a number',
+        minimum: '${0#} should be above 1',
+        maximum: '${0#} should be below 100'
     }
 });

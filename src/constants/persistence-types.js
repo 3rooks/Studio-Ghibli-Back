@@ -1,5 +1,4 @@
 const PERSISTENCE_FORMATS = {
-    RAM: 'ram',
     FS: 'fs',
     DB: 'db'
 };

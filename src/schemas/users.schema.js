@@ -11,19 +11,23 @@ export const userSchema = new Schema(
         password: { type: String, require: true },
 
         image: { type: String },
-        cart: [
-            {
-                products: {
-                    type: String,
-                    require: true,
-                    ref: 'Products',
-                    quantity: { type: Number, default: 0 }
-                }
-            }
-        ]
+        cart: {
+            type: Schema.Types.String,
+            ref: 'Carts'
+        }
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
+
+userSchema.pre('find', function () {
+    this.populate('cart');
+});
+userSchema.pre('findOne', function () {
+    this.populate('cart');
+});
+userSchema.pre('findById', function () {
+    this.populate('cart');
+});

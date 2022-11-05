@@ -5,5 +5,6 @@ const type =
 
 const { USERS } = await import(`#dao/${type}-dao/${type}-dao-users.js`);
 const { PRODUCTS } = await import(`#dao/${type}-dao/${type}-dao-products.js`);
+const { CARTS } = await import(`#dao/${type}-dao/${type}-dao-carts.js`);
 
-export { USERS, PRODUCTS };
+export { USERS, PRODUCTS, CARTS };

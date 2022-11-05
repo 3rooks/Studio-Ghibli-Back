@@ -1,11 +1,18 @@
 import mongoose from 'mongoose';
+import uuid from 'uuid-random';
 
 const { Schema } = mongoose;
 
 export const collection = 'Products';
 export const productSchema = new Schema(
     {
-        _id: { type: String, _id: false, require: true, unique: true },
+        _id: {
+            type: String,
+            _id: false,
+            require: true,
+            unique: true,
+            default: uuid()
+        },
         title: { type: String, unique: true },
         originalTitle: { type: String },
         originalTitleRomanised: { type: String },
@@ -14,10 +21,10 @@ export const productSchema = new Schema(
         description: { type: String },
         director: { type: String },
         producer: { type: String },
-        releaseYear: { type: String },
-        minDuration: { type: String },
+        releaseYear: { type: Number },
+        minDuration: { type: Number },
         info: { type: String },
-        price: { type: String }
+        price: { type: Number }
     },
     {
         timestamps: true,

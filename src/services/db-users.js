@@ -40,4 +40,11 @@ export default class Users {
         const resolve = await this.model.findByIdAndDelete(id);
         return resolve;
     }
+
+    async updateCart(id, data) {
+        const resolve = await this.model.updateOne({ _id: id }, [
+            { $set: { cart: data } }
+        ]);
+        return resolve;
+    }
 }
