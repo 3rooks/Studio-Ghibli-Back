@@ -1,11 +1,18 @@
 import mongoose from 'mongoose';
+import uuid from 'uuid-random';
 
 const { Schema } = mongoose;
 
 export const collection = 'Users';
 export const userSchema = new Schema(
     {
-        _id: { type: String, _id: false, require: true, unique: true },
+        _id: {
+            type: String,
+            _id: false,
+            require: true,
+            unique: true,
+            default: () => uuid()
+        },
         username: { type: String, require: true },
         email: { type: String, require: true, unique: true },
         password: { type: String, require: true },

@@ -11,7 +11,7 @@ export const cartSchema = new Schema(
             _id: false,
             require: true,
             unique: true,
-            default: uuid()
+            default: () => uuid()
         },
         products: [
             {

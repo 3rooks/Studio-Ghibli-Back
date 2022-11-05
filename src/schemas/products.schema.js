@@ -11,7 +11,7 @@ export const productSchema = new Schema(
             _id: false,
             require: true,
             unique: true,
-            default: uuid()
+            default: () => uuid()
         },
         title: { type: String, unique: true },
         originalTitle: { type: String },
