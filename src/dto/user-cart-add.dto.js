@@ -1,14 +1,10 @@
 import ajv from '#config/ajv.js';
-import {
-    idDTOSchema,
-    quantityDTOSchema
-} from '#constants/dto-product-types.js';
+import { idDTOSchema } from '#constants/dto-product-types.js';
 import { Type } from '@sinclair/typebox';
 
 const UserCartDTOSchema = Type.Object(
     {
-        id: idDTOSchema,
-        quantity: quantityDTOSchema
+        product: idDTOSchema
     },
     {
         additionalProperties: false,

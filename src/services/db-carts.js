@@ -31,11 +31,6 @@ export default class Carts {
         return resolve;
     }
 
-    async deleteById(id) {
-        const resolve = await this.model.deleteOne(await this.getById(id));
-        return resolve;
-    }
-
     async saveCart() {
         const result = await this.model.create({ products: [] });
         return result;

@@ -9,18 +9,22 @@ export const cartSchema = new Schema(
         _id: {
             type: String,
             _id: false,
-            require: true,
             unique: true,
             default: () => uuid()
         },
         products: [
             {
-                _id: false,
+                _id: {
+                    type: String,
+                    _id: false,
+                    unique: true,
+                    default: () => uuid()
+                },
                 product: {
                     type: Schema.Types.String,
                     ref: 'Products'
                 },
-                quantity: { type: Number, default: 1, require: true }
+                quantity: { type: Number, default: 1 }
             }
         ]
     },

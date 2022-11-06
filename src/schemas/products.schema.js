@@ -9,7 +9,6 @@ export const productSchema = new Schema(
         _id: {
             type: String,
             _id: false,
-            require: true,
             unique: true,
             default: () => uuid()
         },

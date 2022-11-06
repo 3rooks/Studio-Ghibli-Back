@@ -1,11 +1,12 @@
-import express from 'express';
-import cors from 'cors';
 import viewRoutes from '#routes/views.routes.js';
 import { PUBLIC_PATH, VIEWS_PATH } from '#utils/paths.js';
+import cors from 'cors';
+import express from 'express';
 // import { pinoHttp } from 'pino-http';
 // import uuid from 'uuid-random';
-import userRoutes from '#routes/users.routes.js';
+import cartRoutes from '#routes/carts.routes.js';
 import productRoutes from '#routes/products.routes.js';
+import userRoutes from '#routes/users.routes.js';
 
 const expressApp = express();
 // const httpLogger = pinoHttp({
@@ -53,6 +54,7 @@ expressApp.set('view engine', 'ejs');
 // Routes
 expressApp.use('/api', userRoutes);
 expressApp.use('/api', productRoutes);
+expressApp.use('/api', cartRoutes);
 expressApp.use('/', viewRoutes);
 
 export default expressApp;
