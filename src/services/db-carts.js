@@ -16,24 +16,14 @@ export default class Carts {
         return results;
     }
 
-    async getByIdAndShowProducts(id) {
-        const results = await this.getById(id);
-        return results.products;
+    async getOne(id) {
+        const result = await this.model.findOne({ id });
+        return result;
     }
 
-    async getByIdAndUpdateProducts(id, data) {
-        // in progress
-        const { product, quantity } = data;
-        const a = await this.getById(id);
-
-        const newProduct = {
-            product,
-            quantity
-        };
-
-        a.products.push(newProduct);
-
-        return a;
+    async updateById(id, data) {
+        const resolve = await this.model.findByIdAndUpdate(id, data);
+        return resolve;
     }
 
     async saveOne(data) {
@@ -41,29 +31,9 @@ export default class Carts {
         return resolve;
     }
 
-    async saveMany(_) {}
-
-    async updateById(id, data) {
-        // const resolve = await this.model.updateOne(
-        //     await this.getById(id),
-        //     data
-        // );
-        // return resolve;
-    }
-
-    async updateMany(_) {
-        // const resolve = await this.model.updateMany(_);
-        // return resolve;
-    }
-
     async deleteById(id) {
         const resolve = await this.model.deleteOne(await this.getById(id));
         return resolve;
-    }
-
-    async deleteMany(_) {
-        // const resolve = await this.model.deleteMany(_);
-        // return resolve;
     }
 
     async saveCart() {

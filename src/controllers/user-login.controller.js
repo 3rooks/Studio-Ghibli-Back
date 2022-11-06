@@ -10,7 +10,7 @@ const userLoginController = async (req, res) => {
         if (!existingUserByEmail)
             return res.status(401).json({ error: 'Wrong credentials' });
 
-        const checkPassword = compareHash(password, existingUserByEmail);
+        const checkPassword = await compareHash(password, existingUserByEmail);
         if (!checkPassword)
             return res.status(401).json({ error: 'Wrong credentials' });
 

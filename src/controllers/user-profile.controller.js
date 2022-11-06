@@ -8,9 +8,9 @@ const userProfileController = async (req, res) => {
         if (!existingUserById)
             return res.status(401).json({ error: 'User no authorized' });
 
-        const { _id, username, email, image, cart } = existingUserById;
+        const { username, email, image, cart } = existingUserById;
 
-        return res.json({ id: _id, username, email, image, cart });
+        return res.json({ result: { username, email, image, cart } });
     } catch (error) {
         console.log(error);
     }

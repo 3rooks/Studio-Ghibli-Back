@@ -1,6 +1,5 @@
 import { createHash } from '#config/bcrypt.js';
 import { CARTS, USERS } from '#dao/dao.js';
-import uuid from 'uuid-random';
 
 const userRegisterController = async (req, res) => {
     const { username, email, password, image } = req.body;
@@ -10,19 +9,13 @@ const userRegisterController = async (req, res) => {
         if (existingUserByEmail)
             return res.status(409).json({ error: 'User email already exist' });
 
-        const existingUserByUsername = await USERS.getByUsername(username);
-        if (existingUserByUsername)
-            return res
-                .status(409)
-                .json({ error: 'User username already exist' });
-
         const cart = await CARTS.saveCart();
+        const passwordHashed = await createHash(password);
 
         const newUser = {
-            _id: uuid(),
             username,
             email,
-            password: createHash(password),
+            password: passwordHashed,
             image,
             cart: cart._id
         };

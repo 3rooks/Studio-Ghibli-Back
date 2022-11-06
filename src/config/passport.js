@@ -22,7 +22,7 @@ export const initPassport = () => {
                 const newUser = {
                     username,
                     email,
-                    password: createHash(password)
+                    password: await createHash(password)
                 };
 
                 const results = await USERS.saveOne(newUser);
@@ -39,7 +39,7 @@ export const initPassport = () => {
             if (!user)
                 return done(null, false, { error: 'Please register first' });
 
-            const isValidPassword = compareHash(password, user);
+            const isValidPassword = await compareHash(password, user);
 
             if (!isValidPassword) {
                 return done(null, false, { error: 'Wrong email || password' });

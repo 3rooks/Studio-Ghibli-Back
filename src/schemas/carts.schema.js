@@ -15,6 +15,7 @@ export const cartSchema = new Schema(
         },
         products: [
             {
+                _id: false,
                 product: {
                     type: Schema.Types.String,
                     ref: 'Products'

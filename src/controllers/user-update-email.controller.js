@@ -10,7 +10,7 @@ const userUpdateEmailController = async (req, res) => {
         if (!existingUserById)
             return res.status(401).json({ error: 'User no authorized' });
 
-        const checkPassword = compareHash(password, existingUserById);
+        const checkPassword = await compareHash(password, existingUserById);
         if (!checkPassword)
             return res.status(401).json({ error: 'Wrong credentials' });
 
