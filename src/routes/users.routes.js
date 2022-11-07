@@ -1,4 +1,5 @@
 import upload from '#config/multer.js';
+import userInfoController from '#controllers/user-info.controller.js';
 import userLoginController from '#controllers/user-login.controller.js';
 import userProfileController from '#controllers/user-profile.controller.js';
 import userRegisterController from '#controllers/user-register.controller.js';
@@ -26,33 +27,41 @@ userRoutes.post(
     userRegisterDTO,
     userRegisterController
 );
+
 userRoutes.post('/login', userLoginDTO, userLoginController);
 
 // User data update
 userRoutes.get('/profile', userJWTDTO, userProfileController);
+
 userRoutes.patch(
     '/update-img',
     userJWTDTO,
     userUpdateImgDTO,
     userUpdateImgController
 );
+
 userRoutes.patch(
     '/update-email',
     userJWTDTO,
     userUpdateEmailDTO,
     userUpdateEmailController
 );
+
 userRoutes.patch(
     '/update-password',
     userJWTDTO,
     userUpdatePasswordDTO,
     userUpdatePasswordController
 );
+
 userRoutes.delete(
     '/unregister',
     userJWTDTO,
     userUnregisterDTO,
     userUnregisterController
 );
+
+// User INFO/DATA
+userRoutes.get('/user', userJWTDTO, userInfoController);
 
 export default userRoutes;
