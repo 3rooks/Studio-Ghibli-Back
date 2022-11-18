@@ -4,10 +4,8 @@ import REPO_USER from '#repositories/user.repository.js';
 
 const userRegisterController = async (req, res) => {
     const { username, email, password, image } = req.body;
-    console.log(username, email, password, image);
     try {
         const existingUserByEmail = await REPO_USER.getUserByEmail(email);
-        console.log(existingUserByEmail);
         if (existingUserByEmail)
             return res.status(409).json({ error: 'User email already exist' });
 

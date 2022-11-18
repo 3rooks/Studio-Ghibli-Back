@@ -6,7 +6,7 @@ import USER_MODEL from '#schemas/users.schema.js';
 
 export class MongoDataBase {
     constructor() {
-        this.connection();
+        this.connection(process.env.MONGODB_URL);
         this.models = {
             [ENTITY.PRODUCTS]: PRODUCT_MODEL,
             [ENTITY.USERS]: USER_MODEL,
@@ -14,8 +14,8 @@ export class MongoDataBase {
         };
     }
 
-    connection = async () => {
-        await connectDB();
+    connection = async (url) => {
+        await connectDB(url);
     };
 
     getAll = async (entity) => {
