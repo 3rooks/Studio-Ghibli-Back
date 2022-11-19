@@ -4,7 +4,6 @@ import { signAsync } from '#services/jwt.service.js';
 
 const userLoginController = async (req, res) => {
     const { email, password } = req.body;
-    console.log(password);
     try {
         const existingUserByEmail = await REPO_USER.getUserByEmail(email);
         if (!existingUserByEmail)

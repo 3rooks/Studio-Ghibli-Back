@@ -1,8 +1,9 @@
 import got from 'got';
+import { PORT_TEST } from './setup-tests.js';
 
 export const FETCH_URL = {
-    REGISTER: 'http://localhost:8080/api/register',
-    LOGIN: 'http://localhost:8080/api/login'
+    REGISTER: `http://localhost:${PORT_TEST}/api/register`,
+    LOGIN: `http://localhost:${PORT_TEST}/api/login`
 };
 
 export const fetchRegister = async (t, user, url) => {

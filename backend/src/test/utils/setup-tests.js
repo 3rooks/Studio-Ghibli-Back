@@ -1,18 +1,22 @@
-import httpServer from '#config/http.js';
-import MONGO_SERVICE from '#dao/mongo-db.dao.js';
+import expressApp from '#config/express.js';
+import { MongoDataBase } from '#dao/mongo-db.dao.js';
+import { createServer } from 'http';
 
-const PORT_TEST = 8081;
+export const PORT_TEST = 8081;
+const URL = process.env.DB_TEST || 'mongodb://127.0.0.1:27017/apitest';
 
 const setupTests = (test) => {
     let db;
+    const serverTest = createServer(expressApp);
+
     test.before(async () => {
         try {
-            httpServer.listen(PORT_TEST, () => {
-                console.log('listening for tests ' + PORT_TEST);
+            serverTest.listen(PORT_TEST, () => {
+                console.log('testing on port ' + PORT_TEST);
             });
-            db = await MONGO_SERVICE.connection(
-                'mongodb://127.0.0.1:27017/apitest'
-            );
+
+            const mongo = new MongoDataBase();
+            db = await mongo.connection(URL);
         } catch (error) {
             console.log(error);
         }
@@ -21,7 +25,7 @@ const setupTests = (test) => {
     test.after.always(async () => {
         if (db) {
             await db.disconnect();
-            httpServer.close();
+            serverTest.close();
         }
     });
 };

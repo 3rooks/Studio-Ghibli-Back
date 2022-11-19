@@ -15,7 +15,8 @@ export class MongoDataBase {
     }
 
     connection = async (url) => {
-        await connectDB(url);
+        const db = await connectDB(url);
+        return db;
     };
 
     getAll = async (entity) => {
