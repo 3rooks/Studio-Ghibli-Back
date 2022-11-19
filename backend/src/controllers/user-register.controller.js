@@ -21,7 +21,6 @@ const userRegisterController = async (req, res) => {
         };
 
         await REPO_USER.saveUser(newUser);
-        console.log(newUser);
 
         return res.status(201).json({ result: 'User created' });
     } catch (error) {

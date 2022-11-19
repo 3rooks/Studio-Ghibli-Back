@@ -13,7 +13,6 @@ const setupTests = (test) => {
             db = await MONGO_SERVICE.connection(
                 'mongodb://127.0.0.1:27017/apitest'
             );
-            console.log('DB', db.connection.name);
         } catch (error) {
             console.log(error);
         }
@@ -22,6 +21,7 @@ const setupTests = (test) => {
     test.after.always(async () => {
         if (db) {
             await db.disconnect();
+            httpServer.close();
         }
     });
 };

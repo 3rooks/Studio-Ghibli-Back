@@ -1,61 +1,114 @@
+import { fetchRegister, FETCH_URL } from '#test/utils/fetch-tests.js';
+import setupTests from '#test/utils/setup-tests.js';
+import expectStatusCode from '#test/utils/status-expect.js';
 import test from 'ava';
-import axios from 'axios';
-import setupTests from './utils/setup-tests.js';
-
-// const endpoint = `http://localhost:8080`;
 
 setupTests(test);
-// multipart/form-data
-// application/json
 
-const USER = {
-    username: 'qwerty',
-    email: 'qwerty@qwerty.com',
+const USER_A = {
+    username: 'admin',
+    email: 'admin@admin.com',
     password: 'Admin123',
     image: ''
 };
 
-const fetchRegister = async (t, user) => {
-    try {
-        const response = await axios.post(
-            `http://localhost:8080/api/register`,
-            user,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-        );
-        return response;
-    } catch (error) {
-        t.fail(error);
-    }
+const USER_B = {
+    username: 'qwerty',
+    email: 'qwerty@qwerty.com',
+    password: 'Qwerty123',
+    image: ''
 };
 
-test('user-register', async (t) => {
-    const response = await fetchRegister(t, USER);
+// Register
 
-    const expectStatusCode = (t, expectedCode, response) => {
-        t.is(
-            response.status,
-            expectedCode,
-            `Expected status code ${expectedCode}, but received ${response.status}`
-        );
-    };
-
+test.serial('Register succesfully', async (t) => {
+    const response = await fetchRegister(t, USER_A, FETCH_URL.REGISTER);
     expectStatusCode(t, 201, response);
 });
 
-// test('products', async (t) => {
-//     const response = await fetchRegister(t);
+test('Register failed - Duplicated email', async (t) => {
+    const user = {
+        ...USER_B,
+        email: USER_A.email
+    };
 
-//     const expectStatusCode = (t, expectedCode, response) => {
-//         t.is(
-//             response.status,
-//             expectedCode,
-//             `Expected status code ${expectedCode}, but received ${response.status}`
-//         );
-//     };
+    const response = await fetchRegister(t, user, FETCH_URL.REGISTER);
+    expectStatusCode(t, 409, response);
+});
 
-//     expectStatusCode(t, 200, response);
-// });
+test('Register failed - Invalid email format', async (t) => {
+    const user = {
+        ...USER_B,
+        email: 'emailatemail.com'
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.REGISTER);
+    expectStatusCode(t, 400, response);
+});
+
+test('Register failed - Invalid password format', async (t) => {
+    const user = {
+        ...USER_B,
+        password: '1234'
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.REGISTER);
+    expectStatusCode(t, 400, response);
+});
+
+test('Register failed - Missing fields', async (t) => {
+    const { email, password } = USER_B;
+
+    const user = { email, password };
+
+    const response = await fetchRegister(t, user, FETCH_URL.REGISTER);
+    expectStatusCode(t, 400, response);
+});
+
+test('Register failed - Unnecesary fields', async (t) => {
+    const user = {
+        ...USER_B,
+        age: 25
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.REGISTER);
+    expectStatusCode(t, 400, response, FETCH_URL.REGISTER);
+});
+
+// Login
+
+test('Login succesfully', async (t) => {
+    const { email, password } = USER_A;
+
+    const user = {
+        email,
+        password
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.LOGIN);
+    expectStatusCode(t, 200, response);
+});
+
+test('Login failed - Invalid email', async (t) => {
+    const { password } = USER_A;
+
+    const user = {
+        email: 'false@false.com',
+        password
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.LOGIN);
+    expectStatusCode(t, 401, response);
+});
+
+test('Login failed - Invalid password', async (t) => {
+    const { email } = USER_A;
+
+    const user = {
+        email,
+        password: '123Admin'
+    };
+
+    const response = await fetchRegister(t, user, FETCH_URL.LOGIN);
+    expectStatusCode(t, 401, response);
+});
