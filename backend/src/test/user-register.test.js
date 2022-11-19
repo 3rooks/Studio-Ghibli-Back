@@ -1,23 +1,10 @@
+import { USER_A, USER_B } from '#test/utils/faker-data.js';
 import { fetchRegister, FETCH_URL } from '#test/utils/fetch-tests.js';
 import setupTests from '#test/utils/setup-tests.js';
 import expectStatusCode from '#test/utils/status-expect.js';
 import test from 'ava';
 
 setupTests(test);
-
-const USER_A = {
-    username: 'admin',
-    email: 'admin@admin.com',
-    password: 'Admin123',
-    image: ''
-};
-
-const USER_B = {
-    username: 'qwerty',
-    email: 'qwerty@qwerty.com',
-    password: 'Qwerty123',
-    image: ''
-};
 
 // Register
 

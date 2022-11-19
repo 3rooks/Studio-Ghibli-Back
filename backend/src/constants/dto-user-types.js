@@ -2,7 +2,7 @@ import { Type } from '@sinclair/typebox';
 
 export const usernameDTOSchema = Type.String({
     minLength: 2,
-    maxLength: 15,
+    maxLength: 20,
     errorMessage: {
         type: '${0#} must be a string',
         format: '${0#} should be a string',
