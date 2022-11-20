@@ -1,16 +1,9 @@
 import got from 'got';
-import { PORT_TEST } from './setup-tests.js';
 
-export const FETCH_URL = {
-    REGISTER: `http://localhost:${PORT_TEST}/api/register`,
-    LOGIN: `http://localhost:${PORT_TEST}/api/login`,
-    PRODUCT: `http://localhost:${PORT_TEST}/api/products`
-};
-
-export const fetchRegister = async (t, user, url) => {
+export const fetchRegisterLogin = async (t, data, url) => {
     try {
         const response = await got.post(url, {
-            json: user,
+            json: data,
             throwHttpErrors: false
         });
         return response;
