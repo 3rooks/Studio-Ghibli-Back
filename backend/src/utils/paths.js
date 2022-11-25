@@ -10,6 +10,7 @@ const STORAGE_PATH = resolve(__dirname, '../files/storage.json');
 const CART_PATH = resolve(__dirname, '../files/cart.json');
 const VIEWS_PATH = resolve(__dirname, '../views');
 const RANDOM_PATH = resolve(__dirname, '../lib/random.js');
+const DOCS_PATH = resolve(__dirname, '../docs');
 
 export {
     IMG_PATH,
@@ -17,5 +18,6 @@ export {
     STORAGE_PATH,
     VIEWS_PATH,
     CART_PATH,
-    RANDOM_PATH
+    RANDOM_PATH,
+    DOCS_PATH
 };

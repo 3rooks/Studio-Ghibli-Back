@@ -1,0 +1,119 @@
+components:
+    requestBodies:
+        AddProduct:
+            type: Object
+            properties:
+                title:
+                    type: String
+                    description: 5-50 letters
+                originalTitle:
+                    type: String
+                    description: 2-50 letters
+                originalTitleRomanised:
+                    type: String
+                    description: 5-50 letters
+                image:
+                    type: String
+                    description: url/image
+                description:
+                    type: String
+                    description: 10-1000 letters
+                director:
+                    type: String
+                    description: 2-100 letters
+                producer:
+                    type: String
+                    description: 2-100 letters
+                releaseYear:
+                    type: Number
+                    description: YYYY
+                minDuration:
+                    type: Number
+                    description: hh--MM--ss
+                info:
+                    type: String
+                    description: url/link
+                price:
+                    type: Number
+                    description: 100-500 number
+            example:
+                title: Castle in the Sky
+                originalTitle: 天空の城ラピュタ
+                originalTitleRomanised: Tenkū no shiro Rapyuta
+                image: https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg
+                description: The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world
+                director: Hayao Miyazaki
+                producer: Isao Takahata
+                releaseYear: 1986
+                minDuration: 124
+                info: https://www.imdb.com/title/tt0092067/?ref_=fn_al_tt_1
+                price: 110
+    responseAndErrors:
+        ProductAdded:
+            type: Object
+            properties:
+                result:
+                    type: String
+            example:
+                result: Product Created
+        AllProducts:
+            type: Object
+            properties:
+                result:
+                    type: Array
+            example:
+                result: [{}, {}]
+        BadFields:
+            type: Object
+            properties:
+                errors:
+                    type: Array
+            example:
+                errors: ['Wrong fields...']
+        DeleteProduct:
+            type: Object
+            properties:
+                result:
+                    type: String
+            example:
+                result: Product Deleted
+paths:
+    /api/products:
+        post:
+            summary: Post product on database
+            tags:
+                - Products
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: '#/components/requestBodies/AddProduct'
+            responses:
+                '201':
+                    description: Product created
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/ProductAdded'
+                '400':
+                    description: Bad request - wrong fields
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/BadFields'
+        get:
+            summary: Get all products from database
+            tags:
+                - Products
+            responses:
+                '200':
+                    description: 'all products'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/AllProducts'

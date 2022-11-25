@@ -43,6 +43,8 @@
         "pino-http": "8.2.1",
         "pino-pretty": "9.1.1",
         "socket.io": "4.5.3",
+        "swagger-jsdoc": "6.2.5",
+        "swagger-ui-express": "4.6.0",
         "uuid-random": "1.3.2"
     },
     "imports": {
@@ -61,6 +63,7 @@
         "#services/*": "./src/services/*",
         "#repositories/*": "./src/repositories/*",
         "#dto/*": "./src/dto/*",
-        "#test/*": "./src/test/*"
+        "#test/*": "./src/test/*",
+        "#docs/*": "./src/docs/*"
     }
 }

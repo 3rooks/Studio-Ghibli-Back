@@ -1,0 +1,137 @@
+components:
+    requestBodies:
+        RegisterUser:
+            type: Object
+            properties:
+                username:
+                    type: String
+                    description: 2-15 letters
+                email:
+                    type: String
+                    description: RFC 5322
+                password:
+                    type: String
+                    description: 8-20 letters, must have a lowercase, an uppercase and a number
+                image:
+                    type: String
+                    description: optional...
+            example:
+                username: admin
+                email: email@email.com
+                password: Admin123
+                image: ''
+        LoginUser:
+            type: Object
+            properties:
+                email:
+                    type: String
+                    description: RFC 5322
+                password:
+                    type: String
+                    description: 8-20 letters, must have a lowercase, an uppercase and a number
+            example:
+                email: email@email.com
+                password: Admin123
+    responseAndErrors:
+        UserAdded:
+            type: Object
+            properties:
+                result:
+                    type: String
+            example:
+                result: User created
+        UserConflict:
+            type: Object
+            properties:
+                result:
+                    type: String
+            example:
+                result: User email already exist
+        WrongFields:
+            type: Object
+            properties:
+                errors:
+                    type: Array
+            example:
+                errors: ['Wrong username || email || password']
+        LoginToken:
+            type: Object
+            properties:
+                token:
+                    type: String
+            example:
+                token: jsonwebtoken
+        WrongCredentials:
+            type: Object
+            properties:
+                error:
+                    type: String
+            example:
+                error: Wrong credentials
+paths:
+    /api/register:
+        post:
+            summary: Register an user on database
+            tags:
+                - Users
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/requestBodies/RegisterUser'
+            responses:
+                '201':
+                    description: Created user on database
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/UserAdded'
+                '400':
+                    description: Bad request - wrong fields
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/WrongFields'
+                '409':
+                    description: Conflict, user already exist on database
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/UserConflict'
+    /api/login:
+        post:
+            summary: Login with email & password
+            tags:
+                - Users
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/requestBodies/LoginUser'
+            responses:
+                '200':
+                    description: User loggedin
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/LoginToken'
+                '400':
+                    description: Bad request - wrong fields
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/WrongFields'
+                '401':
+                    description: Wrong credentials - unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/WrongCredentials'

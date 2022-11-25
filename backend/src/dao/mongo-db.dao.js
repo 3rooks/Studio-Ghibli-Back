@@ -6,7 +6,7 @@ import USER_MODEL from '#schemas/users.schema.js';
 
 export class MongoDataBase {
     constructor() {
-        this.connection(process.env.MONGODB_URL);
+        this.connection('mongodb://127.0.0.1:27017/api');
         this.models = {
             [ENTITY.PRODUCTS]: PRODUCT_MODEL,
             [ENTITY.USERS]: USER_MODEL,

@@ -6,6 +6,8 @@ import express from 'express';
 import cartRoutes from '#routes/carts.routes.js';
 import productRoutes from '#routes/products.routes.js';
 import userRoutes from '#routes/users.routes.js';
+import swaggerUiExpress from 'swagger-ui-express';
+import swaggerDoc from './swagger.js';
 
 const expressApp = express();
 // const httpLogger = pinoHttp({
@@ -50,6 +52,11 @@ expressApp.use(express.static(PUBLIC_PATH));
 // expressApp.use((err, req, res, next) => {
 //     return res.status(500).send(err.message);
 // });
+expressApp.use(
+    '/docs',
+    swaggerUiExpress.serve,
+    swaggerUiExpress.setup(swaggerDoc)
+);
 // Routes
 expressApp.use('/api', userRoutes);
 expressApp.use('/api', productRoutes);
