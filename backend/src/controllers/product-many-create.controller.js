@@ -1,4 +1,4 @@
-import { PRODUCTS } from '#repositories/repository.js';
+import { PRODUCTS } from '#repositories/repositories.js';
 
 const manyProductCreateController = async (req, res) => {
     try {

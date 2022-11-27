@@ -1,5 +1,5 @@
 import { compareHash } from '#config/bcrypt.js';
-import { USERS } from '#repositories/repository.js';
+import { USERS } from '#repositories/repositories.js';
 
 const userUnregisterController = async (req, res) => {
     const { id } = req;

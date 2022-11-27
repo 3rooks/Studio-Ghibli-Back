@@ -1,4 +1,4 @@
-import { PRODUCTS } from '#repositories/repository.js';
+import { PRODUCTS } from '#repositories/repositories.js';
 
 const productDeleteController = async (req, res) => {
     const { id } = req.params;

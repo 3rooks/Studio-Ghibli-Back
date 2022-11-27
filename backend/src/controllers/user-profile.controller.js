@@ -1,4 +1,4 @@
-import { USERS } from '#repositories/repository.js';
+import { USERS } from '#repositories/repositories.js';
 
 const userProfileController = async (req, res) => {
     const { id } = req;

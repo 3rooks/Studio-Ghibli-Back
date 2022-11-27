@@ -1,4 +1,4 @@
-import { CARTS, USERS } from '#repositories/repository.js';
+import { CARTS, USERS } from '#repositories/repositories.js';
 
 const userCartDeleteProductController = async (req, res) => {
     const { id } = req;

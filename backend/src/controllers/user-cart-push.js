@@ -1,4 +1,4 @@
-import { CARTS, PRODUCTS, USERS } from '#repositories/repository.js';
+import { CARTS, PRODUCTS, USERS } from '#repositories/repositories.js';
 
 const userCartAddController = async (req, res) => {
     const { id } = req;

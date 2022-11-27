@@ -1,4 +1,4 @@
-import { USERS } from '#repositories/repository.js';
+import { USERS } from '#repositories/repositories.js';
 
 const userUpdateEmailController = async (req, res) => {
     const { id } = req;

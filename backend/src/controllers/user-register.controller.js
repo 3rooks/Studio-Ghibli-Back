@@ -1,5 +1,5 @@
 import { createHash } from '#config/bcrypt.js';
-import { CARTS, USERS } from '#repositories/repository.js';
+import { CARTS, USERS } from '#repositories/repositories.js';
 
 const userRegisterController = async (req, res) => {
     const { username, email, password, image } = req.body;

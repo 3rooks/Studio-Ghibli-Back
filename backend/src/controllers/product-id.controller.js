@@ -1,4 +1,4 @@
-import { PRODUCTS } from '#repositories/repository.js';
+import { PRODUCTS } from '#repositories/repositories.js';
 
 const productIdController = async (req, res) => {
     const { id } = req.params;

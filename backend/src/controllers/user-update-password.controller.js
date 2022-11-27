@@ -1,5 +1,5 @@
 import { compareHash, createHash } from '#config/bcrypt.js';
-import { USERS } from '#repositories/repository.js';
+import { USERS } from '#repositories/repositories.js';
 
 const userUpdatePasswordController = async (req, res) => {
     const { id } = req;
