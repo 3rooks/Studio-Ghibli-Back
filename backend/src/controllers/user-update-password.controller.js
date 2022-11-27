@@ -12,12 +12,12 @@ const userUpdatePasswordController = async (req, res) => {
 
         const checkPassword = await compareHash(oldPassword, existingUserById);
         if (!checkPassword)
-            return res.status(401).json({ error: 'Wrong credentials' });
+            return res.status(401).json({ error: 'User no authorized' });
 
         existingUserById.password = await createHash(newPassword);
         await REPO_USER.updateUserById(id, existingUserById);
 
-        return res.json({ result: 'User password updated' });
+        return res.status(200).json({ result: 'User password updated' });
     } catch (error) {
         console.log(error);
     }

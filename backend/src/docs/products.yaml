@@ -62,7 +62,7 @@ components:
                 result:
                     type: Array
             example:
-                result: [{}, {}]
+                result: [{ PRODUCT: PRODUCTS... }]
         BadFields:
             type: Object
             properties:
@@ -70,6 +70,20 @@ components:
                     type: Array
             example:
                 errors: ['Wrong fields...']
+        ProductById:
+            type: Object
+            properties:
+                result:
+                    type: Object
+            example:
+                result: { PRODUCT: PRODUCT }
+        ProductNotFound:
+            type: Object
+            properties:
+                result:
+                    type: Object
+            example:
+                result: Product not found
         DeleteProduct:
             type: Object
             properties:
@@ -117,3 +131,70 @@ paths:
                             schema:
                                 type: object
                                 $ref: '#/components/responseAndErrors/AllProducts'
+    /api/products/{productId}:
+        get:
+            summary: Get product by id
+            tags:
+                - Products
+            parameters:
+                - name: productId
+                  in: path
+                  required: true
+                  description: gets an product by ID from database
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Product returned
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/ProductById'
+                '400':
+                    description: Bad request - wrong ID (uuidv4)
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/BadFields'
+                '404':
+                    description: Product ID not exist - bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/ProductNotFound'
+        delete:
+            summary: Delete product by id
+            tags:
+                - Products
+            parameters:
+                - name: productId
+                  in: path
+                  required: true
+                  description: deletes an product on database
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Product returned
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/DeleteProduct'
+                '400':
+                    description: Bad request - wrong ID (uuidv4)
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/BadFields'
+                '404':
+                    description: Product ID not exist - bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseAndErrors/ProductNotFound'

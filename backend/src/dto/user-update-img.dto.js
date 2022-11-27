@@ -4,7 +4,7 @@ import { Type } from '@sinclair/typebox';
 
 const UpdatePicDTOSchema = Type.Object(
     {
-        pic: imageDTOSchema
+        image: imageDTOSchema
     },
     {
         additionalProperties: false,

@@ -27,6 +27,6 @@ const userCartAddController = async (req, res) => {
 
     await REPO_CART.updateCartById(cart._id, cart);
 
-    return res.status(200).json({ result: 'Cart Updated' });
+    return res.status(200).json({ result: 'Cart updated' });
 };
 export default userCartAddController;

@@ -10,7 +10,7 @@ const userProfileController = async (req, res) => {
 
         const { username, email, image } = existingUserById;
 
-        return res.json({ result: { username, email, image } });
+        return res.status(200).json({ result: { username, email, image } });
     } catch (error) {
         console.log(error);
     }

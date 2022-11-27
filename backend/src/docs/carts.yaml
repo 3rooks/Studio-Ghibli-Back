@@ -1,0 +1,135 @@
+components:
+    securitySchemes:
+        bearerAuth:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+    requestBodies:
+        AddProductInCart:
+            type: Object
+            properties:
+                product:
+                    type: String
+                    description: product id (uuidv4)
+            example:
+                product: 'productId(uuidv4)'
+    responseBodies:
+        UserCart:
+            type: Object
+            properties:
+                result:
+                    type: Object
+                    properties:
+                        _id:
+                            type: String
+                        products:
+                            type: Array
+            example:
+                result: { _id: 'uuidv4', products: [{}, {}, {}] }
+        UserCartUpdated:
+            type: Object
+            properties:
+                result:
+                    type: Object
+            example:
+                result: Cart updated
+    responseErrorBodies:
+        Unauthorized:
+            type: Object
+            properties:
+                error:
+                    type: Object
+            example:
+                error: User no authorized
+        WrongFields:
+            type: Object
+            properties:
+                errors:
+                    type: Array
+            example:
+                errors: ['Wrong fields...']
+        ProductNotFound:
+            type: Object
+            properties:
+                error:
+                    type: Object
+            example:
+                error: Product not found
+        Conflict:
+            type: Object
+            properties:
+                error:
+                    type: Object
+            example:
+                error: Product already exist in cart
+paths:
+    /api/carts:
+        get:
+            summary: Get user cart from db
+            tags:
+                - Carts
+            security:
+                - bearerAuth: []
+            responses:
+                '200':
+                    description: Product returned
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/UserCart'
+                '401':
+                    description: Wrong credentials - unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/Unauthorized'
+        post:
+            summary: Post product in user cart
+            tags:
+                - Carts
+            security:
+                - bearerAuth: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/requestBodies/AddProductInCart'
+            responses:
+                '200':
+                    description: Product added
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/UserCartUpdated'
+                '400':
+                    description: Bad request - wrong fields
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/WrongFields'
+                '401':
+                    description: Wrong credentials - unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/Unauthorized'
+                '404':
+                    description: Product not found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/ProductNotFound'
+                '409':
+                    description: Conflict - products already exist in user cart
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/Conflict'

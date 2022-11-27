@@ -32,7 +32,7 @@ userRoutes.post('/login', userLoginDTO, userLoginController);
 // User data profile
 userRoutes.get('/profile', userJWTDTO, userProfileController);
 
-// User data update
+// fix this
 userRoutes.patch(
     '/update-img',
     userJWTDTO,

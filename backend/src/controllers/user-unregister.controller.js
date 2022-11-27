@@ -12,11 +12,11 @@ const userUnregisterController = async (req, res) => {
 
         const checkPassword = await compareHash(password, existingUserById);
         if (!checkPassword)
-            return res.status(401).json({ error: 'Wrong credentials' });
+            return res.status(401).json({ error: 'User no authorized' });
 
         await REPO_USER.deleteUserById(id);
 
-        return res.json({ result: 'User deleted' });
+        return res.status(200).json({ result: 'User deleted' });
     } catch (error) {
         console.log(error);
     }

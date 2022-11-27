@@ -17,6 +17,7 @@ productRoutes.get('/products/:id', productIdDTO, productIdController);
 
 productRoutes.post('/products', productCreateDTO, productCreateController);
 
+// delete this later
 productRoutes.post(
     '/many/products',
     manyProductCreateDTO,

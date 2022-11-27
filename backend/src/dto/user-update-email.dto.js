@@ -1,14 +1,10 @@
 import ajv from '#config/ajv.js';
-import {
-    emailDTOSchema,
-    passwordDTOSchema
-} from '#constants/dto-user-types.js';
+import { emailDTOSchema } from '#constants/dto-user-types.js';
 import { Type } from '@sinclair/typebox';
 
 const UpdateEmailDTOSchema = Type.Object(
     {
-        email: emailDTOSchema,
-        password: passwordDTOSchema
+        email: emailDTOSchema
     },
     {
         additionalProperties: false,
