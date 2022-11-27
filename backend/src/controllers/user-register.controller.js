@@ -1,15 +1,14 @@
 import { createHash } from '#config/bcrypt.js';
-import REPO_CART from '#repositories/cart.repository.js';
-import REPO_USER from '#repositories/user.repository.js';
+import { CARTS, USERS } from '#repositories/repository.js';
 
 const userRegisterController = async (req, res) => {
     const { username, email, password, image } = req.body;
     try {
-        const existingUserByEmail = await REPO_USER.getUserByEmail(email);
+        const existingUserByEmail = await USERS.getUserByEmail(email);
         if (existingUserByEmail)
             return res.status(409).json({ error: 'User email already exist' });
 
-        const cart = await REPO_CART.createUserCart();
+        const cart = await CARTS.createUserCart();
         const passwordHashed = await createHash(password);
 
         const newUser = {
@@ -20,7 +19,7 @@ const userRegisterController = async (req, res) => {
             cart: cart._id
         };
 
-        await REPO_USER.saveUser(newUser);
+        await USERS.saveUser(newUser);
 
         return res.status(201).json({ result: 'User created' });
     } catch (error) {

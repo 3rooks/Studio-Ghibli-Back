@@ -1,11 +1,11 @@
 import { compareHash } from '#config/bcrypt.js';
-import REPO_USER from '#repositories/user.repository.js';
+import { USERS } from '#repositories/repository.js';
 import { signAsync } from '#services/jwt.service.js';
 
 const userLoginController = async (req, res) => {
     const { email, password } = req.body;
     try {
-        const existingUserByEmail = await REPO_USER.getUserByEmail(email);
+        const existingUserByEmail = await USERS.getUserByEmail(email);
         if (!existingUserByEmail)
             return res.status(401).json({ error: 'Wrong credentials' });
 

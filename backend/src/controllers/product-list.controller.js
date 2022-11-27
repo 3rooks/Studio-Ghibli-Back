@@ -1,8 +1,8 @@
-import REPO_PRODUCT from '#repositories/product.repository.js';
+import { PRODUCTS } from '#repositories/repository.js';
 
 const productListController = async (req, res) => {
     try {
-        const result = await REPO_PRODUCT.getAllProducts();
+        const result = await PRODUCTS.getAllProducts();
         return res.status(200).json({ result });
     } catch (error) {
         console.log(error);

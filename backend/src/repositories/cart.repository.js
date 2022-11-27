@@ -1,10 +1,8 @@
 import { ENTITY } from '#constants/entities.js';
-import MONGO_SERVICE from '#dao/mongo-db.dao.js';
-
 class CartRepository {
-    constructor() {
+    constructor(persistence) {
         this.entity = ENTITY.CARTS;
-        this.persistence = MONGO_SERVICE;
+        this.persistence = persistence;
     }
 
     getCartById = async (id) => {
@@ -23,6 +21,4 @@ class CartRepository {
     };
 }
 
-const REPO_CART = new CartRepository();
-
-export default REPO_CART;
+export default CartRepository;

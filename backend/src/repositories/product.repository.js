@@ -1,10 +1,9 @@
 import { ENTITY } from '#constants/entities.js';
-import MONGO_SERVICE from '#dao/mongo-db.dao.js';
 
 class ProductRepository {
-    constructor() {
+    constructor(persistence) {
         this.entity = ENTITY.PRODUCTS;
-        this.persistence = MONGO_SERVICE;
+        this.persistence = persistence;
     }
 
     getAllProducts = async () => {
@@ -33,6 +32,4 @@ class ProductRepository {
     };
 }
 
-const REPO_PRODUCT = new ProductRepository();
-
-export default REPO_PRODUCT;
+export default ProductRepository;

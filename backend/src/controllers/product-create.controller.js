@@ -1,4 +1,4 @@
-import REPO_PRODUCT from '#repositories/product.repository.js';
+import { PRODUCTS } from '#repositories/repository.js';
 
 const productCreateController = async (req, res) => {
     const {
@@ -30,7 +30,7 @@ const productCreateController = async (req, res) => {
     };
 
     try {
-        await REPO_PRODUCT.saveNewProduct(newProduct);
+        await PRODUCTS.saveNewProduct(newProduct);
         return res.status(201).json({ result: 'Product Created' });
     } catch (error) {
         console.log(error);

@@ -1,12 +1,12 @@
 import { compareHash, createHash } from '#config/bcrypt.js';
-import REPO_USER from '#repositories/user.repository.js';
+import { USERS } from '#repositories/repository.js';
 
 const userUpdatePasswordController = async (req, res) => {
     const { id } = req;
     const { oldPassword, newPassword } = req.body;
 
     try {
-        const existingUserById = await REPO_USER.getUserById(id);
+        const existingUserById = await USERS.getUserById(id);
         if (!existingUserById)
             return res.status(401).json({ error: 'User no authorized' });
 
@@ -15,7 +15,7 @@ const userUpdatePasswordController = async (req, res) => {
             return res.status(401).json({ error: 'User no authorized' });
 
         existingUserById.password = await createHash(newPassword);
-        await REPO_USER.updateUserById(id, existingUserById);
+        await USERS.updateUserById(id, existingUserById);
 
         return res.status(200).json({ result: 'User password updated' });
     } catch (error) {

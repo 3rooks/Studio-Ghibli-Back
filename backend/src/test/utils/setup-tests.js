@@ -1,5 +1,5 @@
 import expressApp from '#config/express.js';
-import { MongoDataBase } from '#dao/mongo-db.dao.js';
+import { MongoDataBase } from '#dao/db/mongo-db.dao.js';
 import { DB_TEST, PORT_TEST } from '#test/utils/test.env.js';
 import { createServer } from 'http';
 

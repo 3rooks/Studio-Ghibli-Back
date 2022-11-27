@@ -1,10 +1,9 @@
 import { ENTITY } from '#constants/entities.js';
-import MONGO_SERVICE from '#dao/mongo-db.dao.js';
 
-class UserRepository {
-    constructor() {
+export class UserRepository {
+    constructor(persistence) {
         this.entity = ENTITY.USERS;
-        this.persistence = MONGO_SERVICE;
+        this.persistence = persistence;
     }
 
     getUserById = async (id) => {
@@ -33,6 +32,4 @@ class UserRepository {
     };
 }
 
-const REPO_USER = new UserRepository();
-
-export default REPO_USER;
+export default UserRepository;
