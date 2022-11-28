@@ -5,10 +5,10 @@ import {
 } from '#constants/response-status-json.js';
 import { CARTS, PRODUCTS, USERS } from '#services/repositories.service.js';
 
-const userCartAddController = async (req, res) => {
+const userCartAddProductController = async (req, res) => {
     try {
         const { id } = req;
-        const { product } = req.body;
+        const { product, quantity } = req.body;
         const { cartId } = req.params;
 
         const existUser = await USERS.getUserById(id);
@@ -28,7 +28,8 @@ const userCartAddController = async (req, res) => {
             return res.status(409).json(PRODUCT_RESPONSE[409]);
 
         const newProduct = {
-            product: existProduct._id
+            product: existProduct._id,
+            quantity
         };
         userCart.products.push(newProduct);
         await CARTS.updateCartById(userCart._id, userCart);
@@ -38,4 +39,4 @@ const userCartAddController = async (req, res) => {
         console.log(error);
     }
 };
-export default userCartAddController;
+export default userCartAddProductController;

@@ -43,7 +43,7 @@ export const userCartBodyDTO = (req, res, next) => {
     next();
 };
 
-export const userCartParamsDTO = (req, res, next) => {
+export const userProductIdParamsDTO = (req, res, next) => {
     const isDTOValid = validateSchemaParams(req.params);
 
     if (!isDTOValid)

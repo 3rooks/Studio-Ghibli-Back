@@ -4,7 +4,8 @@ import { Type } from '@sinclair/typebox';
 
 const UserCartParamsDTOSchema = Type.Object(
     {
-        cartId: idDTOSchema
+        cartId: idDTOSchema,
+        productId: idDTOSchema
     },
     {
         additionalProperties: false,
@@ -16,7 +17,7 @@ const UserCartParamsDTOSchema = Type.Object(
 
 const validateSchemaParams = ajv.compile(UserCartParamsDTOSchema);
 
-export const userCartIdParamsDTO = (req, res, next) => {
+export const userCartIdProductIdParamsDTO = (req, res, next) => {
     const isDTOValid = validateSchemaParams(req.params);
 
     if (!isDTOValid)

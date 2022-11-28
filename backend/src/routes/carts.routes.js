@@ -1,13 +1,11 @@
-import userCartDeleteProductController from '#controllers/carts/user-cart-delete.js';
-import getUserCartController from '#controllers/carts/user-cart-get.js';
-import userCartAddController from '#controllers/carts/user-cart-push.js';
-import userCartUpdateController from '#controllers/carts/user-cart-update.js';
-import userCartDTO from '#dto/carts/user-cart-add.dto.js';
-import { userGetCartParamsDTO } from '#dto/carts/user-cart-get.dto.js';
-import {
-    userCartBodyDTO,
-    userCartParamsDTO
-} from '#dto/carts/user-cart-update.dto.js';
+import userCartDeleteProductController from '#controllers/carts/cart-user-delete.js';
+import getUserCartController from '#controllers/carts/cart-user-get.js';
+import userCartAddProductController from '#controllers/carts/cart-user-push.js';
+import userCartUpdateController from '#controllers/carts/cart-user-update.js';
+import userCartBodyDTO from '#dto/carts/user-cart-add.dto.js';
+import { userCartIdParamsDTO } from '#dto/carts/user-cart-get.dto.js';
+import { userCartIdProductIdParamsDTO } from '#dto/carts/user-cart-path.dto.js';
+import userCartQuantityBodyDTO from '#dto/carts/user-cart-quantity.dto.js';
 import userJWTDTO from '#dto/users/user-jwt.dto.js';
 import { Router } from 'express';
 
@@ -16,30 +14,30 @@ const cartRoutes = Router();
 cartRoutes.get(
     '/carts/:cartId',
     userJWTDTO,
-    userGetCartParamsDTO,
+    userCartIdParamsDTO,
     getUserCartController
 );
 
 cartRoutes.post(
     '/carts/:cartId',
     userJWTDTO,
-    userGetCartParamsDTO,
-    userCartDTO,
-    userCartAddController
+    userCartIdParamsDTO,
+    userCartBodyDTO,
+    userCartAddProductController
 );
 
 cartRoutes.patch(
-    '/carts/:productId',
+    '/carts/:cartId/:productId',
     userJWTDTO,
-    userCartParamsDTO,
-    userCartBodyDTO,
+    userCartIdProductIdParamsDTO,
+    userCartQuantityBodyDTO,
     userCartUpdateController
 );
 
 cartRoutes.delete(
-    '/carts/:productId',
+    '/carts/:cartId/:productId',
     userJWTDTO,
-    userCartParamsDTO,
+    userCartIdProductIdParamsDTO,
     userCartDeleteProductController
 );
 
