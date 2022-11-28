@@ -14,12 +14,6 @@ const CART_SCHEMA = new Schema(
         },
         products: [
             {
-                // _id: {
-                //     type: String,
-                //     _id: false,
-                //     unique: true,
-                //     default: () => uuid()
-                // },
                 product: {
                     type: Schema.Types.String,
                     ref: ENTITY.PRODUCTS

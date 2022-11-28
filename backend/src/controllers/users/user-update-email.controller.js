@@ -1,5 +1,5 @@
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { USERS } from '#repositories/repositories.js';
+import { USERS } from '#services/repositories.service.js';
 
 const userUpdateEmailController = async (req, res) => {
     try {

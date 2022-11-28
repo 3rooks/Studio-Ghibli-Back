@@ -28,15 +28,5 @@ const USER_SCHEMA = new Schema(
     }
 );
 
-// USER_SCHEMA.pre('find', function () {
-//     this.populate('cart');
-// });
-// USER_SCHEMA.pre('findOne', function () {
-//     this.populate('cart');
-// });
-// USER_SCHEMA.pre('findById', function () {
-//     this.populate('cart');
-// });
-
 const USER_MODEL = mongoose.model(ENTITY.USERS, USER_SCHEMA);
 export default USER_MODEL;

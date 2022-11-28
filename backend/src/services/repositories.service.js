@@ -1,7 +1,7 @@
 import FactoryPersistence from '#dao/factory.js';
-import CartRepository from './cart.repository.js';
-import ProductRepository from './product.repository.js';
-import UserRepository from './user.repository.js';
+import CartRepository from '../repositories/cart.repository.js';
+import ProductRepository from '../repositories/product.repository.js';
+import UserRepository from '../repositories/user.repository.js';
 
 const PERSISTENCE = await FactoryPersistence.setPersistence();
 

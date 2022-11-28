@@ -1,6 +1,6 @@
 import { compareHash, createHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { USERS } from '#repositories/repositories.js';
+import { USERS } from '#services/repositories.service.js';
 
 const userUpdatePasswordController = async (req, res) => {
     try {

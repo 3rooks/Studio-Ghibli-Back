@@ -1,6 +1,6 @@
 import { compareHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { CARTS, USERS } from '#repositories/repositories.js';
+import { CARTS, USERS } from '#services/repositories.service.js';
 
 const userUnregisterController = async (req, res) => {
     try {

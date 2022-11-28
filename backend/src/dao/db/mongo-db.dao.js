@@ -22,9 +22,9 @@ class MongoDataBase {
     }
 
     /**
-     *
-     * @param {*} url
-     * @returns
+     * Connection to persistence
+     * @param url Mongoose connection url
+     * @returns Instance mongoose
      */
     connection = async (url) => {
         try {
@@ -37,9 +37,9 @@ class MongoDataBase {
     };
 
     /**
-     *
-     * @param entity Mongoose model entity
-     * @returns
+     * Get
+     * @param entity Mongoose entity model
+     * @returns Array | Null
      */
     getAll = async (entity) => {
         const results = await this.models[entity].find();
@@ -47,9 +47,9 @@ class MongoDataBase {
     };
 
     /**
-     *
-     * @param entity Mongoose model entity
-     * @param id _id into mongo schema
+     * GetById
+     * @param entity Mongoose entity model
+     * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
     getById = async (entity, id) => {
@@ -58,44 +58,44 @@ class MongoDataBase {
     };
 
     /**
-     *
-     * @param entity entity
-     * @param data data
+     * SaveOne
+     * @param entity Mongoose entity model
+     * @param data Object data
      * @returns Object | Null
      */
     saveOne = async (entity, data) => {
-        const resolve = await this.models[entity].create(data);
-        return resolve;
+        const results = await this.models[entity].create(data);
+        return results;
     };
 
     /**
-     *
-     * @param {*} entity
-     * @param {*} id
-     * @returns
+     * DeleteById
+     * @param entity Mongoose entity model
+     * @param id _id(uuidv4) mongoose schema
+     * @returns Object | Null
      */
     deleteById = async (entity, id) => {
-        const resolve = await this.models[entity].findByIdAndDelete(id);
-        return resolve;
+        const results = await this.models[entity].findByIdAndDelete(id);
+        return results;
     };
 
     /**
-     *
-     * @param {*} entity
-     * @param {*} id
-     * @param {*} data
-     * @returns
+     * UpdateById
+     * @param entity Mongoose entity model
+     * @param id _id(uuidv4) mongoose schema
+     * @param data Object data
+     * @returns Object | Null
      */
     updateById = async (entity, id, data) => {
-        const resolve = await this.models[entity].findByIdAndUpdate(id, data);
-        return resolve;
+        const results = await this.models[entity].findByIdAndUpdate(id, data);
+        return results;
     };
 
     /**
-     *
-     * @param {*} entity
-     * @param {*} email
-     * @returns
+     * Get User By Email
+     * @param entity Mongoose entity model
+     * @param email User email
+     * @returns Object | Null
      */
     getByEmail = async (entity, email) => {
         const results = await this.models[entity].findOne({ email });
@@ -103,24 +103,13 @@ class MongoDataBase {
     };
 
     /**
-     *
-     * @param {*} entity
-     * @returns
+     * Create User Cart
+     * @param entity Mongoose entity model
+     * @returns Object | Null
      */
     saveCart = async (entity) => {
-        const result = await this.models[entity].create({ products: [] });
-        return result;
-    };
-
-    /**
-     *
-     * @param {*} entity
-     * @param {*} data
-     * @returns
-     */
-    saveMany = async (entity, data) => {
-        const result = await this.models[entity].insertMany(data);
-        return result;
+        const results = await this.models[entity].create({ products: [] });
+        return results;
     };
 }
 

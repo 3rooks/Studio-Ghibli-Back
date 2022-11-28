@@ -1,4 +1,4 @@
-import { PRODUCTS } from '#repositories/repositories.js';
+import { PRODUCTS } from '#services/repositories.service.js';
 
 const productListController = async (req, res) => {
     try {

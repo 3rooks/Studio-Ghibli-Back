@@ -3,7 +3,7 @@ import {
     PRODUCT_RESPONSE,
     USER_RESPONSE
 } from '#constants/response-status-json.js';
-import { CARTS, PRODUCTS, USERS } from '#repositories/repositories.js';
+import { CARTS, PRODUCTS, USERS } from '#services/repositories.service.js';
 
 const userCartAddController = async (req, res) => {
     try {

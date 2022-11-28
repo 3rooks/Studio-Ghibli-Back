@@ -5,8 +5,7 @@ import { PUBLIC_PATH } from '#utils/paths.js';
 import cors from 'cors';
 import express from 'express';
 import swaggerUiExpress from 'swagger-ui-express';
-// import httpLogger from './logger.js';
-import swaggerDoc from './swagger.js';
+import swaggerDoc from '../middlewares/swagger-middleware.js';
 
 const expressApp = express();
 

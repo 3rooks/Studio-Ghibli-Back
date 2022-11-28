@@ -7,6 +7,10 @@ const persistence = PERSISTENCE[process.env.PERSISTENCE] || PERSISTENCE.FS;
  * Abstract Factory Pattern (persistence)
  */
 class FactoryPersistence {
+    /**
+     *
+     * @returns persistence
+     */
     static setPersistence = async () => {
         switch (persistence) {
             case PERSISTENCE.DB: {

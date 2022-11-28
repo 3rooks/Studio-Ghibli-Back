@@ -2,7 +2,7 @@ import {
     CART_RESPONSE,
     USER_RESPONSE
 } from '#constants/response-status-json.js';
-import { CARTS, USERS } from '#repositories/repositories.js';
+import { CARTS, USERS } from '#services/repositories.service.js';
 
 const getUserCartController = async (req, res) => {
     try {

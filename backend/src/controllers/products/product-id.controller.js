@@ -1,5 +1,5 @@
 import { PRODUCT_RESPONSE } from '#constants/response-status-json.js';
-import { PRODUCTS } from '#repositories/repositories.js';
+import { PRODUCTS } from '#services/repositories.service.js';
 
 const productIdController = async (req, res) => {
     try {
