@@ -130,7 +130,7 @@ export const priceDTOSchema = Type.Number({
 });
 
 export const quantityDTOSchema = Type.Number({
-    minimum: 2,
+    minimum: 1,
     maximum: 100,
     errorMessage: {
         type: '${0#} should be a number',

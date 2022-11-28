@@ -20,7 +20,8 @@
             "#repositories/*": ["./src/repositories/*"],
             "#dto/*": ["./src/dto/*"],
             "#test/*": ["./src/test/*"],
-            "#docs/*": ["./src/docs/*"]
+            "#docs/*": ["./src/docs/*"],
+            "#middlewares/*": ["./src/middlewares/*"]
         }
     }
 }

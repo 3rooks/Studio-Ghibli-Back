@@ -16,7 +16,7 @@ const USER_SCHEMA = new Schema(
         email: { type: String, require: true, unique: true },
         password: { type: String, require: true },
 
-        image: { type: String },
+        image: { type: String, default: '' },
         cart: {
             type: Schema.Types.String,
             ref: ENTITY.CARTS
@@ -28,15 +28,15 @@ const USER_SCHEMA = new Schema(
     }
 );
 
-USER_SCHEMA.pre('find', function () {
-    this.populate('cart');
-});
-USER_SCHEMA.pre('findOne', function () {
-    this.populate('cart');
-});
-USER_SCHEMA.pre('findById', function () {
-    this.populate('cart');
-});
+// USER_SCHEMA.pre('find', function () {
+//     this.populate('cart');
+// });
+// USER_SCHEMA.pre('findOne', function () {
+//     this.populate('cart');
+// });
+// USER_SCHEMA.pre('findById', function () {
+//     this.populate('cart');
+// });
 
 const USER_MODEL = mongoose.model(ENTITY.USERS, USER_SCHEMA);
 export default USER_MODEL;

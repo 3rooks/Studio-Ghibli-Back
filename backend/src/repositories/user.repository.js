@@ -8,6 +8,7 @@ export class UserRepository {
 
     getUserById = async (id) => {
         const result = await this.persistence.getById(this.entity, id);
+        console.log('repo ', result);
         return result;
     };
 
@@ -16,7 +17,7 @@ export class UserRepository {
         return result;
     };
 
-    saveUser = async (newUser) => {
+    registerUser = async (newUser) => {
         const result = await this.persistence.saveOne(this.entity, newUser);
         return result;
     };

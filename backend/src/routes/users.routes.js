@@ -1,44 +1,38 @@
-import upload from '#config/multer.js';
-import userLoginController from '#controllers/user-login.controller.js';
-import userProfileController from '#controllers/user-profile.controller.js';
-import userRegisterController from '#controllers/user-register.controller.js';
-import userUnregisterController from '#controllers/user-unregister.controller.js';
-import userUpdateEmailController from '#controllers/user-update-email.controller.js';
-import userUpdateImgController from '#controllers/user-update-img.controller.js';
-import userUpdatePasswordController from '#controllers/user-update-password.controller.js';
-import userJWTDTO from '#dto/user-jwt.dto.js';
-import userLoginDTO from '#dto/user-login.dto.js';
-import multerDTO from '#dto/user-multer.dto.js';
-import userRegisterDTO from '#dto/user-register.dto.js';
-import userUnregisterDTO from '#dto/user-unregister.dto.js';
-import userUpdateEmailDTO from '#dto/user-update-email.dto.js';
-import userUpdateImgDTO from '#dto/user-update-img.dto.js';
-import userUpdatePasswordDTO from '#dto/user-update-password.dto.js';
+import userLoginController from '#controllers/users/user-login.controller.js';
+import userProfileController from '#controllers/users/user-profile.controller.js';
+import userRegisterController from '#controllers/users/user-register.controller.js';
+import userUnregisterController from '#controllers/users/user-unregister.controller.js';
+import userUpdateEmailController from '#controllers/users/user-update-email.controller.js';
+import userUpdateImgController from '#controllers/users/user-update-img.controller.js';
+import userUpdatePasswordController from '#controllers/users/user-update-password.controller.js';
+import userJWTDTO from '#dto/users/user-jwt.dto.js';
+import userLoginDTO from '#dto/users/user-login.dto.js';
+import userRegisterDTO from '#dto/users/user-register.dto.js';
+import userUnregisterDTO from '#dto/users/user-unregister.dto.js';
+import userUpdateEmailDTO from '#dto/users/user-update-email.dto.js';
+import userUpdateImgDTO from '#dto/users/user-update-img.dto.js';
+import userUpdatePasswordDTO from '#dto/users/user-update-password.dto.js';
+import { upload, uploadCloud } from '#middlewares/multer-middleware.js';
 import { Router } from 'express';
 
 const userRoutes = Router();
 
-// Auth user
-userRoutes.post(
-    '/register',
-    upload.single('image'),
-    multerDTO,
-    userRegisterDTO,
-    userRegisterController
-);
+userRoutes.post('/register', userRegisterDTO, userRegisterController);
 
 userRoutes.post('/login', userLoginDTO, userLoginController);
 
-// User data profile
 userRoutes.get('/profile', userJWTDTO, userProfileController);
 
-// fix this
 userRoutes.patch(
     '/update-img',
     userJWTDTO,
+    upload,
+    uploadCloud,
     userUpdateImgDTO,
     userUpdateImgController
 );
+
+userRoutes.patch('/update-username');
 
 userRoutes.patch(
     '/update-email',

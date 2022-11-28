@@ -1,19 +1,19 @@
 import { compareHash } from '#config/bcrypt.js';
+import { USER_RESPONSE } from '#constants/response-status-json.js';
 import { USERS } from '#repositories/repositories.js';
 import { signAsync } from '#services/jwt.service.js';
 
 const userLoginController = async (req, res) => {
-    const { email, password } = req.body;
     try {
-        const existingUserByEmail = await USERS.getUserByEmail(email);
-        if (!existingUserByEmail)
-            return res.status(401).json({ error: 'Wrong credentials' });
+        const { email, password } = req.body;
 
-        const checkPassword = await compareHash(password, existingUserByEmail);
-        if (!checkPassword)
-            return res.status(401).json({ error: 'Wrong credentials' });
+        const existUserByEmail = await USERS.getUserByEmail(email);
+        if (!existUserByEmail) return res.status(401).json(USER_RESPONSE[401]);
 
-        const payload = { id: existingUserByEmail._id };
+        const checkPassword = await compareHash(password, existUserByEmail);
+        if (!checkPassword) return res.status(401).json(USER_RESPONSE[401]);
+
+        const payload = { id: existUserByEmail._id };
         const signOptions = { algorithm: 'HS512', expiresIn: '7d' };
         const token = await signAsync(payload, signOptions);
 

@@ -1,23 +1,33 @@
-import userCartDeleteProductController from '#controllers/user-cart-delete.js';
-import cartUserController from '#controllers/user-cart-list.js';
-import userCartAddController from '#controllers/user-cart-push.js';
-import userCartUpdateController from '#controllers/user-cart-update.js';
-import userCartDTO from '#dto/user-cart-add.dto.js';
+import userCartDeleteProductController from '#controllers/carts/user-cart-delete.js';
+import getUserCartController from '#controllers/carts/user-cart-get.js';
+import userCartAddController from '#controllers/carts/user-cart-push.js';
+import userCartUpdateController from '#controllers/carts/user-cart-update.js';
+import userCartDTO from '#dto/carts/user-cart-add.dto.js';
+import { userGetCartParamsDTO } from '#dto/carts/user-cart-get.dto.js';
 import {
     userCartBodyDTO,
     userCartParamsDTO
-} from '#dto/user-cart-update.dto.js';
-import userJWTDTO from '#dto/user-jwt.dto.js';
+} from '#dto/carts/user-cart-update.dto.js';
+import userJWTDTO from '#dto/users/user-jwt.dto.js';
 import { Router } from 'express';
 
 const cartRoutes = Router();
 
-// User cart update
-cartRoutes.get('/carts', userJWTDTO, cartUserController);
+cartRoutes.get(
+    '/carts/:cartId',
+    userJWTDTO,
+    userGetCartParamsDTO,
+    getUserCartController
+);
 
-cartRoutes.post('/carts', userJWTDTO, userCartDTO, userCartAddController);
+cartRoutes.post(
+    '/carts/:cartId',
+    userJWTDTO,
+    userGetCartParamsDTO,
+    userCartDTO,
+    userCartAddController
+);
 
-// FIX THIS
 cartRoutes.patch(
     '/carts/:productId',
     userJWTDTO,

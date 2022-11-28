@@ -1,27 +1,27 @@
 import { createHash } from '#config/bcrypt.js';
+import { USER_RESPONSE } from '#constants/response-status-json.js';
 import { CARTS, USERS } from '#repositories/repositories.js';
 
 const userRegisterController = async (req, res) => {
-    const { username, email, password, image } = req.body;
     try {
+        const { username, email, password } = req.body;
+
         const existingUserByEmail = await USERS.getUserByEmail(email);
         if (existingUserByEmail)
-            return res.status(409).json({ error: 'User email already exist' });
+            return res.status(409).json(USER_RESPONSE[409]);
 
-        const cart = await CARTS.createUserCart();
+        const userCart = await CARTS.createUserCart();
         const passwordHashed = await createHash(password);
 
         const newUser = {
             username,
             email,
             password: passwordHashed,
-            image,
-            cart: cart._id
+            cart: userCart._id
         };
 
-        await USERS.saveUser(newUser);
-
-        return res.status(201).json({ result: 'User created' });
+        await USERS.registerUser(newUser);
+        return res.status(201).json(USER_RESPONSE[201]);
     } catch (error) {
         console.log(error);
     }

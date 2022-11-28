@@ -19,6 +19,11 @@ class CartRepository {
         const result = await this.persistence.saveCart(this.entity);
         return result;
     };
+
+    deleteUserCart = async (id) => {
+        const result = await this.persistence.deleteById(this.entity, id);
+        return result;
+    };
 }
 
 export default CartRepository;

@@ -1,7 +1,6 @@
 import ajv from '#config/ajv.js';
 import {
     emailDTOSchema,
-    imageDTOSchema,
     passwordDTOSchema,
     usernameDTOSchema
 } from '#constants/dto-user-types.js';
@@ -11,8 +10,7 @@ const RegisterDTOSchema = Type.Object(
     {
         username: usernameDTOSchema,
         email: emailDTOSchema,
-        password: passwordDTOSchema,
-        image: imageDTOSchema
+        password: passwordDTOSchema
     },
     {
         additionalProperties: false,
