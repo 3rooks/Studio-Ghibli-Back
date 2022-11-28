@@ -23,24 +23,38 @@ userRoutes.post('/register', userRegisterDTO, userRegisterController);
 
 userRoutes.post('/login', userLoginDTO, userLoginController);
 
-userRoutes.use(userAuth);
+userRoutes.get('/profile', userAuth, userProfileController);
 
-userRoutes.get('/profile', userProfileController);
+userRoutes.patch('/update-email', userAuth, userEmailDTO, userEmailController);
 
-userRoutes.patch('/update-username', userUsernameDTO, userUsernameController);
+userRoutes.patch(
+    '/update-username',
+    userAuth,
+    userUsernameDTO,
+    userUsernameController
+);
 
-userRoutes.patch('/update-email', userEmailDTO, userEmailController);
-
-userRoutes.patch('/update-password', userPasswordDTO, userPasswordController);
+userRoutes.patch(
+    '/update-password',
+    userAuth,
+    userPasswordDTO,
+    userPasswordController
+);
 
 userRoutes.patch(
     '/update-img',
+    userAuth,
     upload,
     uploadCloud,
     userImageDTO,
     userImageController
 );
 
-userRoutes.delete('/unregister', userUnregisterDTO, userUnregisterController);
+userRoutes.delete(
+    '/unregister',
+    userAuth,
+    userUnregisterDTO,
+    userUnregisterController
+);
 
 export default userRoutes;

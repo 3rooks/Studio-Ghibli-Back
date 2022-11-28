@@ -11,12 +11,11 @@ import { Router } from 'express';
 
 const cartRoutes = Router();
 
-cartRoutes.use(userAuth);
-
-cartRoutes.get('/carts/:cartId', cartIdParamsDTO, getCartController);
+cartRoutes.get('/carts/:cartId', userAuth, cartIdParamsDTO, getCartController);
 
 cartRoutes.post(
     '/carts/:cartId',
+    userAuth,
     cartIdParamsDTO,
     postCartBodyDTO,
     postCartController
@@ -24,6 +23,7 @@ cartRoutes.post(
 
 cartRoutes.patch(
     '/carts/:cartId/:productId',
+    userAuth,
     cartIdParamsDTO,
     productIdParamsDTO,
     patchCartDTO,
@@ -32,6 +32,7 @@ cartRoutes.patch(
 
 cartRoutes.delete(
     '/carts/:cartId/:productId',
+    userAuth,
     cartIdParamsDTO,
     productIdParamsDTO,
     deleteCartController
