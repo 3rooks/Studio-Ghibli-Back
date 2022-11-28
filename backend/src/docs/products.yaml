@@ -1,41 +1,32 @@
+# *****Components*****
 components:
+    # Request examples
     requestBodies:
         AddProduct:
             type: Object
             properties:
                 title:
                     type: String
-                    description: 5-50 letters
                 originalTitle:
                     type: String
-                    description: 2-50 letters
                 originalTitleRomanised:
                     type: String
-                    description: 5-50 letters
                 image:
                     type: String
-                    description: url/image
                 description:
                     type: String
-                    description: 10-1000 letters
                 director:
                     type: String
-                    description: 2-100 letters
                 producer:
                     type: String
-                    description: 2-100 letters
                 releaseYear:
                     type: Number
-                    description: YYYY
                 minDuration:
                     type: Number
-                    description: hh--MM--ss
                 info:
                     type: String
-                    description: url/link
                 price:
                     type: Number
-                    description: 100-500 number
             example:
                 title: Castle in the Sky
                 originalTitle: 天空の城ラピュタ
@@ -48,53 +39,94 @@ components:
                 minDuration: 124
                 info: https://www.imdb.com/title/tt0092067/?ref_=fn_al_tt_1
                 price: 110
-    responseAndErrors:
+        UpdateProduct:
+            type: Object
+            properties:
+                title:
+                    type: String
+                originalTitle:
+                    type: String
+                originalTitleRomanised:
+                    type: String
+                image:
+                    type: String
+                description:
+                    type: String
+                director:
+                    type: String
+                producer:
+                    type: String
+                releaseYear:
+                    type: Number
+                minDuration:
+                    type: Number
+                info:
+                    type: String
+                price:
+                    type: Number
+            example:
+                title: Changed
+                originalTitle: Changed
+                originalTitleRomanised: Changed
+                image: https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg
+                description: The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world
+                director: Changed
+                producer: Changed
+                releaseYear: 1986
+                minDuration: 124
+                info: https://www.imdb.com/title/tt0092067/?ref_=fn_al_tt_1
+                price: 110
+    # OK response
+    responseBodies:
         ProductAdded:
             type: Object
             properties:
-                result:
+                results:
                     type: String
             example:
-                result: Product Created
-        AllProducts:
+                results: product created
+        GetProducts:
             type: Object
             properties:
-                result:
+                results:
                     type: Array
             example:
-                result: [{ PRODUCT: PRODUCTS... }]
-        BadFields:
+                results: []
+        OneProduct:
+            type: Object
+            properties:
+                results:
+                    type: Object
+            example:
+                results: {}
+        ProductUpdated:
+            type: Object
+            properties:
+                results:
+                    type: Object
+            example:
+                results: 'product acepted-updated'
+    # Error response
+    responseErrorBodies:
+        WrongFields:
             type: Object
             properties:
                 errors:
                     type: Array
             example:
                 errors: ['Wrong fields...']
-        ProductById:
-            type: Object
-            properties:
-                result:
-                    type: Object
-            example:
-                result: { PRODUCT: PRODUCT }
         ProductNotFound:
             type: Object
             properties:
-                result:
+                errors:
                     type: Object
             example:
-                result: Product not found
-        DeleteProduct:
-            type: Object
-            properties:
-                result:
-                    type: String
-            example:
-                result: Product Deleted
+                errors: product not found
+# *****Paths*****
 paths:
     /api/products:
         post:
-            summary: Post product on database
+            summary: Push Product into DataBase
             tags:
                 - Products
             requestBody:
@@ -106,31 +138,31 @@ paths:
                             $ref: '#/components/requestBodies/AddProduct'
             responses:
                 '201':
-                    description: Product created
+                    description: OK
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/ProductAdded'
+                                $ref: '#/components/responseBodies/ProductAdded'
                 '400':
-                    description: Bad request - wrong fields
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/BadFields'
+                                $ref: '#/components/responseErrorBodies/WrongFields'
         get:
-            summary: Get all products from database
+            summary: Get all products from DataBase
             tags:
                 - Products
             responses:
                 '200':
-                    description: 'all products'
+                    description: OK
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/AllProducts'
+                                $ref: '#/components/responseBodies/GetProducts'
     /api/products/{productId}:
         get:
             summary: Get product by id
@@ -140,31 +172,71 @@ paths:
                 - name: productId
                   in: path
                   required: true
-                  description: gets an product by ID from database
+                  description: productId(uuidV4)
                   schema:
                       type: string
             responses:
                 '200':
-                    description: Product returned
+                    description: OK
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/ProductById'
+                                $ref: '#/components/responseBodies/OneProduct'
                 '400':
-                    description: Bad request - wrong ID (uuidv4)
+                    description: Invalid ID(uuidv4) - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/BadFields'
+                                $ref: '#/components/responseErrorBodies/WrongFields'
                 '404':
-                    description: Product ID not exist - bad request
+                    description: Invalid productId(uuidv4) - Not Found
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/ProductNotFound'
+                                $ref: '#/components/responseErrorBodies/ProductNotFound'
+        put:
+            summary: Update product by id
+            tags:
+                - Products
+            parameters:
+                - name: productId
+                  in: path
+                  required: true
+                  description: productId(uuidV4)
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: '#/components/requestBodies/UpdateProduct'
+            responses:
+                '202':
+                    description: Product Updated
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/ProductUpdated'
+                '400':
+                    description: Invalid ID(uuidv4)|Body Fields - Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/WrongFields'
+                '404':
+                    description: Invalid productId(uuidv4) - Not Found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/ProductNotFound'
         delete:
             summary: Delete product by id
             tags:
@@ -173,28 +245,23 @@ paths:
                 - name: productId
                   in: path
                   required: true
-                  description: deletes an product on database
+                  description: productId(uuidV4)
                   schema:
                       type: string
             responses:
-                '200':
-                    description: Product returned
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                $ref: '#/components/responseAndErrors/DeleteProduct'
+                '204':
+                    description: OK (no-content)
                 '400':
-                    description: Bad request - wrong ID (uuidv4)
+                    description: Invalid ID(uuidv4) - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/BadFields'
+                                $ref: '#/components/responseErrorBodies/WrongFields'
                 '404':
-                    description: Product ID not exist - bad request
+                    description: Invalid productId(uuidv4) - Not Found
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/ProductNotFound'
+                                $ref: '#/components/responseErrorBodies/ProductNotFound'

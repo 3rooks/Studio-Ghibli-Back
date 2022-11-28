@@ -90,6 +90,6 @@ export const PRODUCT_RESPONSE = {
 };
 
 export const CART_RESPONSE = {
-    202: { results: 'cart user updated' },
-    404: { errors: 'cart user not found' }
+    202: { results: 'cart updated' },
+    404: { errors: 'cart not found' }
 };

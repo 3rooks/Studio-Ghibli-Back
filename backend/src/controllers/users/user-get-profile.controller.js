@@ -12,7 +12,7 @@ const userProfileController = async (req, res) => {
 
         return res
             .status(200)
-            .json({ result: { username, email, image, cart } });
+            .json({ results: { username, email, image, cart } });
     } catch (error) {
         console.log(error);
     }
