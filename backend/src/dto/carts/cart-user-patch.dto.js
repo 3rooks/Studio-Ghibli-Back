@@ -1,10 +1,10 @@
 import ajv from '#config/ajv.js';
-import { idDTOSchema } from '#constants/dto-product-types.js';
+import { quantityDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const ProductDeleteDTOSchema = Type.Object(
+const patchCartDTOSchema = Type.Object(
     {
-        id: idDTOSchema
+        quantity: quantityDTOSchema
     },
     {
         additionalProperties: false,
@@ -14,10 +14,10 @@ const ProductDeleteDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(ProductDeleteDTOSchema);
+const validateSchema = ajv.compile(patchCartDTOSchema);
 
-const productDeleteDTO = (req, res, next) => {
-    const isDTOValid = validateSchema(req.params);
+const patchCartDTO = (req, res, next) => {
+    const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
         return res.status(400).json({
@@ -27,4 +27,4 @@ const productDeleteDTO = (req, res, next) => {
     next();
 };
 
-export default productDeleteDTO;
+export default patchCartDTO;

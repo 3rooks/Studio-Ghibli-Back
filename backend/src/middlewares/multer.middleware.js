@@ -1,5 +1,6 @@
 import cloudinary from '#config/cloudinary.js';
 import { IMAGE_FORMATS } from '#constants/image-formats.js';
+import { USER_RESPONSE } from '#constants/response-status-json.js';
 import { InvalidMimetypeFormatException } from '#errors/invalid-mimetype.exception.js';
 import { IMG_PATH } from '#utils/paths.js';
 import { unlink } from 'fs/promises';
@@ -36,7 +37,7 @@ const uploadCloud = async (req, res, next) => {
         next();
     } catch (error) {
         console.log(error);
-        res.status(503).json({ error: 'Service unavailable' });
+        res.status(503).json(USER_RESPONSE[503]);
     }
 };
 

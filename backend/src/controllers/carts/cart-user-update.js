@@ -5,7 +5,7 @@ import {
 } from '#constants/response-status-json.js';
 import { CARTS, USERS } from '#services/repositories.service.js';
 
-const userCartUpdateController = async (req, res) => {
+const patchCartController = async (req, res) => {
     try {
         const { id } = req;
         const { cartId, productId } = req.params;
@@ -33,4 +33,4 @@ const userCartUpdateController = async (req, res) => {
     }
 };
 
-export default userCartUpdateController;
+export default patchCartController;

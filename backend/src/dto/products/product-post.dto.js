@@ -11,10 +11,11 @@ import {
     producerDTOSchema,
     releaseYearDTOSchema,
     titleDTOSchema
-} from '#constants/dto-product-types.js';
+} from '#constants/dto-types.js';
+
 import { Type } from '@sinclair/typebox';
 
-const ProductCreateDTOSchema = Type.Object(
+const postProductDTOSchema = Type.Object(
     {
         title: titleDTOSchema,
         originalTitle: originalTitleDTOSchema,
@@ -36,9 +37,9 @@ const ProductCreateDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(ProductCreateDTOSchema);
+const validateSchema = ajv.compile(postProductDTOSchema);
 
-const productCreateDTO = (req, res, next) => {
+const postProductDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
@@ -49,4 +50,4 @@ const productCreateDTO = (req, res, next) => {
     next();
 };
 
-export default productCreateDTO;
+export default postProductDTO;

@@ -6,9 +6,8 @@ const userRegisterController = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
-        const existingUserByEmail = await USERS.getUserByEmail(email);
-        if (existingUserByEmail)
-            return res.status(409).json(USER_RESPONSE[409]);
+        const existUser = await USERS.getUserByEmail(email);
+        if (existUser) return res.status(409).json(USER_RESPONSE[409]);
 
         const userCart = await CARTS.createUserCart();
         const passwordHashed = await createHash(password);

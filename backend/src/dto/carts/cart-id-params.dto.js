@@ -1,8 +1,8 @@
 import ajv from '#config/ajv.js';
-import { idDTOSchema } from '#constants/dto-product-types.js';
+import { idDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const UserCartParamsDTOSchema = Type.Object(
+const cartIdParamsDTOSchema = Type.Object(
     {
         cartId: idDTOSchema
     },
@@ -14,9 +14,10 @@ const UserCartParamsDTOSchema = Type.Object(
     }
 );
 
-const validateSchemaParams = ajv.compile(UserCartParamsDTOSchema);
+const validateSchemaParams = ajv.compile(cartIdParamsDTOSchema);
 
-export const userCartIdParamsDTO = (req, res, next) => {
+const cartIdParamsDTO = (req, res, next) => {
+    console.log(req.params);
     const isDTOValid = validateSchemaParams(req.params);
 
     if (!isDTOValid)
@@ -26,3 +27,5 @@ export const userCartIdParamsDTO = (req, res, next) => {
 
     next();
 };
+
+export default cartIdParamsDTO;

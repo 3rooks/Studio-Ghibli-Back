@@ -1,6 +1,6 @@
 import { PRODUCTS } from '#services/repositories.service.js';
 
-const productAllController = async (req, res) => {
+const getProductController = async (req, res) => {
     try {
         const results = await PRODUCTS.getAllProducts();
         return res.status(200).json({ results });
@@ -9,4 +9,4 @@ const productAllController = async (req, res) => {
     }
 };
 
-export default productAllController;
+export default getProductController;

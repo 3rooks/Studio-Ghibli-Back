@@ -4,7 +4,7 @@ import {
 } from '#constants/response-status-json.js';
 import { CARTS, USERS } from '#services/repositories.service.js';
 
-const getUserCartController = async (req, res) => {
+const getCartController = async (req, res) => {
     try {
         const { id } = req;
         const { cartId } = req.params;
@@ -21,4 +21,4 @@ const getUserCartController = async (req, res) => {
     }
 };
 
-export default getUserCartController;
+export default getCartController;

@@ -1,13 +1,12 @@
 import { PRODUCT_RESPONSE } from '#constants/response-status-json.js';
 import { PRODUCTS } from '#services/repositories.service.js';
 
-const productDeleteController = async (req, res) => {
+const deleteProductController = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { productId } = req.params;
 
-        const existProductById = await PRODUCTS.deleteProductById(id);
-        if (!existProductById)
-            return res.status(404).json(PRODUCT_RESPONSE[404]);
+        const existProduct = await PRODUCTS.deleteProductById(productId);
+        if (!existProduct) return res.status(404).json(PRODUCT_RESPONSE[404]);
 
         return res.status(204);
     } catch (error) {
@@ -15,4 +14,4 @@ const productDeleteController = async (req, res) => {
     }
 };
 
-export default productDeleteController;
+export default deleteProductController;

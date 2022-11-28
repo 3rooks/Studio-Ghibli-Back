@@ -1,8 +1,8 @@
 import ajv from '#config/ajv.js';
-import { emailDTOSchema } from '#constants/dto-user-types.js';
+import { emailDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const UpdateEmailDTOSchema = Type.Object(
+const userEmailDTOSchema = Type.Object(
     {
         email: emailDTOSchema
     },
@@ -14,9 +14,9 @@ const UpdateEmailDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(UpdateEmailDTOSchema);
+const validateSchema = ajv.compile(userEmailDTOSchema);
 
-const userUpdateEmailDTO = (req, res, next) => {
+const userEmailDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
@@ -27,4 +27,4 @@ const userUpdateEmailDTO = (req, res, next) => {
     next();
 };
 
-export default userUpdateEmailDTO;
+export default userEmailDTO;

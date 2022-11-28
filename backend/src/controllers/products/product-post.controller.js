@@ -1,7 +1,7 @@
 import { PRODUCT_RESPONSE } from '#constants/response-status-json.js';
 import { PRODUCTS } from '#services/repositories.service.js';
 
-const productCreateController = async (req, res) => {
+const postProductController = async (req, res) => {
     try {
         const {
             title,
@@ -38,4 +38,4 @@ const productCreateController = async (req, res) => {
     }
 };
 
-export default productCreateController;
+export default postProductController;

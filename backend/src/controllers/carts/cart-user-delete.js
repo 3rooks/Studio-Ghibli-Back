@@ -5,7 +5,7 @@ import {
 } from '#constants/response-status-json.js';
 import { CARTS, USERS } from '#services/repositories.service.js';
 
-const userCartDeleteProductController = async (req, res) => {
+const deleteCartController = async (req, res) => {
     try {
         const { id } = req;
         const { cartId, productId } = req.params;
@@ -34,4 +34,4 @@ const userCartDeleteProductController = async (req, res) => {
     }
 };
 
-export default userCartDeleteProductController;
+export default deleteCartController;

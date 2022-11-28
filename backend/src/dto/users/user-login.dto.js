@@ -1,11 +1,8 @@
 import ajv from '#config/ajv.js';
-import {
-    emailDTOSchema,
-    passwordDTOSchema
-} from '#constants/dto-user-types.js';
+import { emailDTOSchema, passwordDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const LoginDTOSchema = Type.Object(
+const userLoginDTOSchema = Type.Object(
     {
         email: emailDTOSchema,
         password: passwordDTOSchema
@@ -18,7 +15,7 @@ const LoginDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(LoginDTOSchema);
+const validateSchema = ajv.compile(userLoginDTOSchema);
 
 const userLoginDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);

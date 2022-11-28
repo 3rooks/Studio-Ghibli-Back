@@ -6,7 +6,7 @@ const options = {
         openapi: '3.0.0',
         info: {
             title: 'Studio Ghibli API',
-            description: 'Documentation API',
+            description: 'Documentation (endpoints)',
             version: '1.0.0'
         }
     },

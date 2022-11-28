@@ -3,10 +3,10 @@ import {
     emailDTOSchema,
     passwordDTOSchema,
     usernameDTOSchema
-} from '#constants/dto-user-types.js';
+} from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const RegisterDTOSchema = Type.Object(
+const userRegisterDTOSchema = Type.Object(
     {
         username: usernameDTOSchema,
         email: emailDTOSchema,
@@ -20,7 +20,7 @@ const RegisterDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(RegisterDTOSchema);
+const validateSchema = ajv.compile(userRegisterDTOSchema);
 
 const userRegisterDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);

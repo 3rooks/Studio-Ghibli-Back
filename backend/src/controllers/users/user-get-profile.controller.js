@@ -5,10 +5,10 @@ const userProfileController = async (req, res) => {
     try {
         const { id } = req;
 
-        const existUserById = await USERS.getUserById(id);
-        if (!existUserById) return res.status(401).json(USER_RESPONSE[401]);
+        const existUser = await USERS.getUserById(id);
+        if (!existUser) return res.status(401).json(USER_RESPONSE[401]);
 
-        const { username, email, image, cart } = existUserById;
+        const { username, email, image, cart } = existUser;
 
         return res
             .status(200)

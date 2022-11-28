@@ -1,44 +1,40 @@
-import userCartDeleteProductController from '#controllers/carts/cart-user-delete.js';
-import getUserCartController from '#controllers/carts/cart-user-get.js';
-import userCartAddProductController from '#controllers/carts/cart-user-push.js';
-import userCartUpdateController from '#controllers/carts/cart-user-update.js';
-import userCartBodyDTO from '#dto/carts/user-cart-add.dto.js';
-import { userCartIdParamsDTO } from '#dto/carts/user-cart-get.dto.js';
-import { userCartIdProductIdParamsDTO } from '#dto/carts/user-cart-path.dto.js';
-import userCartQuantityBodyDTO from '#dto/carts/user-cart-quantity.dto.js';
-import userJWTDTO from '#dto/users/user-jwt.dto.js';
+import deleteCartController from '#controllers/carts/cart-user-delete.js';
+import getCartController from '#controllers/carts/cart-user-get.js';
+import postCartController from '#controllers/carts/cart-user-post.js';
+import patchCartController from '#controllers/carts/cart-user-update.js';
+import cartIdParamsDTO from '#dto/carts/cart-id-params.dto.js';
+import patchCartDTO from '#dto/carts/cart-user-patch.dto.js';
+import postCartBodyDTO from '#dto/carts/cart-user-post.dto.js';
+import productIdParamsDTO from '#dto/products/product-get-id.dto.js';
+import userAuth from '#middlewares/user-auth.middleware.js';
 import { Router } from 'express';
 
 const cartRoutes = Router();
 
-cartRoutes.get(
-    '/carts/:cartId',
-    userJWTDTO,
-    userCartIdParamsDTO,
-    getUserCartController
-);
+cartRoutes.use(userAuth);
+
+cartRoutes.get('/carts/:cartId', cartIdParamsDTO, getCartController);
 
 cartRoutes.post(
     '/carts/:cartId',
-    userJWTDTO,
-    userCartIdParamsDTO,
-    userCartBodyDTO,
-    userCartAddProductController
+    cartIdParamsDTO,
+    postCartBodyDTO,
+    postCartController
 );
 
 cartRoutes.patch(
     '/carts/:cartId/:productId',
-    userJWTDTO,
-    userCartIdProductIdParamsDTO,
-    userCartQuantityBodyDTO,
-    userCartUpdateController
+    cartIdParamsDTO,
+    productIdParamsDTO,
+    patchCartDTO,
+    patchCartController
 );
 
 cartRoutes.delete(
     '/carts/:cartId/:productId',
-    userJWTDTO,
-    userCartIdProductIdParamsDTO,
-    userCartDeleteProductController
+    cartIdParamsDTO,
+    productIdParamsDTO,
+    deleteCartController
 );
 
 export default cartRoutes;

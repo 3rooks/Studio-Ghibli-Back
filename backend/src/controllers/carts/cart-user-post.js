@@ -5,7 +5,7 @@ import {
 } from '#constants/response-status-json.js';
 import { CARTS, PRODUCTS, USERS } from '#services/repositories.service.js';
 
-const userCartAddProductController = async (req, res) => {
+const postCartController = async (req, res) => {
     try {
         const { id } = req;
         const { product, quantity } = req.body;
@@ -39,4 +39,4 @@ const userCartAddProductController = async (req, res) => {
         console.log(error);
     }
 };
-export default userCartAddProductController;
+export default postCartController;

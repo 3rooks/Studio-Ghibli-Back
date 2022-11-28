@@ -78,11 +78,13 @@ export const USER_RESPONSE = {
     202: { results: 'user acepted-updated' },
     400: { errors: 'user bad request' },
     401: { errors: 'user unauthorized' },
-    409: { errors: 'user conflict' }
+    409: { errors: 'user conflict' },
+    503: { errors: 'user service unavailable' }
 };
 
 export const PRODUCT_RESPONSE = {
     201: { results: 'product created' },
+    202: { results: 'product acepted-updated' },
     404: { errors: 'product not found' },
     409: { errors: 'product conflict' }
 };

@@ -1,8 +1,8 @@
 import ajv from '#config/ajv.js';
-import { passwordDTOSchema } from '#constants/dto-user-types.js';
+import { passwordDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const UpdatePasswordDTOSchema = Type.Object(
+const userPasswordDTOSchema = Type.Object(
     {
         oldPassword: passwordDTOSchema,
         newPassword: passwordDTOSchema
@@ -15,9 +15,9 @@ const UpdatePasswordDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(UpdatePasswordDTOSchema);
+const validateSchema = ajv.compile(userPasswordDTOSchema);
 
-const userUpdatePasswordDTO = (req, res, next) => {
+const userPasswordDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
@@ -28,4 +28,4 @@ const userUpdatePasswordDTO = (req, res, next) => {
     next();
 };
 
-export default userUpdatePasswordDTO;
+export default userPasswordDTO;

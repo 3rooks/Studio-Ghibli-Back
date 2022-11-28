@@ -1,8 +1,8 @@
 import ajv from '#config/ajv.js';
-import { imageDTOSchema } from '#constants/dto-user-types.js';
+import { imageDTOSchema } from '#constants/dto-types.js';
 import { Type } from '@sinclair/typebox';
 
-const UpdatePicDTOSchema = Type.Object(
+const userImageDTOSchema = Type.Object(
     {
         image: imageDTOSchema
     },
@@ -14,9 +14,9 @@ const UpdatePicDTOSchema = Type.Object(
     }
 );
 
-const validateSchema = ajv.compile(UpdatePicDTOSchema);
+const validateSchema = ajv.compile(userImageDTOSchema);
 
-const userUpdateImgDTO = (req, res, next) => {
+const userImageDTO = (req, res, next) => {
     const isDTOValid = validateSchema(req.body);
 
     if (!isDTOValid)
@@ -27,4 +27,4 @@ const userUpdateImgDTO = (req, res, next) => {
     next();
 };
 
-export default userUpdateImgDTO;
+export default userImageDTO;

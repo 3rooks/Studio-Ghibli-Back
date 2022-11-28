@@ -7,14 +7,13 @@ const userLoginController = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const existUserByEmail = await USERS.getUserByEmail(email);
-        console.log(existUserByEmail);
-        if (!existUserByEmail) return res.status(401).json(USER_RESPONSE[401]);
+        const existUser = await USERS.getUserByEmail(email);
+        if (!existUser) return res.status(401).json(USER_RESPONSE[401]);
 
-        const checkPassword = await compareHash(password, existUserByEmail);
+        const checkPassword = await compareHash(password, existUser);
         if (!checkPassword) return res.status(401).json(USER_RESPONSE[401]);
 
-        const payload = { id: existUserByEmail._id };
+        const payload = { id: existUser._id };
         const signOptions = { algorithm: 'HS512', expiresIn: '7d' };
         const token = await signAsync(payload, signOptions);
 

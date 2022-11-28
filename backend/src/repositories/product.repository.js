@@ -43,6 +43,21 @@ class ProductRepository {
     };
 
     /**
+     * Update Product By Id
+     * @param id _id(uuidv4) mongoose schema
+     * @param product Product data
+     * @returns Object | Null
+     */
+    updateProduct = async (id, product) => {
+        const results = await this.persistence.updateById(
+            this.entity,
+            id,
+            product
+        );
+        return results;
+    };
+
+    /**
      * Delete Product By Id
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
