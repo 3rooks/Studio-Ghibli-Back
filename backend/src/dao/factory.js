@@ -8,7 +8,7 @@ const persistence = PERSISTENCE[process.env.PERSISTENCE] || PERSISTENCE.FS;
  */
 class FactoryPersistence {
     /**
-     *
+     * Set Persistence
      * @returns persistence
      */
     static setPersistence = async () => {
