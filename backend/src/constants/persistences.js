@@ -1,4 +1,4 @@
-export const PERSISTENCE = {
+export const PERSISTENCES = {
     DB: 'database',
     FS: 'filesystem'
 };

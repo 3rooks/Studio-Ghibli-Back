@@ -1,30 +1,19 @@
-import expressApp from '#config/express.js';
-import { MongoDataBase } from '#dao/db/mongo-db.dao.js';
-import { DB_TEST, PORT_TEST } from '#test/utils/test.env.js';
-import { createServer } from 'http';
-
 const setupTests = (test) => {
-    let db;
-    const serverTest = createServer(expressApp);
-
-    test.before(async () => {
-        try {
-            serverTest.listen(PORT_TEST, () => {
-                console.log(`testing on port ${PORT_TEST}`);
-            });
-
-            const mongo = new MongoDataBase();
-            db = await mongo.connection(DB_TEST);
-        } catch (error) {
-            console.log(error);
-        }
+    // TODO
+    test.before(() => {
+        console.log(`
+            ***********************
+            |   STARTING TESTS    | 
+            *********************** 
+        `);
     });
 
-    test.after.always(async () => {
-        if (db) {
-            await db.disconnect();
-            serverTest.close();
-        }
+    test.after.always(() => {
+        console.log(`
+            ***********************
+            |     TESTS ENDED     | 
+            *********************** 
+        `);
     });
 };
 

@@ -28,7 +28,7 @@ const deleteCartController = async (req, res) => {
         userCart.products.splice(productIndex, 1);
         await CARTS.updateCartById(userCart._id, userCart);
 
-        return res.status(202).json(PRODUCT_RESPONSE[202]);
+        return res.status(202).json(CART_RESPONSE[202]);
     } catch (error) {
         console.log(error);
     }

@@ -4,8 +4,7 @@ import { fetchRegisterLogin } from '#test/utils/fetch-enpoints.js';
 import setupTests from '#test/utils/setup-tests.js';
 import test from 'ava';
 import expectField from './expects/fields-expect.js';
-import { product } from './product.js';
-import { FETCH_URL } from './utils/test.env.js';
+import { FETCH_URL } from './utils/test-env.js';
 
 setupTests(test);
 
@@ -127,5 +126,3 @@ test('Login failed - Invalid password', async (t) => {
     expectStatusCode(t, 401, response);
     expectField(t, field, response);
 });
-
-test('GET - products', product, 200);

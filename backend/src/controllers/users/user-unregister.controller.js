@@ -16,7 +16,7 @@ const userUnregisterController = async (req, res) => {
         await USERS.deleteUserById(id);
         await CARTS.deleteUserCart(existUser.cart);
 
-        return res.status(204);
+        return res.status(200).json(USER_RESPONSE[204]);
     } catch (error) {
         console.log(error);
     }

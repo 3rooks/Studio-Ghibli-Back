@@ -1,26 +1,25 @@
-import { PERSISTENCE } from '#constants/persistence.js';
-
-const DB_URI = process.env.DB_LOCAL;
-const persistence = PERSISTENCE[process.env.PERSISTENCE] || PERSISTENCE.FS;
+import { PERSISTENCES } from '#constants/persistences.js';
 
 /**
  * Abstract Factory Pattern (persistence)
  */
 class FactoryPersistence {
     /**
-     * Set Persistence
+     *  Set Persistence
+     * @param persistence DataBase|Filesystem
+     * @param url Mongo uri
      * @returns persistence
      */
-    static setPersistence = async () => {
+    static setPersistence = async (persistence, url) => {
         switch (persistence) {
-            case PERSISTENCE.DB: {
+            case PERSISTENCES.DB: {
                 const { default: MongoDataBase } = await import(
                     '#dao/db/mongo-db.dao.js'
                 );
-                const dbService = new MongoDataBase(DB_URI);
+                const dbService = new MongoDataBase(url);
                 return dbService;
             }
-            case PERSISTENCE.FS:
+            case PERSISTENCES.FS:
                 break;
             default:
                 break;

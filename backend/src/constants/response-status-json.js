@@ -76,6 +76,7 @@
 export const USER_RESPONSE = {
     201: { results: 'user created' },
     202: { results: 'user acepted-updated' },
+    204: { results: 'user deleted' },
     400: { errors: 'user bad request' },
     401: { errors: 'user unauthorized' },
     409: { errors: 'user conflict' },
@@ -85,6 +86,7 @@ export const USER_RESPONSE = {
 export const PRODUCT_RESPONSE = {
     201: { results: 'product created' },
     202: { results: 'product acepted-updated' },
+    204: { results: 'product deleted' },
     404: { errors: 'product not found' },
     409: { errors: 'product conflict' }
 };

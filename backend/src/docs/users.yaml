@@ -279,7 +279,7 @@ paths:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseBodies/UserEmail'
+                                $ref: '#/components/responseBodies/UserUpdate'
                 '400':
                     description: Invalid Body fields - Bad request
                     content:

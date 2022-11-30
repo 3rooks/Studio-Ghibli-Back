@@ -17,7 +17,8 @@ const productIdParamsDTOSchema = Type.Object(
 const validateSchema = ajv.compile(productIdParamsDTOSchema);
 
 const productIdParamsDTO = (req, res, next) => {
-    const isDTOValid = validateSchema(req.params);
+    const { productId } = req.params;
+    const isDTOValid = validateSchema({ productId });
 
     if (!isDTOValid)
         return res.status(400).json({

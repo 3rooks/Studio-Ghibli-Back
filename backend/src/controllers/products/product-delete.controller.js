@@ -8,7 +8,7 @@ const deleteProductController = async (req, res) => {
         const existProduct = await PRODUCTS.deleteProductById(productId);
         if (!existProduct) return res.status(404).json(PRODUCT_RESPONSE[404]);
 
-        return res.status(204);
+        return res.status(200).json(PRODUCT_RESPONSE[204]);
     } catch (error) {
         console.log(error);
     }
