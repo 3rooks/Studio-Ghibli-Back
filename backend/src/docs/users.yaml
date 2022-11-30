@@ -17,12 +17,10 @@ components:
                     type: String
                 password:
                     type: String
-                image:
-                    type: String
             example:
-                username: admin
+                username: whoami
                 email: email@email.com
-                password: Admin123
+                password: MyPass123
         LoginUser:
             type: Object
             properties:
@@ -32,7 +30,7 @@ components:
                     type: String
             example:
                 email: email@email.com
-                password: Admin123
+                password: MyPass123
         UpdateUsername:
             type: Object
             properties:
@@ -45,7 +43,6 @@ components:
             properties:
                 email:
                     type: String
-                    description: New email
             example:
                 email: new@email.com
         UpdatePassword:
@@ -53,21 +50,11 @@ components:
             properties:
                 oldPassword:
                     type: String
-                    description: oldPass
                 newPassword:
                     type: String
-                    description: newPass
             example:
                 oldPassword: 'OldPassword'
                 newPassword: 'NewPassword'
-        UpdateImage:
-            type: Object
-            properties:
-                image:
-                    type: string
-                    format: binary
-            example:
-                image: FileImage
         Unregister:
             type: Object
             properties:
@@ -102,7 +89,7 @@ components:
                         username: username,
                         email: email,
                         image: image,
-                        cart: (uuidV4)
+                        cart: cartId(uuidV4)
                     }
         UserUpdate:
             type: Object
@@ -111,6 +98,13 @@ components:
                     type: Object
             example:
                 results: user acepted-updated
+        UserDeleted:
+            type: Object
+            properties:
+                results:
+                    type: Object
+            example:
+                results: user deleted
     # Error response
     responseErrorBodies:
         Unauthorized:
@@ -138,7 +132,7 @@ components:
 paths:
     /api/register:
         post:
-            summary: Register an user on database
+            summary: Register a user in the application
             tags:
                 - Users
             requestBody:
@@ -156,14 +150,14 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserCreated'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '409':
-                    description: User already exist into DataBase - Conflict
+                    description: User already exists in the application - Conflict
                     content:
                         application/json:
                             schema:
@@ -171,7 +165,7 @@ paths:
                                 $ref: '#/components/responseErrorBodies/UserConflic'
     /api/login:
         post:
-            summary: Login user with email & password
+            summary: Login to a user in the application
             tags:
                 - Users
             requestBody:
@@ -189,14 +183,14 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/LoginToken'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '401':
-                    description: Wrong credentials (email|password) - Unauthorized
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
@@ -204,21 +198,21 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
     /api/profile:
         get:
-            summary: Get User Profile
+            summary: Returns a user's profile
             tags:
                 - Users
             security:
                 - bearerAuth: []
             responses:
                 '200':
-                    description: Get user profile
+                    description: OK (user profile)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/UserProfile'
                 '401':
-                    description: Invalid token - Unauthorized
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
@@ -226,7 +220,7 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
     /api/update-username:
         patch:
-            summary: Update user username
+            summary: Update a user's username
             tags:
                 - Users
             security:
@@ -239,21 +233,21 @@ paths:
                             $ref: '#/components/requestBodies/UpdateUsername'
             responses:
                 '202':
-                    description: User username updated
+                    description: OK (updated user username)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '401':
-                    description: Invalid token - Unauthorized
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
@@ -261,7 +255,7 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
     /api/update-email:
         patch:
-            summary: Update user email
+            summary: Update a user's email address
             tags:
                 - Users
             security:
@@ -274,21 +268,21 @@ paths:
                             $ref: '#/components/requestBodies/UpdateEmail'
             responses:
                 '202':
-                    description: User email updated
+                    description: OK (updated user email)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '401':
-                    description: Invalid token - Unauthorized
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
@@ -296,7 +290,7 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
     /api/update-password:
         patch:
-            summary: Updated user password
+            summary: Update a user's password
             tags:
                 - Users
             security:
@@ -309,21 +303,21 @@ paths:
                             $ref: '#/components/requestBodies/UpdatePassword'
             responses:
                 '202':
-                    description: Password user changed
+                    description: OK (updated user password)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '401':
-                    description: Invalid Credentials|Token - Unauthorired
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
@@ -331,7 +325,7 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
     /api/unregister:
         delete:
-            summary: Unregister user
+            summary: Removes a user from the application
             tags:
                 - Users
             security:
@@ -343,19 +337,24 @@ paths:
                         schema:
                             $ref: '#/components/requestBodies/Unregister'
             responses:
-                '204':
-                    description: OK (user no-content deleted)
+                '200':
+                    description: OK (user deleted)
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/UserDeleted'
                 '400':
-                    description: Invalid Body fields - Bad request
+                    description: Invalid Body Fields - Bad request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
                 '401':
-                    description: Invalid Credentials|Token - Unauthorized
+                    description: Invalid Credentials | Token - Unauthorized
                     content:
                         application/json:
                             schema:
                                 type: object
-                                $ref: '#/components/responseAndErrors/Unauthorized'
+                                $ref: '#/components/responseErrorBodies/Unauthorized'
