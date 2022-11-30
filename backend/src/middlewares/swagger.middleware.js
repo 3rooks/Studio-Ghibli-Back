@@ -5,7 +5,7 @@ const options = {
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'Studio Ghibli API',
+            title: 'Ecommerce API-rest',
             description: 'Documentation (endpoints)',
             version: '1.0.0'
         }
