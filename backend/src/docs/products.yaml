@@ -106,6 +106,13 @@ components:
                     type: Object
             example:
                 results: 'product acepted-updated'
+        ProductDeleted:
+            type: Object
+            properties:
+                results:
+                    type: Object
+            example:
+                results: product deleted
     # Error response
     responseErrorBodies:
         WrongFields:
@@ -126,7 +133,7 @@ components:
 paths:
     /api/products:
         post:
-            summary: Push Product into DataBase
+            summary: Add a product to the application
             tags:
                 - Products
             requestBody:
@@ -138,26 +145,26 @@ paths:
                             $ref: '#/components/requestBodies/AddProduct'
             responses:
                 '201':
-                    description: OK
+                    description: OK (product created)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/ProductAdded'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
         get:
-            summary: Get all products from DataBase
+            summary: Returns all products of the application
             tags:
                 - Products
             responses:
                 '200':
-                    description: OK
+                    description: OK (products)
                     content:
                         application/json:
                             schema:
@@ -165,7 +172,7 @@ paths:
                                 $ref: '#/components/responseBodies/GetProducts'
     /api/products/{productId}:
         get:
-            summary: Get product by id
+            summary: Return a product according to its id
             tags:
                 - Products
             parameters:
@@ -177,14 +184,14 @@ paths:
                       type: string
             responses:
                 '200':
-                    description: OK
+                    description: OK (product)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/OneProduct'
                 '400':
-                    description: Invalid ID(uuidv4) - Bad request
+                    description: Invalid Params Field - Bad Request
                     content:
                         application/json:
                             schema:
@@ -217,14 +224,14 @@ paths:
                             $ref: '#/components/requestBodies/UpdateProduct'
             responses:
                 '202':
-                    description: Product Updated
+                    description: OK (product Updated)
                     content:
                         application/json:
                             schema:
                                 type: object
                                 $ref: '#/components/responseBodies/ProductUpdated'
                 '400':
-                    description: Invalid ID(uuidv4)|Body Fields - Bad request
+                    description: Invalid Body | Params Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -238,7 +245,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/ProductNotFound'
         delete:
-            summary: Delete product by id
+            summary: Remove a product according to its id
             tags:
                 - Products
             parameters:
@@ -249,10 +256,15 @@ paths:
                   schema:
                       type: string
             responses:
-                '204':
-                    description: OK (no-content)
+                '200':
+                    description: OK (product deleted)
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/ProductDeleted'
                 '400':
-                    description: Invalid ID(uuidv4) - Bad request
+                    description: Invalid Params Field - Bad Request
                     content:
                         application/json:
                             schema:
