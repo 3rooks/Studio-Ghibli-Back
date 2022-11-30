@@ -150,7 +150,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserCreated'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -183,7 +183,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/LoginToken'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -240,7 +240,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -275,7 +275,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -310,7 +310,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserUpdate'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -345,7 +345,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserDeleted'
                 '400':
-                    description: Invalid Body Fields - Bad request
+                    description: Invalid Body Fields - Bad Request
                     content:
                         application/json:
                             schema:
