@@ -92,23 +92,13 @@ class MongoDataBase {
     };
 
     /**
-     * Get User By Email
+     * Get By
      * @param entity Mongoose entity model
-     * @param email User email
+     * @param data data to find
      * @returns Object | Null
      */
-    getByEmail = async (entity, email) => {
-        const results = await this.models[entity].findOne({ email });
-        return results;
-    };
-
-    /**
-     * Create User Cart
-     * @param entity Mongoose entity model
-     * @returns Object | Null
-     */
-    saveCart = async (entity) => {
-        const results = await this.models[entity].create({ products: [] });
+    getBy = async (entity, data) => {
+        const results = await this.models[entity].findOne(data);
         return results;
     };
 }

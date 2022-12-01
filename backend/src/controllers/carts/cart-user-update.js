@@ -18,7 +18,7 @@ const patchCartController = async (req, res) => {
         if (!userCart) return res.status(404).json(CART_RESPONSE[404]);
 
         const existProductInCart = userCart.products.find(
-            (i) => i.product._id === productId
+            (i) => i.product === productId || i.product._id === productId
         );
         if (!existProductInCart)
             return res.status(404).json(PRODUCT_RESPONSE[404]);

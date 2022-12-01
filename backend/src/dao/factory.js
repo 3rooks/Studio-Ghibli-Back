@@ -19,10 +19,16 @@ class FactoryPersistence {
                 const dbService = new MongoDataBase(url);
                 return dbService;
             }
-            case PERSISTENCES.FS:
-                break;
-            default:
-                break;
+            case PERSISTENCES.FS: {
+                const { default: FileSystemDB } = await import(
+                    '#dao/fs/file-system.dao.js'
+                );
+                const fsService = new FileSystemDB();
+                return fsService;
+            }
+            default: {
+                return console.log('no persistence');
+            }
         }
     };
 }

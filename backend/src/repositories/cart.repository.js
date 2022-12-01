@@ -43,7 +43,9 @@ class CartRepository {
      * @returns Object | Null
      */
     createUserCart = async () => {
-        const results = await this.persistence.saveCart(this.entity);
+        const results = await this.persistence.saveOne(this.entity, {
+            products: []
+        });
         return results;
     };
 

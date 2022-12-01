@@ -21,9 +21,8 @@ const postCartController = async (req, res) => {
         if (!userCart) return res.status(404).json(CART_RESPONSE[404]);
 
         const existProductInCart = await userCart.products.find(
-            (i) => i.product._id === product
+            (i) => i.product === product || i.product._id === product
         );
-
         if (existProductInCart)
             return res.status(409).json(PRODUCT_RESPONSE[409]);
 

@@ -17,13 +17,13 @@ const deleteCartController = async (req, res) => {
         if (!userCart) return res.status(404).json(CART_RESPONSE[404]);
 
         const existProductInCart = userCart.products.find(
-            (e) => e.product._id === productId
+            (i) => i.product === productId || i.product._id === productId
         );
         if (!existProductInCart)
             return res.status(404).json(PRODUCT_RESPONSE[404]);
 
         const productIndex = userCart.products.findIndex(
-            (e) => e.product._id === productId
+            (i) => i.product === productId || i.product._id === productId
         );
         userCart.products.splice(productIndex, 1);
         await CARTS.updateCartById(userCart._id, userCart);

@@ -17,6 +17,9 @@ const postProductController = async (req, res) => {
             price
         } = req.body;
 
+        const existProduct = await PRODUCTS.getProductByTitle(title);
+        if (existProduct) return res.status(409).json(PRODUCT_RESPONSE[409]);
+
         const newProduct = {
             title,
             originalTitle,

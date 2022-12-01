@@ -19,8 +19,8 @@ export class UserRepository {
      * @returns Object | Null
      */
     getUserById = async (id) => {
-        const result = await this.persistence.getById(this.entity, id);
-        return result;
+        const results = await this.persistence.getById(this.entity, id);
+        return results;
     };
 
     /**
@@ -29,8 +29,10 @@ export class UserRepository {
      * @returns Object | Null
      */
     getUserByEmail = async (email) => {
-        const result = await this.persistence.getByEmail(this.entity, email);
-        return result;
+        const results = await this.persistence.getBy(this.entity, {
+            email
+        });
+        return results;
     };
 
     /**
@@ -39,8 +41,8 @@ export class UserRepository {
      * @returns Object | Null
      */
     registerUser = async (newUser) => {
-        const result = await this.persistence.saveOne(this.entity, newUser);
-        return result;
+        const results = await this.persistence.saveOne(this.entity, newUser);
+        return results;
     };
 
     /**
@@ -50,8 +52,12 @@ export class UserRepository {
      * @returns Object | Null
      */
     updateUserById = async (id, user) => {
-        const result = await this.persistence.updateById(this.entity, id, user);
-        return result;
+        const results = await this.persistence.updateById(
+            this.entity,
+            id,
+            user
+        );
+        return results;
     };
 
     /**
@@ -60,8 +66,8 @@ export class UserRepository {
      * @returns Object | Null
      */
     deleteUserById = async (id) => {
-        const result = await this.persistence.deleteById(this.entity, id);
-        return result;
+        const results = await this.persistence.deleteById(this.entity, id);
+        return results;
     };
 }
 

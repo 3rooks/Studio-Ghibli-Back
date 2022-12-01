@@ -1,3 +1,4 @@
+import swaggerDoc from '#middlewares/swagger.middleware.js';
 import cartRoutes from '#routes/carts.routes.js';
 import productRoutes from '#routes/products.routes.js';
 import userRoutes from '#routes/users.routes.js';
@@ -5,7 +6,6 @@ import { PUBLIC_PATH } from '#utils/paths.js';
 import cors from 'cors';
 import express from 'express';
 import swaggerUiExpress from 'swagger-ui-express';
-import swaggerDoc from '../middlewares/swagger.middleware.js';
 
 const expressApp = express();
 

@@ -18,8 +18,8 @@ class ProductRepository {
      * @returns Array | Null
      */
     getAllProducts = async () => {
-        const result = await this.persistence.getAll(this.entity);
-        return result;
+        const results = await this.persistence.getAll(this.entity);
+        return results;
     };
 
     /**
@@ -28,8 +28,18 @@ class ProductRepository {
      * @returns Object | Null
      */
     getProductById = async (id) => {
-        const result = await this.persistence.getById(this.entity, id);
-        return result;
+        const results = await this.persistence.getById(this.entity, id);
+        return results;
+    };
+
+    /**
+     * Get Product By Title
+     * @param title Product title
+     * @returns Object | Null
+     */
+    getProductByTitle = async (title) => {
+        const results = await this.persistence.getBy(this.entity, { title });
+        return results;
     };
 
     /**
@@ -38,8 +48,8 @@ class ProductRepository {
      * @returns Object | Null
      */
     saveNewProduct = async (product) => {
-        const result = await this.persistence.saveOne(this.entity, product);
-        return result;
+        const results = await this.persistence.saveOne(this.entity, product);
+        return results;
     };
 
     /**
@@ -63,8 +73,8 @@ class ProductRepository {
      * @returns Object | Null
      */
     deleteProductById = async (id) => {
-        const result = await this.persistence.deleteById(this.entity, id);
-        return result;
+        const results = await this.persistence.deleteById(this.entity, id);
+        return results;
     };
 }
 

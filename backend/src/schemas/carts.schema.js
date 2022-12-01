@@ -14,6 +14,9 @@ const CART_SCHEMA = new Schema(
         },
         products: [
             {
+                _id: {
+                    _id: false
+                },
                 product: {
                     type: Schema.Types.String,
                     ref: ENTITY.PRODUCTS
