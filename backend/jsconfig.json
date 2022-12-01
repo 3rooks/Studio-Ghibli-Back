@@ -21,7 +21,8 @@
             "#dto/*": ["./src/dto/*"],
             "#test/*": ["./src/test/*"],
             "#docs/*": ["./src/docs/*"],
-            "#middlewares/*": ["./src/middlewares/*"]
+            "#middlewares/*": ["./src/middlewares/*"],
+            "#graphql/*": ["./src/graphql/*"]
         }
     }
 }

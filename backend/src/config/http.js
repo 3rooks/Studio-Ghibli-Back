@@ -1,5 +1,5 @@
-import { createServer } from 'http';
 import expressApp from '#config/express.js';
+import { createServer } from 'http';
 
 const httpServer = createServer(expressApp);
 
