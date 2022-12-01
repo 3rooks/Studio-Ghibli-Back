@@ -6,6 +6,7 @@ export const bootstrap = () => {
     httpServer.listen(process.env.PORT || 8080, () => {
         console.log(`listening on port: ${process.env.PORT}`);
     });
+    // nest
 };
 
 bootstrap();
