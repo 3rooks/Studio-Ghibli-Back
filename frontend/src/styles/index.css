@@ -1,6 +1,0 @@
-@import url('./resets.css');
-@import url('./fonts.css');
-/* @import url('./theme.css'); */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
