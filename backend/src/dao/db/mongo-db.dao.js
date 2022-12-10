@@ -41,10 +41,7 @@ class MongoDataBase {
      * @param entity Mongoose entity model
      * @returns Array | Null
      */
-    getAll = async (entity) => {
-        const results = await this.models[entity].find();
-        return results;
-    };
+    getAll = async (entity) => await this.models[entity].find();
 
     /**
      * GetById
@@ -52,10 +49,15 @@ class MongoDataBase {
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    getById = async (entity, id) => {
-        const results = await this.models[entity].findById(id);
-        return results;
-    };
+    getById = async (entity, id) => await this.models[entity].findById(id);
+
+    /**
+     * Get By
+     * @param entity Mongoose entity model
+     * @param data data to find
+     * @returns Object | Null
+     */
+    getBy = async (entity, data) => await this.models[entity].findOne(data);
 
     /**
      * SaveOne
@@ -63,10 +65,7 @@ class MongoDataBase {
      * @param data Object data
      * @returns Object | Null
      */
-    saveOne = async (entity, data) => {
-        const results = await this.models[entity].create(data);
-        return results;
-    };
+    saveOne = async (entity, data) => await this.models[entity].create(data);
 
     /**
      * DeleteById
@@ -74,10 +73,8 @@ class MongoDataBase {
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    deleteById = async (entity, id) => {
-        const results = await this.models[entity].findByIdAndDelete(id);
-        return results;
-    };
+    deleteById = async (entity, id) =>
+        await this.models[entity].findByIdAndDelete(id);
 
     /**
      * UpdateById
@@ -86,21 +83,8 @@ class MongoDataBase {
      * @param data Object data
      * @returns Object | Null
      */
-    updateById = async (entity, id, data) => {
-        const results = await this.models[entity].findByIdAndUpdate(id, data);
-        return results;
-    };
-
-    /**
-     * Get By
-     * @param entity Mongoose entity model
-     * @param data data to find
-     * @returns Object | Null
-     */
-    getBy = async (entity, data) => {
-        const results = await this.models[entity].findOne(data);
-        return results;
-    };
+    updateById = async (entity, id, data) =>
+        await this.models[entity].findByIdAndUpdate(id, data);
 }
 
 export default MongoDataBase;
