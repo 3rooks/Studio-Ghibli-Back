@@ -2,7 +2,7 @@ import { ENTITY } from '#constants/entities.js';
 import mongoose from 'mongoose';
 import uuid from 'uuid-random';
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const USER_SCHEMA = new Schema(
     {
@@ -28,5 +28,4 @@ const USER_SCHEMA = new Schema(
     }
 );
 
-const USER_MODEL = mongoose.model(ENTITY.USERS, USER_SCHEMA);
-export default USER_MODEL;
+export const USER_MODEL = model(ENTITY.USERS, USER_SCHEMA);

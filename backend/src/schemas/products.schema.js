@@ -2,7 +2,7 @@ import { ENTITY } from '#constants/entities.js';
 import mongoose from 'mongoose';
 import uuid from 'uuid-random';
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const PRODUCT_SCHEMA = new Schema(
     {
@@ -31,5 +31,4 @@ const PRODUCT_SCHEMA = new Schema(
     }
 );
 
-const PRODUCT_MODEL = mongoose.model(ENTITY.PRODUCTS, PRODUCT_SCHEMA);
-export default PRODUCT_MODEL;
+export const PRODUCT_MODEL = model(ENTITY.PRODUCTS, PRODUCT_SCHEMA);

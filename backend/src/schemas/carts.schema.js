@@ -2,7 +2,7 @@ import { ENTITY } from '#constants/entities.js';
 import mongoose from 'mongoose';
 import uuid from 'uuid-random';
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const CART_SCHEMA = new Schema(
     {
@@ -41,5 +41,4 @@ CART_SCHEMA.pre('findById', function () {
     this.populate('products.product');
 });
 
-const CART_MODEL = mongoose.model(ENTITY.CARTS, CART_SCHEMA);
-export default CART_MODEL;
+export const CART_MODEL = model(ENTITY.CARTS, CART_SCHEMA);

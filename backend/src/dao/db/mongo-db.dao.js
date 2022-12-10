@@ -1,7 +1,7 @@
 import { ENTITY } from '#constants/entities.js';
-import CART_MODEL from '#schemas/carts.schema.js';
-import PRODUCT_MODEL from '#schemas/products.schema.js';
-import USER_MODEL from '#schemas/users.schema.js';
+import { CART_MODEL } from '#schemas/carts.schema.js';
+import { PRODUCT_MODEL } from '#schemas/products.schema.js';
+import { USER_MODEL } from '#schemas/users.schema.js';
 import mongoose from 'mongoose';
 
 /**
