@@ -13,12 +13,12 @@ class MongoDataBase {
      * @params url Mongo uri
      */
     constructor(url) {
-        this.connection(url);
         this.models = {
             [ENTITY.PRODUCTS]: PRODUCT_MODEL,
             [ENTITY.USERS]: USER_MODEL,
             [ENTITY.CARTS]: CART_MODEL
         };
+        this.connection(url);
     }
 
     /**
