@@ -1,5 +1,5 @@
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { verifyAsync } from '#services/jwt.service.js';
+import { verifyAsync } from '#lib/jwt.js';
 
 const userAuth = async (req, res, next) => {
     try {

@@ -1,6 +1,6 @@
 import { compareHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { signAsync } from '#services/jwt.service.js';
+import { signAsync } from '#lib/jwt.js';
 import { USERS } from '#services/repositories.service.js';
 
 const userLoginController = async (req, res) => {
@@ -14,8 +14,7 @@ const userLoginController = async (req, res) => {
         if (!checkPassword) return res.status(401).json(USER_RESPONSE[401]);
 
         const payload = { id: existUser._id };
-        const signOptions = { algorithm: 'HS512', expiresIn: '7d' };
-        const token = await signAsync(payload, signOptions);
+        const token = await signAsync(payload);
 
         return res.status(200).json({ token });
     } catch (error) {
