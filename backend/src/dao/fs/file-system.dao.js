@@ -1,7 +1,7 @@
 import { ENTITY } from '#constants/entities.js';
-import fsCarts from '#dao/fs/entities/carts.js';
-import fsProducts from '#dao/fs/entities/products.js';
-import fsUsers from '#dao/fs/entities/users.js';
+import { fsCarts } from '#dao/fs/entities/carts.js';
+import { fsProducts } from '#dao/fs/entities/products.js';
+import { fsUsers } from '#dao/fs/entities/users.js';
 
 class FileSystemDB {
     constructor() {
@@ -18,39 +18,23 @@ class FileSystemDB {
         const users = await this.models[ENTITY.USERS].connection();
         const carts = await this.models[ENTITY.CARTS].connection();
 
-        if (!products && users && carts) console.log('error/persistence:fs');
+        if (!products && !users && !carts) console.log('error/persistence:fs');
         console.log('persistence/connected:fs');
     };
 
-    getAll = async (entity) => {
-        const results = await this.models[entity].find();
-        return results;
-    };
+    getAll = async (entity) => await this.models[entity].find();
 
-    getById = async (entity, id) => {
-        const results = await this.models[entity].findById(id);
-        return results;
-    };
+    getById = async (entity, id) => await this.models[entity].findById(id);
 
-    saveOne = async (entity, data) => {
-        const results = await this.models[entity].create(data);
-        return results;
-    };
+    getBy = async (entity, data) => await this.models[entity].findOne(data);
 
-    deleteById = async (entity, id) => {
-        const results = await this.models[entity].findByIdAndDelete(id);
-        return results;
-    };
+    saveOne = async (entity, data) => await this.models[entity].create(data);
 
-    updateById = async (entity, id, data) => {
-        const results = await this.models[entity].findByIdAndUpdate(id, data);
-        return results;
-    };
+    deleteById = async (entity, id) =>
+        await this.models[entity].findByIdAndDelete(id);
 
-    getBy = async (entity, data) => {
-        const results = await this.models[entity].findOne(data);
-        return results;
-    };
+    updateById = async (entity, id, data) =>
+        await this.models[entity].findByIdAndUpdate(id, data);
 }
 
 export default FileSystemDB;

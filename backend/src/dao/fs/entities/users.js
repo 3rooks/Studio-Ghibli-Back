@@ -112,6 +112,4 @@ class UserFS {
     };
 }
 
-const fsUsers = new UserFS(USER_PATH);
-
-export default fsUsers;
+export const fsUsers = new UserFS(USER_PATH);

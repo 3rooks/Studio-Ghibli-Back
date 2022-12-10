@@ -129,6 +129,4 @@ class ProductFS {
     };
 }
 
-const fsProducts = new ProductFS(PRODUCT_PATH);
-
-export default fsProducts;
+export const fsProducts = new ProductFS(PRODUCT_PATH);

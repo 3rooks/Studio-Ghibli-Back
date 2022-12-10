@@ -105,6 +105,4 @@ class CartFS {
     };
 }
 
-const fsCarts = new CartFS(CART_PATH);
-
-export default fsCarts;
+export const fsCarts = new CartFS(CART_PATH);
