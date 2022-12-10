@@ -1,6 +1,4 @@
-import expressApp from '#config/express.js';
+import expressApp from '#lib/express.js';
 import { createServer } from 'http';
 
-const httpServer = createServer(expressApp);
-
-export default httpServer;
+export const httpServer = createServer(expressApp);

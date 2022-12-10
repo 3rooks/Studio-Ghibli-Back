@@ -1,9 +1,9 @@
-import ajv from '#config/ajv.js';
 import {
     emailDTOSchema,
     passwordDTOSchema,
     usernameDTOSchema
 } from '#constants/dto-types.js';
+import ajv from '#lib/ajv.js';
 import { Type } from '@sinclair/typebox';
 
 const userRegisterDTOSchema = Type.Object(

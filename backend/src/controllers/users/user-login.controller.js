@@ -1,5 +1,5 @@
-import { compareHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
+import { compareHash } from '#lib/bcrypt.js';
 import { signAsync } from '#lib/jwt.js';
 import { USERS } from '#services/repositories.service.js';
 

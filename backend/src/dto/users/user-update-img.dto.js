@@ -1,5 +1,5 @@
-import ajv from '#config/ajv.js';
 import { imageDTOSchema } from '#constants/dto-types.js';
+import ajv from '#lib/ajv.js';
 import { Type } from '@sinclair/typebox';
 
 const userImageDTOSchema = Type.Object(

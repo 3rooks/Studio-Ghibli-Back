@@ -1,5 +1,5 @@
-import { compareHash, createHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
+import { compareHash, createHash } from '#lib/bcrypt.js';
 import { USERS } from '#services/repositories.service.js';
 
 const userPasswordController = async (req, res) => {

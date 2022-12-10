@@ -1,5 +1,5 @@
-import { createHash } from '#config/bcrypt.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
+import { createHash } from '#lib/bcrypt.js';
 import { CARTS, USERS } from '#services/repositories.service.js';
 
 const userRegisterController = async (req, res) => {
