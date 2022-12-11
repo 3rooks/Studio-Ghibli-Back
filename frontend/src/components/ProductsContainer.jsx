@@ -7,7 +7,7 @@ const ProductsContainer = ({ products }) => {
 			{products === null ? (
 				<Loader />
 			) : (
-				products.map((item) => (
+				products?.map((item) => (
 					<ProductCard key={item._id} product={item} />
 				))
 			)}

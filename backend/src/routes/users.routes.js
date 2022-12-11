@@ -1,11 +1,13 @@
-import userProfileController from '#controllers/users/user-get-profile.controller.js';
-import userLoginController from '#controllers/users/user-login.controller.js';
-import userEmailController from '#controllers/users/user-patch-email.controller.js';
-import userImageController from '#controllers/users/user-patch-img.controller.js';
-import userPasswordController from '#controllers/users/user-patch-password.controller.js';
-import userUsernameController from '#controllers/users/user-patch-username.controller.js';
-import userRegisterController from '#controllers/users/user-register.controller.js';
-import userUnregisterController from '#controllers/users/user-unregister.controller.js';
+import {
+    userEmailController,
+    userImageController,
+    userLoginController,
+    userPasswordController,
+    userProfileController,
+    userRegisterController,
+    userUnregisterController,
+    userUsernameController
+} from '#controllers/users.controller.js';
 import userLoginDTO from '#dto/users/user-login.dto.js';
 import userRegisterDTO from '#dto/users/user-register.dto.js';
 import userUnregisterDTO from '#dto/users/user-unregister.dto.js';

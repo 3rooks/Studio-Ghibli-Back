@@ -1,7 +1,9 @@
-import deleteCartController from '#controllers/carts/cart-user-delete.js';
-import getCartController from '#controllers/carts/cart-user-get.js';
-import postCartController from '#controllers/carts/cart-user-post.js';
-import patchCartController from '#controllers/carts/cart-user-update.js';
+import {
+    deleteCartController,
+    getCartController,
+    patchCartController,
+    postCartController
+} from '#controllers/carts.controller.js';
 import cartIdParamsDTO from '#dto/carts/cart-id-params.dto.js';
 import patchCartDTO from '#dto/carts/cart-user-patch.dto.js';
 import postCartBodyDTO from '#dto/carts/cart-user-post.dto.js';
