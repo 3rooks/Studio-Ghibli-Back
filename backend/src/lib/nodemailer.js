@@ -8,3 +8,11 @@ export const mailTransporter = nodemailer.createTransport({
         pass: process.env.GOOGLE_PASS
     }
 });
+
+export const sendEmail = async (email, message, template) =>
+    await mailTransporter.sendMail({
+        from: `"Studio Ghibli" ${process.env.GOOGLE_EMAIL}`,
+        to: email,
+        subject: message,
+        html: template
+    });

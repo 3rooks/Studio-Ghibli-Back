@@ -5,7 +5,8 @@ import { Type } from '@sinclair/typebox';
 const postCartPaymentDTOSchema = Type.Object(
     {
         pmid: pmDTOSchema,
-        amount: paymentPriceDTOSchema
+        amount: paymentPriceDTOSchema,
+        total: paymentPriceDTOSchema
     },
     {
         additionalProperties: false,

@@ -3,11 +3,11 @@ import {
     PRODUCT_RESPONSE,
     USER_RESPONSE
 } from '#constants/response-status-json.js';
-import { mailTransporter } from '#lib/nodemailer.js';
+import { renderTemplate } from '#lib/ejs.js';
+import { sendEmail } from '#lib/nodemailer.js';
 import { createPayment } from '#lib/stripe.js';
 import { CARTS, PRODUCTS, USERS } from '#services/repositories.service.js';
-import { VIEWS_PATH } from '#utils/paths.js';
-import ejs from 'ejs';
+import { PAYMENT_PATH } from '#utils/paths.js';
 
 export const deleteCartController = async (req, res, next) => {
     try {
@@ -119,7 +119,7 @@ export const patchCartController = async (req, res, next) => {
 export const postPaymentController = async (req, res, next) => {
     try {
         const { id } = req;
-        const { pmid, amount } = req.body;
+        const { pmid, amount, total } = req.body;
 
         const paymentInfo = {
             pmid,
@@ -128,27 +128,23 @@ export const postPaymentController = async (req, res, next) => {
 
         const existUser = await USERS.getUserById(id);
         if (!existUser) return res.status(401).json(USER_RESPONSE[401]);
-
         const { username, cart, email } = existUser;
 
         const userCart = await CARTS.getCartById(cart);
         if (!userCart) return res.status(404).json(CART_RESPONSE[404]);
+        const { products } = userCart;
+
+        const template = await renderTemplate(PAYMENT_PATH, {
+            username,
+            products,
+            total
+        });
+        await sendEmail(email, 'Payment Completed Successfully', template);
 
         userCart.products = [];
         await CARTS.updateCartById(cart, userCart);
 
-        const templatePath = `${VIEWS_PATH}/payment.ejs`;
-        const paymentTemplate = await ejs.renderFile(templatePath, {
-            username
-        });
-
         await createPayment(paymentInfo);
-        await mailTransporter.sendMail({
-            from: '"Studio Ghibli" brookslynx@gmail.com',
-            to: email,
-            subject: 'Completed Payment',
-            html: paymentTemplate
-        });
 
         return res.status(200).json({ results: 'payment succesfully' });
     } catch (error) {

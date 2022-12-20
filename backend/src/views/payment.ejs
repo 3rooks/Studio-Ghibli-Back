@@ -1,6 +1,14 @@
 <html>
     <body>
-        <h1>THAKS YOU! <%= username %></h1>
-        <h2></h2>
+        <h1>THAKS YOU <%= username %>!</h1>
+        <h2>Your products:</h2>
+        <hr />
+        <% products.forEach(i => { %>
+        <p>Product: <i><%= i.product.title %></i></p>
+        <p>Price: <i><%= i.product.price %></i></p>
+        <hr />
+        <% }) %>
+        <hr />
+        <p>Total: <b><%= total %>$</b></p>
     </body>
 </html>

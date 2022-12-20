@@ -44,7 +44,8 @@ const handleSubmit = async (
 
 	const paymentInfo = {
 		pmid: paymentMethod.id,
-		amount: total * 100
+		amount: total * 100,
+		total
 	};
 
 	postUserPayment(token, paymentInfo, navigate);

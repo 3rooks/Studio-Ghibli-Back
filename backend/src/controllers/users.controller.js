@@ -1,7 +1,10 @@
 import { USER_RESPONSE } from '#constants/response-status-json.js';
 import { compareHash, createHash } from '#lib/bcrypt.js';
+import { renderTemplate } from '#lib/ejs.js';
 import { signAsync } from '#lib/jwt.js';
+import { sendEmail } from '#lib/nodemailer.js';
 import { CARTS, USERS } from '#services/repositories.service.js';
+import { REGISTER_PATH } from '#utils/paths.js';
 
 export const userProfileController = async (req, res, next) => {
     try {
@@ -126,6 +129,9 @@ export const userRegisterController = async (req, res, next) => {
             password: passwordHashed,
             cart: userCart._id
         };
+
+        const template = await renderTemplate(REGISTER_PATH, { username });
+        await sendEmail(email, 'Registered Succesfully', template);
 
         await USERS.registerUser(newUser);
         return res.status(201).json(USER_RESPONSE[201]);
