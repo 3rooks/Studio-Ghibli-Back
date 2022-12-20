@@ -3,7 +3,7 @@ import { PERSISTENCES } from '#constants/persistences.js';
 /**
  * Abstract Factory Pattern (persistence)
  */
-class FactoryPersistence {
+export class FactoryPersistence {
     /**
      *  Set Persistence
      * @param persistence DataBase|Filesystem
@@ -13,13 +13,13 @@ class FactoryPersistence {
     static setPersistence = async (persistence, url) => {
         switch (persistence) {
             case PERSISTENCES.DB: {
-                const { default: MongoDataBase } = await import(
+                const { MongoDataBase } = await import(
                     '#dao/db/mongo-db.dao.js'
                 );
                 return new MongoDataBase(url);
             }
             case PERSISTENCES.FS: {
-                const { default: FileSystemDB } = await import(
+                const { FileSystemDB } = await import(
                     '#dao/fs/file-system.dao.js'
                 );
                 return new FileSystemDB();
@@ -30,5 +30,3 @@ class FactoryPersistence {
         }
     };
 }
-
-export default FactoryPersistence;

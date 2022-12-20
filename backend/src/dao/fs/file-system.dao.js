@@ -3,7 +3,7 @@ import { fsCarts } from '#dao/fs/entities/carts.js';
 import { fsProducts } from '#dao/fs/entities/products.js';
 import { fsUsers } from '#dao/fs/entities/users.js';
 
-class FileSystemDB {
+export class FileSystemDB {
     constructor() {
         this.models = {
             [ENTITY.PRODUCTS]: fsProducts,
@@ -36,5 +36,3 @@ class FileSystemDB {
     updateById = async (entity, id, data) =>
         await this.models[entity].findByIdAndUpdate(id, data);
 }
-
-export default FileSystemDB;

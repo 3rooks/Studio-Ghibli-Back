@@ -3,7 +3,7 @@ import { ENTITY } from '#constants/entities.js';
 /**
  * Product Repository
  */
-class ProductRepository {
+export class ProductRepository {
     /**
      * Constructor
      * @param persistence application persistence
@@ -17,40 +17,31 @@ class ProductRepository {
      * Get All Products
      * @returns Array | Null
      */
-    getAllProducts = async () => {
-        const results = await this.persistence.getAll(this.entity);
-        return results;
-    };
+    getAllProducts = async () => await this.persistence.getAll(this.entity);
 
     /**
      * Get Product By Id
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    getProductById = async (id) => {
-        const results = await this.persistence.getById(this.entity, id);
-        return results;
-    };
+    getProductById = async (id) =>
+        await this.persistence.getById(this.entity, id);
 
     /**
      * Get Product By Title
      * @param title Product title
      * @returns Object | Null
      */
-    getProductByTitle = async (title) => {
-        const results = await this.persistence.getBy(this.entity, { title });
-        return results;
-    };
+    getProductByTitle = async (title) =>
+        await this.persistence.getBy(this.entity, { title });
 
     /**
      * Save New Product
      * @param product New product
      * @returns Object | Null
      */
-    saveNewProduct = async (product) => {
-        const results = await this.persistence.saveOne(this.entity, product);
-        return results;
-    };
+    saveNewProduct = async (product) =>
+        await this.persistence.saveOne(this.entity, product);
 
     /**
      * Update Product By Id
@@ -58,24 +49,14 @@ class ProductRepository {
      * @param product Product data
      * @returns Object | Null
      */
-    updateProduct = async (id, product) => {
-        const results = await this.persistence.updateById(
-            this.entity,
-            id,
-            product
-        );
-        return results;
-    };
+    updateProduct = async (id, product) =>
+        await this.persistence.updateById(this.entity, id, product);
 
     /**
      * Delete Product By Id
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    deleteProductById = async (id) => {
-        const results = await this.persistence.deleteById(this.entity, id);
-        return results;
-    };
+    deleteProductById = async (id) =>
+        await this.persistence.deleteById(this.entity, id);
 }
-
-export default ProductRepository;

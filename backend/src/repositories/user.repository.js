@@ -18,32 +18,25 @@ export class UserRepository {
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    getUserById = async (id) => {
-        const results = await this.persistence.getById(this.entity, id);
-        return results;
-    };
+    getUserById = async (id) => await this.persistence.getById(this.entity, id);
 
     /**
      * Get User By Email
      * @param email User email
      * @returns Object | Null
      */
-    getUserByEmail = async (email) => {
-        const results = await this.persistence.getBy(this.entity, {
+    getUserByEmail = async (email) =>
+        await this.persistence.getBy(this.entity, {
             email
         });
-        return results;
-    };
 
     /**
      * Register User
      * @param newUser User data
      * @returns Object | Null
      */
-    registerUser = async (newUser) => {
-        const results = await this.persistence.saveOne(this.entity, newUser);
-        return results;
-    };
+    registerUser = async (newUser) =>
+        await this.persistence.saveOne(this.entity, newUser);
 
     /**
      * Update User By Id
@@ -51,24 +44,14 @@ export class UserRepository {
      * @param user User data
      * @returns Object | Null
      */
-    updateUserById = async (id, user) => {
-        const results = await this.persistence.updateById(
-            this.entity,
-            id,
-            user
-        );
-        return results;
-    };
+    updateUserById = async (id, user) =>
+        await this.persistence.updateById(this.entity, id, user);
 
     /**
      * Delete User By Id
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    deleteUserById = async (id) => {
-        const results = await this.persistence.deleteById(this.entity, id);
-        return results;
-    };
+    deleteUserById = async (id) =>
+        await this.persistence.deleteById(this.entity, id);
 }
-
-export default UserRepository;

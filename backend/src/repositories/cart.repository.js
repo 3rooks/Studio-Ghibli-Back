@@ -3,7 +3,7 @@ import { ENTITY } from '#constants/entities.js';
 /**
  * Cart Repository
  */
-class CartRepository {
+export class CartRepository {
     /**
      * Constructor
      * @param persistence application persistence
@@ -18,10 +18,7 @@ class CartRepository {
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    getCartById = async (id) => {
-        const results = await this.persistence.getById(this.entity, id);
-        return results;
-    };
+    getCartById = async (id) => await this.persistence.getById(this.entity, id);
 
     /**
      * Update User Cart
@@ -29,35 +26,23 @@ class CartRepository {
      * @param cart Update user cart
      * @returns Object | Null
      */
-    updateCartById = async (id, cart) => {
-        const results = await this.persistence.updateById(
-            this.entity,
-            id,
-            cart
-        );
-        return results;
-    };
+    updateCartById = async (id, cart) =>
+        await this.persistence.updateById(this.entity, id, cart);
 
     /**
      * Create User Cart
      * @returns Object | Null
      */
-    createUserCart = async () => {
-        const results = await this.persistence.saveOne(this.entity, {
+    createUserCart = async () =>
+        await this.persistence.saveOne(this.entity, {
             products: []
         });
-        return results;
-    };
 
     /**
      * Delete User Cart
      * @param id _id(uuidv4) mongoose schema
      * @returns Object | Null
      */
-    deleteUserCart = async (id) => {
-        const results = await this.persistence.deleteById(this.entity, id);
-        return results;
-    };
+    deleteUserCart = async (id) =>
+        await this.persistence.deleteById(this.entity, id);
 }
-
-export default CartRepository;

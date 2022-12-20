@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 /**
  * Mongo database connection/operations
  */
-class MongoDataBase {
+export class MongoDataBase {
     /**
      * Constructor
      * @params url Mongo uri
@@ -86,5 +86,3 @@ class MongoDataBase {
     updateById = async (entity, id, data) =>
         await this.models[entity].findByIdAndUpdate(id, data);
 }
-
-export default MongoDataBase;

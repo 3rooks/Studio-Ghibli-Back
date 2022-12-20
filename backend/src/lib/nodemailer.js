@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export const mailTransporter = nodemailer.createTransport({
+export const transporter = nodemailer.createTransport({
     service: 'gmail',
     port: 587,
     auth: {
@@ -10,7 +10,7 @@ export const mailTransporter = nodemailer.createTransport({
 });
 
 export const sendEmail = async (email, message, template) =>
-    await mailTransporter.sendMail({
+    await transporter.sendMail({
         from: `"Studio Ghibli" ${process.env.GOOGLE_EMAIL}`,
         to: email,
         subject: message,
