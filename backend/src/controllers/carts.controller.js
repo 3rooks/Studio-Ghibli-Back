@@ -122,7 +122,7 @@ export const postPaymentController = async (req, res, next) => {
         const { pmid, amount } = req.body;
 
         const paymentInfo = {
-            id: pmid,
+            pmid,
             amount
         };
 

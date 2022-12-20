@@ -1,9 +1,5 @@
 import { Type } from '@sinclair/typebox';
 
-/**
- * Common types
- */
-
 export const idDTOSchema = Type.String({
     format: 'uuid',
     errorMessage: {
@@ -22,10 +18,6 @@ export const imageDTOSchema = Type.String({
         maxLength: '${0#} must have a maximum of 1000 letters'
     }
 });
-
-/**
- * User types
- */
 
 export const usernameDTOSchema = Type.String({
     minLength: 2,
@@ -57,10 +49,6 @@ export const passwordDTOSchema = Type.String({
         maxLength: '${0#} must have a maximum of 20 letters'
     }
 });
-
-/**
- * Product types
- */
 
 export const titleDTOSchema = Type.String({
     minLength: 5,
