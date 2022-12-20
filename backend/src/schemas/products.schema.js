@@ -16,7 +16,6 @@ const PRODUCT_SCHEMA = new Schema(
         originalTitle: { type: String },
         originalTitleRomanised: { type: String },
         image: { type: String },
-        movieBanner: { type: String },
         description: { type: String },
         director: { type: String },
         producer: { type: String },

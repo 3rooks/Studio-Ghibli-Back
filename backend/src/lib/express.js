@@ -1,23 +1,14 @@
-import resolvers from '#graphql/resolvers.js';
-import typeDefs from '#graphql/type-defs.js';
 import swaggerDoc from '#middlewares/swagger.middleware.js';
 import cartRoutes from '#routes/carts.routes.js';
 import productRoutes from '#routes/products.routes.js';
 import userRoutes from '#routes/users.routes.js';
 import { PUBLIC_PATH } from '#utils/paths.js';
-import { ApolloServer } from 'apollo-server-express';
 import cors from 'cors';
 import express from 'express';
 import swaggerUiExpress from 'swagger-ui-express';
 
 const expressApp = express();
 
-const server = new ApolloServer({
-    typeDefs,
-    resolvers
-});
-await server.start();
-expressApp.use(server.getMiddleware({}));
 // Middlewares
 expressApp.use(cors());
 expressApp.use(express.json());

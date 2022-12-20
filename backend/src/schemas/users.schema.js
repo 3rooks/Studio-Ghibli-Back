@@ -15,7 +15,6 @@ const USER_SCHEMA = new Schema(
         username: { type: String, require: true },
         email: { type: String, require: true, unique: true },
         password: { type: String, require: true },
-
         image: { type: String, default: '' },
         cart: {
             type: Schema.Types.String,
