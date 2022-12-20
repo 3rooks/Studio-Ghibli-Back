@@ -10,8 +10,8 @@ const getProducts = async (setProducts) => {
 		});
 
 		if (res.ok) {
-			const { result } = await res.json();
-			setProducts(result);
+			const { results } = await res.json();
+			setProducts(results);
 		}
 	} catch (error) {}
 };

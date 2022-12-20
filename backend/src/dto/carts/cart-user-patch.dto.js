@@ -1,10 +1,10 @@
-import { quantityDTOSchema } from '#constants/dto-types.js';
+import { paymentPriceDTOSchema } from '#constants/dto-types.js';
 import ajv from '#lib/ajv.js';
 import { Type } from '@sinclair/typebox';
 
 const patchCartDTOSchema = Type.Object(
     {
-        quantity: quantityDTOSchema
+        quantity: paymentPriceDTOSchema
     },
     {
         additionalProperties: false,

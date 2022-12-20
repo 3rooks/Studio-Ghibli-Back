@@ -1,35 +1,28 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import CartContainer from '../components/CartContainer';
 import Loader from '../components/loader/loader';
 import { getTokenLocalStorage } from '../constants/token-persistence';
 import getUserCart from '../lib/api/get-user-cart';
-import Landing from './Landing';
 
 const UserCart = () => {
-	const token = getTokenLocalStorage();
-	const [userCart, setUserCart] = useState(null);
+	const { id } = useParams();
+	const [userCart, setUserCart] = useState(undefined);
 
 	useEffect(() => {
+		const token = getTokenLocalStorage();
 		if (!token) return;
-		getUserCart(token, setUserCart);
-	}, [token]);
+		getUserCart(JSON.parse(token), id, setUserCart);
+	}, [id]);
 
 	return (
-		<Landing>
-			<div>
-				{userCart === null ? (
-					<Loader />
-				) : (
-					userCart.products.map((e) => (
-						<div key={e._id}>
-							<p>Title: {e.product.title}</p>
-							<p>Price: {e.product.price}</p>
-							<p>Quantity: {e.quantity}</p>
-							{/* <p>{console.log(e)}</p> */}
-						</div>
-					))
-				)}
-			</div>
-		</Landing>
+		<div>
+			{!userCart ? (
+				<Loader />
+			) : (
+				<CartContainer cart={userCart} setUserCart={setUserCart} />
+			)}
+		</div>
 	);
 };
 

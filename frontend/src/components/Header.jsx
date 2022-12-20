@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getTokenLocalStorage } from '../constants/token-persistence';
+import {
+	clearTokenLocalStorage,
+	getTokenLocalStorage
+} from '../constants/token-persistence';
 import getUserProfile from '../lib/api/get-user-profile';
+import { UserContext } from '../lib/context/UserContext';
 
 const Header = () => {
 	const navigate = useNavigate();
-
-	const token = getTokenLocalStorage();
-	const [user, setUser] = useState(null);
+	const value = useContext(UserContext);
+	const { user, setUser, token, setToken } = value;
 
 	useEffect(() => {
-		if (!token) return;
+		const tokenLocal = getTokenLocalStorage();
+		if (!tokenLocal) return;
+		setToken(JSON.parse(tokenLocal));
 		getUserProfile(token, setUser);
-	}, [token]);
+	}, [setToken, setUser, token]);
 
 	return (
 		<header className='container mx-auto flex justify-between px-16 h-16 items-center '>
@@ -25,33 +30,7 @@ const Header = () => {
 			</div>
 			<nav className='w-4/12'>
 				<ul className='flex justify-evenly gap-4'>
-					{user ? (
-						<>
-							<li className='flex gap-1 px-3 hover:underline'>
-								<img
-									src={user.image}
-									alt={user.username}
-									width='20px'
-									height='10px'
-									className='rounded-full'
-								/>
-								<Link to='/users/profiles'>
-									{user.username}
-								</Link>
-							</li>
-							<li className='hover:underline'>
-								<Link to='/users/carts'>Cart</Link>
-							</li>
-							<li>
-								<button
-									className='hover:underline'
-									onClick={() => UseHandleClick(navigate)}
-								>
-									logout
-								</button>
-							</li>
-						</>
-					) : (
+					{!user ? (
 						<>
 							<li className='hover:underline'>
 								<Link to='/about'>About</Link>
@@ -63,6 +42,39 @@ const Header = () => {
 								<Link to='/login'>Login</Link>
 							</li>
 						</>
+					) : (
+						<>
+							<li className='flex gap-1 px-3 hover:underline'>
+								<img
+									src={user.image || '/img/cat.png'}
+									width='25px'
+									height='25px'
+									className='rounded-full'
+								/>
+								<Link to='/users/profiles' className='pr-4'>
+									{user.username}
+								</Link>
+							</li>
+							<li className='hover:underline'>
+								<Link to={`/users/carts/${user.cart}`}>
+									Cart
+								</Link>
+							</li>
+							<li>
+								<button
+									className='hover:underline'
+									onClick={() =>
+										UseHandleClick(
+											navigate,
+											setToken,
+											setUser
+										)
+									}
+								>
+									logout
+								</button>
+							</li>
+						</>
 					)}
 				</ul>
 			</nav>
@@ -70,8 +82,10 @@ const Header = () => {
 	);
 };
 
-const UseHandleClick = (navigate) => {
-	window.localStorage.removeItem('jwt');
+const UseHandleClick = (navigate, setToken, setUser) => {
+	clearTokenLocalStorage('jwt');
+	setToken(undefined);
+	setUser(undefined);
 	navigate('/login');
 };
 

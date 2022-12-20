@@ -172,13 +172,24 @@ export const priceDTOSchema = Type.Number({
     }
 });
 
-export const quantityDTOSchema = Type.Number({
+export const paymentPriceDTOSchema = Type.Number({
     minimum: 1,
-    maximum: 100,
+    maximum: 1000000000,
     errorMessage: {
         type: '${0#} should be a number',
         format: '${0#} should be a number',
         minimum: '${0#} should be above 2',
-        maximum: '${0#} should be below 100'
+        maximum: '${0#} should be below 1000000000'
+    }
+});
+
+export const pmDTOSchema = Type.String({
+    minLength: 1,
+    maxLength: 27,
+    errorMessage: {
+        type: '${0#} must be a string',
+        format: '${0#} should be a string',
+        minLength: '${0#} must have at least 1 letters',
+        maxLength: '${0#} must have a maximum of 27 letters'
     }
 });

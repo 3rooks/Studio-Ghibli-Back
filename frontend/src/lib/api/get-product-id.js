@@ -10,8 +10,8 @@ const getProductById = async (id, setProductId) => {
 		});
 
 		if (res.ok) {
-			const { result } = await res.json();
-			setProductId(result);
+			const { results } = await res.json();
+			setProductId(results);
 		}
 	} catch (error) {
 		console.log(error);

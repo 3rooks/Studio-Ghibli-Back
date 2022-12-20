@@ -1,11 +1,10 @@
-import { idDTOSchema, quantityDTOSchema } from '#constants/dto-types.js';
+import { idDTOSchema } from '#constants/dto-types.js';
 import ajv from '#lib/ajv.js';
 import { Type } from '@sinclair/typebox';
 
 const postCartBodyDTOSchema = Type.Object(
     {
-        product: idDTOSchema,
-        quantity: quantityDTOSchema
+        product: idDTOSchema
     },
     {
         additionalProperties: false,

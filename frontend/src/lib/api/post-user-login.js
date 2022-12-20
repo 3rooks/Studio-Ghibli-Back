@@ -1,6 +1,8 @@
+import { saveTokenLocalStorage } from '../../constants/token-persistence';
 import { API_FETCH } from '../../constants/urls';
+import emitEvent from '../events/alertEvent';
 
-const postUserLogin = async (user, navigate) => {
+const postUserLogin = async (user, navigate, setToken) => {
 	try {
 		const res = await fetch(API_FETCH.USER_LOGIN, {
 			method: 'POST',
@@ -10,10 +12,14 @@ const postUserLogin = async (user, navigate) => {
 			body: JSON.stringify(user)
 		});
 
-		if (res.ok) {
+		if (res.status === 200) {
 			const { token } = await res.json();
-			window.localStorage.setItem('jwt', JSON.stringify(token));
+			setToken(token);
+			saveTokenLocalStorage('jwt', token);
 			navigate('/');
+		} else if (res.status === 401) {
+			const { errors } = await res.json();
+			emitEvent(errors);
 		}
 	} catch (error) {
 		console.log(error);

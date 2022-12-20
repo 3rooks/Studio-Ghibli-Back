@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ children, product }) => {
+const ProductCard = ({ product }) => {
 	const {
 		_id,
 		title,
@@ -9,12 +9,10 @@ const ProductCard = ({ children, product }) => {
 		originalTitleRomanised,
 		director
 	} = product;
-
 	return (
 		<article className='shadow-md rounded-md overflow-hidden relative pb-7'>
 			<img
 				src={image}
-				alt={title}
 				// className='grayscale hover:grayscale-0 delay-300'
 			/>
 			<div className='px-4 py-2'>
@@ -24,14 +22,12 @@ const ProductCard = ({ children, product }) => {
 				</p>
 				<p>Director: {director}</p>
 			</div>
-			{children || (
-				<Link
-					className='block w-full bg-slate-900 text-white rounded-md absolute bottom-0 text-center p-1'
-					to={`/products/${_id}`}
-				>
-					See more...
-				</Link>
-			)}
+			<Link
+				className='block w-full bg-slate-900 text-white rounded-md absolute bottom-0 text-center p-1'
+				to={`/products/${_id}`}
+			>
+				See more...
+			</Link>
 		</article>
 	);
 };

@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import { getTokenLocalStorage } from '../constants/token-persistence';
 import postUserLogin from '../lib/api/post-user-login';
-import Landing from './Landing';
+import { UserContext } from '../lib/context/UserContext';
 
 const Login = () => {
-	const token = getTokenLocalStorage();
+	const value = useContext(UserContext);
+	const { user, setUser, token, setToken } = value;
 
 	const navigate = useNavigate();
 	const { email, password, setEmail, setPassword } = useFormValues();
 
 	return (
-		<Landing>
+		<div>
 			{token ? (
 				<Navigate replace to={'/'} />
 			) : (
@@ -21,7 +21,13 @@ const Login = () => {
 						<h1 className='text-center text-lg'>Login...</h1>
 						<form
 							onSubmit={(ev) =>
-								handleSubmit(ev, email, password, navigate)
+								handleSubmit(
+									ev,
+									email,
+									password,
+									navigate,
+									setToken
+								)
 							}
 							className='flex flex-col p-4'
 						>
@@ -54,7 +60,7 @@ const Login = () => {
 					</div>
 				</>
 			)}
-		</Landing>
+		</div>
 	);
 };
 
@@ -79,14 +85,14 @@ const useFormValues = () => {
 	return { ...formValues, setEmail, setPassword };
 };
 
-const handleSubmit = (ev, email, password, navigate) => {
+const handleSubmit = (ev, email, password, navigate, setToken) => {
 	ev.preventDefault();
 	const user = {
 		email,
 		password
 	};
 
-	postUserLogin(user, navigate);
+	postUserLogin(user, navigate, setToken);
 };
 
 export default Login;

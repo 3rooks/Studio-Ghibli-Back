@@ -21,7 +21,7 @@ expressApp.use(server.getMiddleware({}));
 // Middlewares
 expressApp.use(cors());
 expressApp.use(express.json());
-expressApp.use(express.urlencoded({ extended: false }));
+expressApp.use(express.urlencoded({ extended: true }));
 expressApp.use(express.static(PUBLIC_PATH));
 // Template engine
 // expressApp.set('views', VIEWS_PATH);

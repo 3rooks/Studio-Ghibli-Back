@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 import Loader from '../components/loader/loader';
 import ProductInfo from '../components/ProductInfo';
 import getProductById from '../lib/api/get-product-id';
-import Landing from './Landing';
 
 const Product = () => {
 	const { id } = useParams();
-	const [product, setProduct] = useState(null);
+	const [product, setProduct] = useState(undefined);
 
 	useEffect(() => {
 		if (!id) return;
@@ -15,15 +14,7 @@ const Product = () => {
 	}, [id]);
 
 	return (
-		<Landing>
-			<div>
-				{product === null ? (
-					<Loader />
-				) : (
-					<ProductInfo product={product} />
-				)}
-			</div>
-		</Landing>
+		<div>{product ? <ProductInfo product={product} /> : <Loader />}</div>
 	);
 };
 

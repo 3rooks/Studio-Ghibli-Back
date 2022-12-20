@@ -1,18 +1,18 @@
 import { API_FETCH } from '../../constants/urls';
 
-const getUserCart = async (token, setUserCart) => {
+const getUserCart = async (token, id, setUserCart) => {
 	try {
-		const res = await fetch(API_FETCH.GET_USER_CART, {
+		const res = await fetch(`${API_FETCH.USER_CART}/${id}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				authorization: `Bearer ${JSON.parse(token)}`
+				authorization: `Bearer ${token}`
 			}
 		});
 
-		if (res.ok) {
-			const { result } = await res.json();
-			setUserCart(result);
+		if (res.status === 200) {
+			const { results } = await res.json();
+			setUserCart(results);
 		}
 	} catch (error) {
 		console.log(error);

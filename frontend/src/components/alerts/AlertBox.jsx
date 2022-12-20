@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const AlertBox = (props) => {
+const AlertBox = () => {
 	const alert = useAlert();
 
-	return <div className='container bg-lime-500'>{alert?.message}</div>;
+	return (
+		<div className='container bg-gray-400 w-100% text-center text-white'>
+			{alert?.message}
+		</div>
+	);
 };
 
 const useAlert = () => {
@@ -11,7 +15,7 @@ const useAlert = () => {
 
 	useEffect(() => {
 		if (!alert) return;
-		const timeoutId = setTimeout(() => setAlert(), 2500);
+		const timeoutId = setTimeout(() => setAlert(), 2000);
 
 		return () => clearTimeout(timeoutId);
 	}, [alert]);

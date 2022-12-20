@@ -1,7 +1,11 @@
-import emitEvent from '../lib/events/alertEvent';
-import AlertBox from './alerts/AlertBox';
+import { useContext } from 'react';
+import addUserCart from '../lib/api/add-user-cart';
+import { UserContext } from '../lib/context/UserContext';
 
 const ProductInfo = ({ product }) => {
+	const value = useContext(UserContext);
+	const { user, setUser, token, setToken } = value;
+
 	const {
 		_id,
 		title,
@@ -16,25 +20,27 @@ const ProductInfo = ({ product }) => {
 		info,
 		price
 	} = product;
+
 	return (
-		<article className='flex container mx-auto gap-4'>
+		<article className='flex container mx-auto gap-4 px-4'>
 			<div className='w-1/2'>
-				<img src={image} alt={title} className='block shadow-md' />
+				<img src={image} className='block shadow-md' />
 			</div>
 			<div className='w-1/2 text-center'>
-				<AlertBox />
-				<button
-					key={_id}
-					className='bg-red-500 rounded-sm px-4'
-					onClick={() => {
-						emitEvent('Product added into cart');
-					}}
-				>
-					Add to cart
-				</button>
-				<br />
-				<br />
-				<p className='font-bold'>Title</p>
+				{token && (
+					<button
+						className='bg-red-500 rounded-sm px-4'
+						onClick={() => {
+							const newProduct = {
+								product: _id
+							};
+							addUserCart(token, user.cart, newProduct);
+						}}
+					>
+						Add to cart
+					</button>
+				)}
+				<p className='font-bold mt-4'>Title</p>
 				<p>{title}</p>
 				<hr />
 				<br />
