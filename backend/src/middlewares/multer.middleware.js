@@ -1,7 +1,6 @@
 import cloudinary from '#config/cloudinary.js';
 import { IMAGE_FORMATS } from '#constants/image-formats.js';
 import { USER_RESPONSE } from '#constants/response-status-json.js';
-import { InvalidMimetypeFormatException } from '#errors/invalid-mimetype.exception.js';
 import { IMG_PATH } from '#utils/paths.js';
 import { unlink } from 'fs/promises';
 import multer from 'multer';
@@ -23,7 +22,7 @@ const upload = multer({
     limits: { fileSize: 10000000 },
     fileFilter: (req, file, cb) => {
         if (!Object.values(IMAGE_FORMATS).includes(file.mimetype))
-            cb(new InvalidMimetypeFormatException());
+            cb(new Error('Incorrect image format'));
         else cb(null, true);
     }
 }).single('image');
@@ -36,7 +35,6 @@ const uploadCloud = async (req, res, next) => {
         await unlink(path);
         next();
     } catch (error) {
-        console.log(error);
         res.status(503).json(USER_RESPONSE[503]);
     }
 };

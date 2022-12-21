@@ -1,3 +1,4 @@
+import httpLogger from '#middlewares/logger.middleware.js';
 import swaggerDoc from '#middlewares/swagger.middleware.js';
 import cartRoutes from '#routes/carts.routes.js';
 import productRoutes from '#routes/products.routes.js';
@@ -9,22 +10,24 @@ import swaggerUiExpress from 'swagger-ui-express';
 
 const expressApp = express();
 
-// Middlewares
 expressApp.use(cors());
 expressApp.use(express.json());
 expressApp.use(express.urlencoded({ extended: true }));
 expressApp.use(express.static(PUBLIC_PATH));
-// Template engine
-// expressApp.set('views', VIEWS_PATH);
-// expressApp.set('view engine', 'ejs');
+expressApp.use((req, res, next) => {
+    httpLogger(req, res);
+    next();
+});
 
-// logger
-// expressApp.use((req, res, next) => {
-//     httpLogger(req, res);
-//     next();
-// });
+expressApp.use('/api', userRoutes);
+expressApp.use('/api', productRoutes);
+expressApp.use('/api', cartRoutes);
+expressApp.use(
+    '/docs',
+    swaggerUiExpress.serve,
+    swaggerUiExpress.setup(swaggerDoc)
+);
 
-// handler error
 expressApp.use((err, req, res, next) => {
     res.err = {
         message: err.message,
@@ -35,15 +38,5 @@ expressApp.use((err, req, res, next) => {
 expressApp.use((err, req, res, next) => {
     return res.status(500).send(err.message);
 });
-
-expressApp.use(
-    '/docs',
-    swaggerUiExpress.serve,
-    swaggerUiExpress.setup(swaggerDoc)
-);
-// Routes
-expressApp.use('/api', userRoutes);
-expressApp.use('/api', productRoutes);
-expressApp.use('/api', cartRoutes);
 
 export default expressApp;

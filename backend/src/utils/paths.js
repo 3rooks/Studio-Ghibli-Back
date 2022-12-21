@@ -12,6 +12,7 @@ const CART_PATH = resolve(__dirname, '../files/carts.json');
 const PRODUCT_PATH = resolve(__dirname, '../files/products.json');
 const PAYMENT_PATH = resolve(__dirname, '../views/payment.ejs');
 const REGISTER_PATH = resolve(__dirname, '../views/register.ejs');
+const ERROR_PATH = resolve(__dirname, '../errors/errors.txt');
 
 export {
     PUBLIC_PATH,
@@ -21,5 +22,6 @@ export {
     CART_PATH,
     PRODUCT_PATH,
     PAYMENT_PATH,
-    REGISTER_PATH
+    REGISTER_PATH,
+    ERROR_PATH
 };
