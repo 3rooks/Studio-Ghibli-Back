@@ -17,4 +17,5 @@ const userAuth = async (req, res, next) => {
         return res.status(401).json(USER_RESPONSE[401]);
     }
 };
+
 export default userAuth;

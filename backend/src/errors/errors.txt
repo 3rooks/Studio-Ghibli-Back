@@ -1,0 +1,1304 @@
+INFO [2022-12-21 17:12:44.1 +0000] (20856): request completed
+    req: {
+      "id": "4dfbd9a4-ff35-4b0b-b3be-d9ce0af052ba",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "93",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61046
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2806
+INFO [2022-12-21 17:12:44.1 +0000] (20856): request completed
+    req: {
+      "id": "55c7d042-5262-4a92-bfe5-a249af4aad21",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "66",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61055
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-yEHFlguBLaxconwZ79S1yrRSRx0\""
+      }
+    }
+    responseTime: 60
+INFO [2022-12-21 17:13:06.1 +0000] (20856): request completed
+    req: {
+      "id": "8678c1c2-3a3a-43de-89cb-5abdea4a5961",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "82",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61060
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2312
+INFO [2022-12-21 17:13:06.1 +0000] (20856): request completed
+    req: {
+      "id": "fc623910-f5a6-497c-bd1e-62a64ecc0a8d",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61067
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-w+NH4wQxJuo8IPpxOeeyLvtt6+0\""
+      }
+    }
+    responseTime: 57
+INFO [2022-12-21 17:17:40.1 +0000] (22712): request completed
+    req: {
+      "id": "63717f68-d7bc-480f-98a4-46fbd0911bdc",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "85",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61139
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2546
+INFO [2022-12-21 17:17:40.1 +0000] (22712): request completed
+    req: {
+      "id": "a74e164c-2226-458c-946b-8550f1a0792e",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "62",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61146
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-XBRBa1rWqysN2+94Ua2LId25zLo\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 17:19:19.1 +0000] (25348): request completed
+    req: {
+      "id": "24889622-65f1-4ccf-9793-a80543957d54",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "97",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61176
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2109
+INFO [2022-12-21 17:19:19.1 +0000] (25348): request completed
+    req: {
+      "id": "30917705-eb56-42e1-8dea-dc81f64e4f0a",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "68",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61184
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-uXKtdihh+Hj4oGU4ZTHFi65fV1U\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 17:22:07.1 +0000] (21112): request completed
+    req: {
+      "id": "9e164d95-42f1-4abc-ae2a-9d54455953ea",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "98",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61235
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 1942
+INFO [2022-12-21 17:22:07.1 +0000] (21112): request completed
+    req: {
+      "id": "51e65c05-3d17-4183-91bb-451f710ca101",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "64",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61242
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-mglN3fcLKx+o1AHselwC8YCEAR4\""
+      }
+    }
+    responseTime: 60
+INFO [2022-12-21 17:30:04.1 +0000] (23264): request completed
+    req: {
+      "id": "3b2194a2-e53d-4c24-ac6b-be61090e9e5b",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "92",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61460
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2224
+INFO [2022-12-21 17:31:18.1 +0000] (23264): request aborted
+    req: {
+      "id": "5d78445a-b153-4deb-a448-a364703d0b71",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "90",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 61572
+    }
+    res: {
+      "statusCode": null,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*"
+      }
+    }
+    responseTime: 9996
+INFO [2022-12-21 17:32:29.1 +0000] (27256): request aborted
+    req: {
+      "id": "5d6002f8-0368-4ed2-bfe0-5221219a6c53",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "86",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 62339
+    }
+    res: {
+      "statusCode": null,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*"
+      }
+    }
+    responseTime: 9990
+INFO [2022-12-21 17:39:52.1 +0000] (19372): request completed
+    req: {
+      "id": "0712006c-eca0-4f87-b626-90d28ccd6888",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "90",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 64033
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 1834
+INFO [2022-12-21 17:39:52.1 +0000] (19372): request completed
+    req: {
+      "id": "8bd6c505-7f4f-4846-9318-623cf21b2c4c",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "70",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 64041
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-fDFY35bQ8olXVRLXuj5kV903NnU\""
+      }
+    }
+    responseTime: 62
+INFO [2022-12-21 17:40:23.1 +0000] (26696): request completed
+    req: {
+      "id": "751d0aa8-6910-4def-b287-a30e5610e0a0",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "87",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 64054
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2226
+INFO [2022-12-21 17:40:23.1 +0000] (26696): request completed
+    req: {
+      "id": "db3927f5-234a-4a3e-82d0-7040ce0223c7",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "64",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 64062
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-hW0YP5xhR2y1a6cwAEG/5h14OWI\""
+      }
+    }
+    responseTime: 61
+INFO [2022-12-21 17:43:41.1 +0000] (20388): request completed
+    req: {
+      "id": "390503fc-272a-4c05-bee2-b4d0f5c0c439",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "88",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 49844
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2373
+INFO [2022-12-21 17:43:41.1 +0000] (20388): request completed
+    req: {
+      "id": "014f798a-2548-43e8-af5e-612d294cc96d",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 49881
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-HDlCX91heQrvsYix7YXkuGOPbyM\""
+      }
+    }
+    responseTime: 66
+INFO [2022-12-21 17:46:43.1 +0000] (20068): request completed
+    req: {
+      "id": "84816843-89c1-42e0-ade0-d0a494f9c788",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "87",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50818
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3100
+INFO [2022-12-21 17:46:59.1 +0000] (20068): request completed
+    req: {
+      "id": "7de03ab4-7ebe-4059-a97f-9ed0618c1319",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "91",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50828
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3205
+INFO [2022-12-21 17:46:59.1 +0000] (20068): request completed
+    req: {
+      "id": "269b147e-d1b8-4c4b-953d-c391693445b0",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50835
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-8pWR1a+Yr15+JC3aZh5zEa5SZSo\""
+      }
+    }
+    responseTime: 61
+INFO [2022-12-21 17:48:23.1 +0000] (23500): request completed
+    req: {
+      "id": "41163549-302b-4156-87c1-5957bef28bce",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "84",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50860
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2626
+INFO [2022-12-21 17:48:23.1 +0000] (23500): request completed
+    req: {
+      "id": "670c742c-60c6-4351-ac72-3be313cd3c4d",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50867
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-vymtffhLqNQvjQ81+GtzrZm6XvU\""
+      }
+    }
+    responseTime: 58
+INFO [2022-12-21 17:48:56.1 +0000] (23500): request completed
+    req: {
+      "id": "34139e5f-1c1a-4d32-ad84-a9171afa700f",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "87",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50872
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3476
+INFO [2022-12-21 17:48:56.1 +0000] (23500): request completed
+    req: {
+      "id": "0f4f01e3-e7c2-4ac0-beba-f963a6353857",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50879
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-mvu7I1ZO08K3Vu/KREOXYNDjet4\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 17:49:47.1 +0000] (16900): request completed
+    req: {
+      "id": "c1159e25-392c-4941-a6d1-de3e7e320c98",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "100",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50894
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3185
+INFO [2022-12-21 17:49:47.1 +0000] (16900): request completed
+    req: {
+      "id": "4c94ccc3-d5aa-4a9a-a3ae-92f3b1115dfc",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "73",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50901
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-eMsQVUa236+9tSScQklFepXILYI\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 17:51:04.1 +0000] (16968): request completed
+    req: {
+      "id": "f3a0b32a-6ba8-4ce1-94f9-dd8067ff673f",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "93",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50949
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2524
+INFO [2022-12-21 17:51:04.1 +0000] (16968): request completed
+    req: {
+      "id": "d4595b7d-b0c0-486d-9034-76fcb6b75aca",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "64",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50956
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-k0SOVej0j5gQuDgUJiPywxfe7G8\""
+      }
+    }
+    responseTime: 61
+INFO [2022-12-21 17:51:47.1 +0000] (3496): request completed
+    req: {
+      "id": "269cd771-8c01-4870-bf35-caabed9ed268",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "89",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50966
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2128
+INFO [2022-12-21 17:51:47.1 +0000] (3496): request completed
+    req: {
+      "id": "7c94ad3d-44e3-45d1-931e-a83fe85f4622",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "68",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50973
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-s08INKxAtHTrjESGunpnIE3wRKI\""
+      }
+    }
+    responseTime: 60
+INFO [2022-12-21 17:51:47.1 +0000] (3496): request completed
+    req: {
+      "id": "f1e282d2-7515-4e52-a06f-cadf762f2298",
+      "method": "DELETE",
+      "url": "/api/unregister",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFmNGI1NDcyLTY1MmQtNGMzNy05ZTA4LTViNzYyYjUzMGEwMiIsImlhdCI6MTY3MTY0NTEwNywiZXhwIjoxNjcyMjQ5OTA3fQ.Q_BFtyrgwymRyOMXvElAxTC5MBlvpXRQyvIoZxtfNM-eZqPo6sNPgqRkoUpk-r2YolBK0cYU5xK92wo7NuBhbw",
+        "content-type": "application/json",
+        "content-length": "30",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50977
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-C48jKni6wKgJDAQB2krTwTbvtjM\""
+      }
+    }
+    responseTime: 57
+INFO [2022-12-21 17:52:14.1 +0000] (24172): request completed
+    req: {
+      "id": "fdee76a0-f4bf-49b3-806f-6ac651e9d7be",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "89",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50983
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2974
+INFO [2022-12-21 17:52:14.1 +0000] (24172): request completed
+    req: {
+      "id": "36c7302b-0740-4dc6-9e7f-35f3291fd75e",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "67",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50990
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-RCcgbPhU5nLQMAQI7Cl+j+TLcTo\""
+      }
+    }
+    responseTime: 61
+INFO [2022-12-21 17:52:14.1 +0000] (24172): request completed
+    req: {
+      "id": "92aae637-d762-433c-93b7-4d3a6cc17310",
+      "method": "DELETE",
+      "url": "/api/unregister",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkY2U0YjViLWRlMjgtNGIxMC04MzljLTdjYzM3Yjk0Mjc5OCIsImlhdCI6MTY3MTY0NTEzNCwiZXhwIjoxNjcyMjQ5OTM0fQ.91yuOzZfk9B8sKjS7xtX42x-cCmDbt-YZXZGDQpEeXdyizw4kNeBoUP7k2I1HPFZwFpq9fIQMWVkCAueotALNA",
+        "content-type": "application/json",
+        "content-length": "30",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 50994
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-C48jKni6wKgJDAQB2krTwTbvtjM\""
+      }
+    }
+    responseTime: 57
+INFO [2022-12-21 17:53:13.1 +0000] (9044): request completed
+    req: {
+      "id": "e19119fc-c706-4441-8711-5ded96dec65e",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "90",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51006
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3069
+INFO [2022-12-21 17:53:13.1 +0000] (9044): request completed
+    req: {
+      "id": "63070b99-79d3-439a-aa53-057587f73d73",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "61",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51013
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-Kwgqmld0t53lh82aid10HoNIA9A\""
+      }
+    }
+    responseTime: 66
+INFO [2022-12-21 17:53:13.1 +0000] (9044): request completed
+    req: {
+      "id": "d1e6823b-d275-4e9f-8748-fdfabf6b985f",
+      "method": "DELETE",
+      "url": "/api/unregister",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxMzQxYzk2LTFlNWMtNDI4NS1hOTgyLWViZTNkOTgyNDA1NiIsImlhdCI6MTY3MTY0NTE5MywiZXhwIjoxNjcyMjQ5OTkzfQ.6VDgap0qsuk86ZrtYCewHwzXTGUImE-AwehmOEMhPxu8uCc_PEytjXcQdGq-pxAEBiY98tw94-06rFICEZADGw",
+        "content-type": "application/json",
+        "content-length": "30",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51017
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-C48jKni6wKgJDAQB2krTwTbvtjM\""
+      }
+    }
+    responseTime: 57
+INFO [2022-12-21 17:57:26.1 +0000] (23968): request completed
+    req: {
+      "id": "7d92dd05-9588-4b4b-8fbd-9fadfcf70a40",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "89",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51122
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 3336
+INFO [2022-12-21 17:57:26.1 +0000] (23968): request completed
+    req: {
+      "id": "b7f88c26-cc21-4fb8-abfe-87eeeb35d95b",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "64",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51129
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-O71jERCwFqBuARBm2H1U2ATv508\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 17:57:26.1 +0000] (23968): request completed
+    req: {
+      "id": "7d8574d5-a4c0-4f6c-880c-d4bbad93ec09",
+      "method": "DELETE",
+      "url": "/api/unregister",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZiYmVkMjNmLWFiZTctNGQwOC05M2U3LWUyNmQ5MzZkMDU5YSIsImlhdCI6MTY3MTY0NTQ0NiwiZXhwIjoxNjcyMjUwMjQ2fQ.zWa2a-XJXABO2J37_AaeNOdtDvV4qrjvCWH_-kVPhm-x8ueJQ7tjEk2pzFutjhJg4LEp3ljC2b92aD3ti1YQ8A",
+        "content-type": "application/json",
+        "content-length": "30",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51133
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-C48jKni6wKgJDAQB2krTwTbvtjM\""
+      }
+    }
+    responseTime: 57
+INFO [2022-12-21 18:00:13.1 +0000] (25436): request completed
+    req: {
+      "id": "37b5c07f-ca23-4e91-a56a-41e605ec1d4b",
+      "method": "POST",
+      "url": "/api/register",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "94",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51208
+    }
+    res: {
+      "statusCode": 201,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-bXA08AckHXR/HYf6gu+AfwHNJKk\""
+      }
+    }
+    responseTime: 2465
+INFO [2022-12-21 18:00:13.1 +0000] (25436): request completed
+    req: {
+      "id": "77b8cd25-d922-4de2-a523-92327e1e39b3",
+      "method": "POST",
+      "url": "/api/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "content-type": "application/json",
+        "content-length": "66",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51216
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "242",
+        "etag": "W/\"f2-dURWouAuUXaZhEObohSSlV/80Ig\""
+      }
+    }
+    responseTime: 59
+INFO [2022-12-21 18:00:13.1 +0000] (25436): request completed
+    req: {
+      "id": "e2bdab58-67b8-474b-bace-37b7e974d22d",
+      "method": "DELETE",
+      "url": "/api/unregister",
+      "query": {},
+      "params": {},
+      "headers": {
+        "user-agent": "got (https://github.com/sindresorhus/got)",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZGY5NGY4LTIzNDctNGZjMy1iZWE4LWU0ZDQ5YjM2YzBjNCIsImlhdCI6MTY3MTY0NTYxMywiZXhwIjoxNjcyMjUwNDEzfQ.W_7N2JCfpNMTUotwtal9aL97pZ3GmRB5jo0MelGedeiq8uS6reg_kv40H7y0YlYGQimvuZgUPzZrQSG2k0PENA",
+        "content-type": "application/json",
+        "content-length": "30",
+        "accept-encoding": "gzip, deflate, br",
+        "host": "localhost:8080",
+        "connection": "close"
+      },
+      "remoteAddress": "::ffff:127.0.0.1",
+      "remotePort": 51220
+    }
+    res: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "26",
+        "etag": "W/\"1a-C48jKni6wKgJDAQB2krTwTbvtjM\""
+      }
+    }
+    responseTime: 57
