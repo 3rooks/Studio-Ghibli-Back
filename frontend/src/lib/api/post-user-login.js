@@ -17,9 +17,10 @@ const postUserLogin = async (user, navigate, setToken) => {
 			setToken(token);
 			saveTokenLocalStorage('jwt', token);
 			navigate('/');
+		} else if (res.status === 400) {
+			emitEvent('invalid inputs');
 		} else if (res.status === 401) {
-			const { errors } = await res.json();
-			emitEvent(errors);
+			emitEvent('user unauthorized');
 		}
 	} catch (error) {
 		console.log(error);

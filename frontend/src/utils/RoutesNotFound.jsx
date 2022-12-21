@@ -4,7 +4,14 @@ const RoutesNotFound = ({ children }) => {
 	return (
 		<Routes>
 			{children}
-			<Route path='*' element={<h1>NOT FOUND</h1>} />
+			<Route
+				path='*'
+				element={
+					<h1 className='text-center'>
+						<b>404 / NOT FOUND</b>
+					</h1>
+				}
+			/>
 		</Routes>
 	);
 };
