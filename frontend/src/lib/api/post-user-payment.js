@@ -2,9 +2,8 @@ import { API_FETCH } from '../../constants/urls';
 import emitEvent from '../events/alertEvent';
 
 const postUserPayment = async (token, data, navigate) => {
-	console.log(`${API_FETCH.USER_CART}/payments`);
 	try {
-		const res = await fetch(`${API_FETCH.USER_CART}/user/payments`, {
+		const res = await fetch(`${API_FETCH.USER_CART}/payments-products`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

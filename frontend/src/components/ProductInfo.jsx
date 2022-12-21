@@ -31,10 +31,7 @@ const ProductInfo = ({ product }) => {
 					<button
 						className='bg-red-500 rounded-sm px-4'
 						onClick={() => {
-							const newProduct = {
-								product: _id
-							};
-							addUserCart(token, user.cart, newProduct);
+							addUserCart(token, user.cart, _id);
 						}}
 					>
 						Add to cart

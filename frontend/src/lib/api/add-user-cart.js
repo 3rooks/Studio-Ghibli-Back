@@ -1,16 +1,18 @@
 import { API_FETCH } from '../../constants/urls';
 import emitEvent from '../events/alertEvent';
 
-const addUserCart = async (token, cartId, product) => {
+const addUserCart = async (token, cartId, productId) => {
 	try {
-		const res = await fetch(`${API_FETCH.USER_CART}/${cartId}`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				authorization: `Bearer ${token}`
-			},
-			body: JSON.stringify(product)
-		});
+		const res = await fetch(
+			`${API_FETCH.USER_CART}/${cartId}/${productId}`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					authorization: `Bearer ${token}`
+				}
+			}
+		);
 
 		if (res.status === 202) {
 			emitEvent('product added');
