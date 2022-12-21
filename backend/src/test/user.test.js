@@ -1,10 +1,10 @@
+import expectField from '#test/expects/fields-expect.js';
 import expectStatusCode from '#test/expects/status-expect.js';
 import { USER_A, USER_B } from '#test/utils/faker-data.js';
 import { unregister, userRegisterLogin } from '#test/utils/fetch-enpoints.js';
+import { FETCH } from '#test/utils/fetch-url.js';
 import setupTests from '#test/utils/setup-tests.js';
 import test from 'ava';
-import expectField from './expects/fields-expect.js';
-import { FETCH } from './utils/test-env.js';
 
 setupTests(test);
 let userToken;
@@ -87,8 +87,6 @@ test('Register failed - Unnecesary fields', async (t) => {
     expectStatusCode(t, 400, response);
     expectField(t, field, response);
 });
-
-// Login
 
 test('Login succesfully', async (t) => {
     const { email, password } = USER_A;
