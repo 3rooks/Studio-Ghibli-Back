@@ -8,23 +8,19 @@ components:
             bearerFormat: JWT
     # Request examples
     requestBodies:
-        AddProductInCart:
+        PaymentInfo:
             type: Object
             properties:
-                product:
+                pmid:
                     type: String
-                quantity:
+                amoung:
+                    type: Number
+                total:
                     type: Number
             example:
-                product: 'productId(uuidv4)'
-                quantity: 1
-        ChangeQuantityProduct:
-            type: Object
-            properties:
-                quantity:
-                    type: Number
-            example:
-                quantity: 2
+                pmid: pm_123456789
+                amount: 100
+                total: 100
     # OK response
     responseBodies:
         UserCart:
@@ -46,6 +42,13 @@ components:
                     type: Object
             example:
                 results: cart updated
+        PaymentSuccesfully:
+            type: Object
+            properties:
+                results:
+                    type: Object
+            example:
+                results: payment succesfully
     # Error response
     responseErrorBodies:
         Unauthorized:
@@ -128,6 +131,7 @@ paths:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/CartNotFound'
+    /api/carts/{cartId}/{productId}:
         post:
             summary: Add a product to the user cart
             tags:
@@ -138,16 +142,15 @@ paths:
                 - name: cartId
                   in: path
                   required: true
-                  description: CartId(uuidv4)
+                  description: cartId(uuidV4)
                   schema:
                       type: string
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            $ref: '#/components/requestBodies/AddProductInCart'
+                - name: productId
+                  in: path
+                  required: true
+                  description: productId(uuidV4)
+                  schema:
+                      type: string
             responses:
                 '202':
                     description: OK (cart updated)
@@ -157,7 +160,7 @@ paths:
                                 type: object
                                 $ref: '#/components/responseBodies/UserCartUpdated'
                 '400':
-                    description: Invalid Body | Params Fields - Bad Request
+                    description: Invalid Params Fields - Bad Request
                     content:
                         application/json:
                             schema:
@@ -184,62 +187,6 @@ paths:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/ProductConflict'
-    /api/carts/{cartId}/{productId}:
-        patch:
-            summary: Updates the quantity of a product in the user's cart
-            tags:
-                - Carts
-            security:
-                - bearerAuth: []
-            parameters:
-                - name: cartId
-                  in: path
-                  required: true
-                  description: cartId(uuidV4)
-                  schema:
-                      type: string
-                - name: productId
-                  in: path
-                  required: true
-                  description: productId(uuidV4)
-                  schema:
-                      type: string
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            $ref: '#/components/requestBodies/ChangeQuantityProduct'
-            responses:
-                '202':
-                    description: OK (cart updated)
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                $ref: '#/components/responseBodies/UserCartUpdated'
-                '400':
-                    description: Invalid Body | Params Fields - Bad Request
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                $ref: '#/components/responseErrorBodies/WrongFields'
-                '401':
-                    description: Invalid Credentials | Token - Unauthorized
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                $ref: '#/components/responseErrorBodies/Unauthorized'
-                '404':
-                    description: Invalid cartId|productId(uuidv4) - Not Found
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                $ref: '#/components/responseErrorBodies/BothNotFound'
         delete:
             summary: Removes a product from the user's cart
             tags:
@@ -283,6 +230,49 @@ paths:
                                 $ref: '#/components/responseErrorBodies/Unauthorized'
                 '404':
                     description: Invalid cartId|productId(uuidv4) - Not Found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/BothNotFound'
+    /api/carts/payments-products:
+        post:
+            summary: Add a product to the user cart
+            tags:
+                - Carts
+            security:
+                - bearerAuth: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: '#/components/requestBodies/PaymentInfo'
+            responses:
+                '200':
+                    description: OK (payment succesfully)
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseBodies/PaymentSuccesfully'
+                '400':
+                    description: Invalid Body Fields - Bad Request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/WrongFields'
+                '401':
+                    description: Invalid Credentials | Token - Unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/Unauthorized'
+                '404':
+                    description: Invalid cartId(uuidv4) - Not Found
                     content:
                         application/json:
                             schema:
