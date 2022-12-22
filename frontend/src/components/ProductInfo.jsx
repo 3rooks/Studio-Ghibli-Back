@@ -24,7 +24,7 @@ const ProductInfo = ({ product }) => {
 
 	return (
 		<article className='block gap-10 px-6 sm:block md:flex md:px-12 lg:px-28 xl:px-60 2xl:px-80'>
-			<div className='w-full xl:w-1/2 md:w-2/3 2xl:w-1/2 mb-4'>
+			<div className='w-full md:w-1/2 mb-4'>
 				<div className={user && 'mb-3'}>
 					{user && (
 						<Button
