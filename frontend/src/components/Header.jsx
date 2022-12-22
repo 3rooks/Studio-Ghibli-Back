@@ -25,7 +25,7 @@ const Header = () => {
 				</Link>
 			</div>
 			<nav className='w-4/12'>
-				<ul className='flex justify-evenly gap-4'>
+				<ul className='flex justify-between gap-4'>
 					{!user ? (
 						<>
 							<li className='hover:underline'>
@@ -40,18 +40,20 @@ const Header = () => {
 						</>
 					) : (
 						<>
-							<li className='flex gap-1 px-3 hover:underline'>
-								<img
-									src={user.image || '/img/cat.png'}
-									width='25px'
-									height='25px'
-									className='rounded-full'
-								/>
+							<li className='hover:underline'>
 								<Link
 									to='/users/profiles'
-									className='pr-3 capitalize'
+									className='flex capitalize'
 								>
-									{user.username}
+									<img
+										src={user.image || '/img/cat.png'}
+										width='25px'
+										height='25px'
+										className='rounded-full'
+									/>
+									<span className='pl-1'>
+										{user.username}
+									</span>
 								</Link>
 							</li>
 							<li className='hover:underline'>
