@@ -17,13 +17,13 @@ const addUserCart = async (token, cartId, productId) => {
 		if (res.status === 202) {
 			emitEvent('product added');
 		} else if (res.status === 400) {
-			emitEvent('wrong inputs');
+			emitEvent('invalid params');
 		} else if (res.status === 401) {
-			emitEvent('user unauthorized');
+			emitEvent('unauthorized');
 		} else if (res.status === 404) {
-			emitEvent('product not found');
+			emitEvent('product not exist');
 		} else if (res.status === 409) {
-			emitEvent('product already exist into cart');
+			emitEvent('product already exists in your cart');
 		}
 	} catch (error) {
 		console.log(error);

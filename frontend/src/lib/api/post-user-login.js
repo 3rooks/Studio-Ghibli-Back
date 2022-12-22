@@ -20,7 +20,7 @@ const postUserLogin = async (user, navigate, setToken) => {
 		} else if (res.status === 400) {
 			emitEvent('invalid inputs');
 		} else if (res.status === 401) {
-			emitEvent('user unauthorized');
+			emitEvent('unauthorized');
 		}
 	} catch (error) {
 		console.log(error);

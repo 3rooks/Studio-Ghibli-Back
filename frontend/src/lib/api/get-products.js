@@ -1,4 +1,5 @@
 import { API_FETCH } from '../../constants/urls';
+import emitEvent from '../events/alertEvent';
 
 const getProducts = async (setProducts) => {
 	try {
@@ -9,11 +10,15 @@ const getProducts = async (setProducts) => {
 			}
 		});
 
-		if (res.ok) {
+		if (res.status === 200) {
 			const { results } = await res.json();
 			setProducts(results);
+		} else {
+			emitEvent('error get products');
 		}
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export default getProducts;
