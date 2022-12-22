@@ -1,5 +1,5 @@
-import { clearTokenLocalStorage } from '../../constants/token-persistence';
 import deleteUser from '../../lib/api/delete-user';
+import Button from '../Button';
 
 const DeleteUser = ({ setContent, token, setToken, setUser, navigate }) => {
 	return setContent(
@@ -8,9 +8,9 @@ const DeleteUser = ({ setContent, token, setToken, setUser, navigate }) => {
 				handleSubmit(ev, token, setToken, setContent, setUser, navigate)
 			}
 		>
-			<p>ARE U SURE?</p>
+			<p>DELETE ACCOUNT</p>
 			<label>
-				TYPE CURRENT PASSWORD:
+				CURRENT PASSWORD:
 				<input
 					className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
 					focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -22,25 +22,29 @@ const DeleteUser = ({ setContent, token, setToken, setUser, navigate }) => {
 					required={true}
 				/>
 			</label>
-			<button type='Submit'>SEND</button>
+			<div className='my-2'>
+				<Button>
+					<i>Send</i>
+				</Button>
+			</div>
 		</form>
 	);
 };
 
 export default DeleteUser;
 
-const handleSubmit = (ev, token, setToken, setContent, setUser, navigate) => {
+const handleSubmit = async (
+	ev,
+	token,
+	setToken,
+	setContent,
+	setUser,
+	navigate
+) => {
 	ev.preventDefault();
 
-	const userDel = {
+	const user = {
 		password: ev.target.currpass.value
 	};
-	deleteUser(token, userDel);
-
-	clearTokenLocalStorage('jwt');
-	setToken(undefined);
-	setUser(undefined);
-
-	setContent();
-	navigate('/');
+	await deleteUser(token, user, setToken, setUser, setContent, navigate);
 };
