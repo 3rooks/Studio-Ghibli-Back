@@ -9,5 +9,5 @@ export const clearTokenLocalStorage = (key) => {
 export const getTokenLocalStorage = () => {
 	const token = window.localStorage.getItem('jwt');
 	if (!token) return undefined;
-	return token;
+	return JSON.parse(token);
 };

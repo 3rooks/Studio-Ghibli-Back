@@ -58,6 +58,8 @@ const Login = () => {
 	);
 };
 
+export default Login;
+
 const handleSubmit = (ev, navigate, setToken) => {
 	ev.preventDefault();
 
@@ -68,5 +70,3 @@ const handleSubmit = (ev, navigate, setToken) => {
 
 	postUserLogin(user, navigate, setToken);
 };
-
-export default Login;

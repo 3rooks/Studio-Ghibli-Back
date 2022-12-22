@@ -1,23 +1,19 @@
 import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-	clearTokenLocalStorage,
-	getTokenLocalStorage
-} from '../constants/token-persistence';
+import { clearTokenLocalStorage } from '../constants/token-persistence';
 import getUserProfile from '../lib/api/get-user-profile';
 import { UserContext } from '../lib/context/UserContext';
 
 const Header = () => {
 	const navigate = useNavigate();
+
 	const value = useContext(UserContext);
 	const { user, setUser, token, setToken } = value;
 
 	useEffect(() => {
-		const tokenLocal = getTokenLocalStorage();
-		if (!tokenLocal) return;
-		setToken(JSON.parse(tokenLocal));
+		if (!token) return;
 		getUserProfile(token, setUser);
-	}, [setToken, setUser, token]);
+	}, [token, setUser]);
 
 	return (
 		<header className='container mx-auto flex justify-between px-16 h-16 items-center '>
@@ -51,7 +47,10 @@ const Header = () => {
 									height='25px'
 									className='rounded-full'
 								/>
-								<Link to='/users/profiles' className='pr-4'>
+								<Link
+									to='/users/profiles'
+									className='pr-3 capitalize'
+								>
 									{user.username}
 								</Link>
 							</li>
@@ -64,14 +63,10 @@ const Header = () => {
 								<button
 									className='hover:underline'
 									onClick={() =>
-										UseHandleClick(
-											navigate,
-											setToken,
-											setUser
-										)
+										handleClick(navigate, setToken, setUser)
 									}
 								>
-									logout
+									Logout
 								</button>
 							</li>
 						</>
@@ -82,11 +77,11 @@ const Header = () => {
 	);
 };
 
-const UseHandleClick = (navigate, setToken, setUser) => {
+export default Header;
+
+const handleClick = (navigate, setToken, setUser) => {
 	clearTokenLocalStorage('jwt');
 	setToken(undefined);
 	setUser(undefined);
 	navigate('/login');
 };
-
-export default Header;
