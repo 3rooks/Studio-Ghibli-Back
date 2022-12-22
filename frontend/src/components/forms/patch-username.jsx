@@ -1,12 +1,9 @@
 import pathUsername from '../../lib/api/patch-user-username';
+import Button from '../Button';
 
 const PatchUsername = ({ setContent, token, setUser }) => {
 	return setContent(
-		<form
-			onSubmit={(ev) =>
-				handleSubmit(ev, token, setContent, setUser)
-			}
-		>
+		<form onSubmit={(ev) => handleSubmit(ev, token, setContent, setUser)}>
 			<label>
 				EDIT USERNAME:
 				<input
@@ -20,7 +17,11 @@ const PatchUsername = ({ setContent, token, setUser }) => {
 					required={true}
 				/>
 			</label>
-			<button type='Submit'>SEND</button>
+			<div className='my-2'>
+				<Button>
+					<i>Send</i>
+				</Button>
+			</div>
 		</form>
 	);
 };

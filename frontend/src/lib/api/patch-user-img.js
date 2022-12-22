@@ -13,9 +13,8 @@ const pathUserImg = async (token, user, setUser) => {
 		});
 
 		if (res.status === 202) {
-			getUserProfile(token, setUser);
-			// navigate('/users/profiles');
-			emitEvent('img updated');
+			await getUserProfile(token, setUser);
+			emitEvent('image updated');
 		} else if (res.status === 503) {
 			emitEvent('something wrong, try again');
 		}
