@@ -13,9 +13,7 @@ const Product = () => {
 		getProductById(id, setProduct);
 	}, [id]);
 
-	return (
-		<div>{product ? <ProductInfo product={product} /> : <Loader />}</div>
-	);
+	return <>{product ? <ProductInfo product={product} /> : <Loader />}</>;
 };
 
 export default Product;

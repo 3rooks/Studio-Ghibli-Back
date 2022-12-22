@@ -32,7 +32,7 @@ const ProductInfo = ({ product }) => {
 								addUserCart(token, user.cart, _id);
 							}}
 						>
-							Add to cart
+							<i>Add to cart</i>
 						</Button>
 					)}
 				</div>
