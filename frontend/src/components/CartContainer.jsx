@@ -8,7 +8,7 @@ import ProductInCart from './ProductInCart';
 
 const CartContainer = ({ userCart, setUserCart }) => {
 	const value = useContext(UserContext);
-	const { user, setUser, token, setToken } = value;
+	const { token } = value;
 
 	const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const CartContainer = ({ userCart, setUserCart }) => {
 					<div>
 						<Button
 							onClick={() =>
-								Payment({ setContent, total, token, navigate })
+								Payment({ setContent, token, total, navigate })
 							}
 						>
 							<i>BUY</i>
