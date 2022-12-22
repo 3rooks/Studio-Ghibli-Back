@@ -4,7 +4,14 @@ const Footer = () => {
 			<h2>
 				Developed by
 				<b>
-					<a href='https://github.com/3rooks'> Brooks</a>
+					<a
+						href='https://github.com/3rooks'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						{' '}
+						Brooks
+					</a>
 				</b>
 			</h2>
 		</footer>

@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import addUserCart from '../lib/api/add-user-cart';
 import { UserContext } from '../lib/context/UserContext';
+import Button from './Button';
 
 const ProductInfo = ({ product }) => {
 	const value = useContext(UserContext);
-	const { user, setUser, token, setToken } = value;
+	const { user, token } = value;
 
 	const {
 		_id,
@@ -22,53 +23,59 @@ const ProductInfo = ({ product }) => {
 	} = product;
 
 	return (
-		<article className='flex container mx-auto gap-4 px-4'>
-			<div className='w-1/2'>
-				<img src={image} className='block shadow-md' />
-			</div>
-			<div className='w-1/2 text-center'>
-				{token && (
-					<button
-						className='bg-red-500 rounded-sm px-4'
-						onClick={() => {
-							addUserCart(token, user.cart, _id);
-						}}
-					>
-						Add to cart
-					</button>
-				)}
-				<p className='font-bold mt-4'>Title</p>
-				<p>{title}</p>
-				<hr />
-				<br />
-				<p className='font-bold'>Original title</p>
+		<article className='block gap-10 px-6 sm:block md:flex md:px-12 lg:px-28 xl:px-60 2xl:px-80'>
+			<div className='w-full xl:w-1/2 md:w-2/3 2xl:w-1/2 mb-4'>
+				<div className={user && 'mb-3'}>
+					{user && (
+						<Button
+							onClick={() => {
+								addUserCart(token, user.cart, _id);
+							}}
+						>
+							Add to cart
+						</Button>
+					)}
+				</div>
 				<p>
+					<b>Price: </b> {price}$
+				</p>
+				<p>
+					<b>Title: </b>
+					{title}
+				</p>
+				<p>
+					<b>Duration: </b>
+					{minDuration} min
+				</p>
+				<p>
+					<b>Release year: </b>
+					{releaseYear}
+				</p>
+				<p>
+					<b>Original title: </b>
 					{originalTitleRomanised} ({originalTitle})
 				</p>
-				<hr />
-				<br />
-				<p className='font-bold'>Director</p>
-				<p>{director}</p>
-				<hr />
-				<br />
-				<p className='font-bold'>Producer</p>
-				<p>{producer}</p>
-				<hr />
-				<br />
-				<p className='font-bold'>Description</p>
-				<p>{description}</p>
-				<hr />
-				<br />
-				<p className='font-bold'>Release year: {releaseYear}</p>
-				<p className='font-bold'>Duration: {minDuration} min</p>
-				<p className='font-bold'>Price: {price}$</p>
-				<br />
+				<p>
+					<b>Director: </b>
+					{director}
+				</p>
+				<p>
+					<b>Producer: </b>
+					{producer}
+				</p>
+				<p>
+					<b>Description: </b>
+					{description}
+				</p>
 				<a href={info} target='_blank' rel='noopener noreferrer'>
-					More info...
+					<b>More info...</b>
 				</a>
-				<br />
-				<hr />
-				<br />
+			</div>
+			<div className='w-full h-full md:w-1/2 flex items-center justify-center mb-6'>
+				<img
+					src={image}
+					className='block shadow-md object-contain h-full w-96'
+				/>
 			</div>
 		</article>
 	);
