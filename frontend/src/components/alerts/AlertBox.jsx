@@ -4,11 +4,17 @@ const AlertBox = () => {
 	const alert = useAlert();
 
 	return (
-		<div className='container bg-gray-400 w-100% text-center text-white'>
-			{alert?.message}
-		</div>
+		<>
+			{alert && (
+				<div className='w-full h-10 bg-slate-900 text-white uppercase mb-4 flex items-center justify-center'>
+					<b>{alert && alert.message}</b>
+				</div>
+			)}
+		</>
 	);
 };
+
+export default AlertBox;
 
 const useAlert = () => {
 	const [alert, setAlert] = useState();
@@ -23,7 +29,6 @@ const useAlert = () => {
 	useEffect(() => {
 		const handler = (ev) => {
 			setAlert(ev.detail);
-			console.log(ev.detail);
 		};
 		document.addEventListener('alert', handler);
 
@@ -32,5 +37,3 @@ const useAlert = () => {
 
 	return alert;
 };
-
-export default AlertBox;

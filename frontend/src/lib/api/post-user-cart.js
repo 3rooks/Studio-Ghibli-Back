@@ -1,7 +1,7 @@
 import { API_FETCH } from '../../constants/urls';
 import emitEvent from '../events/alertEvent';
 
-const addUserCart = async (token, cartId, productId) => {
+const postUserCart = async (token, cartId, productId) => {
 	try {
 		const res = await fetch(
 			`${API_FETCH.USER_CART}/${cartId}/${productId}`,
@@ -30,4 +30,4 @@ const addUserCart = async (token, cartId, productId) => {
 	}
 };
 
-export default addUserCart;
+export default postUserCart;

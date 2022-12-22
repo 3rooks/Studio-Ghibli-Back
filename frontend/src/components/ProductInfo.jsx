@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import addUserCart from '../lib/api/post-user-cart';
+import postUserCart from '../lib/api/post-user-cart';
 import { UserContext } from '../lib/context/UserContext';
 import Button from './Button';
 
@@ -29,7 +29,7 @@ const ProductInfo = ({ product }) => {
 					{user && (
 						<Button
 							onClick={() => {
-								addUserCart(token, user.cart, _id);
+								postUserCart(token, user.cart, _id);
 							}}
 						>
 							<i>Add to cart</i>
