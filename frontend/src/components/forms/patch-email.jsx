@@ -1,14 +1,11 @@
 import pathEmail from '../../lib/api/patch-user-email';
+import Button from '../Button';
 
 const PatchEmail = ({ setContent, token, setUser }) => {
 	return setContent(
-		<form
-			onSubmit={(ev) =>
-				handleSubmit(ev, token, setContent, setUser)
-			}
-		>
+		<form onSubmit={(ev) => handleSubmit(ev, token, setContent, setUser)}>
 			<label>
-				EDIT EMAIL:
+				EDIT EMAIL: <b>[Studio@Ghibli.com]</b>
 				<input
 					className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
 					focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -20,21 +17,24 @@ const PatchEmail = ({ setContent, token, setUser }) => {
 					required={true}
 				/>
 			</label>
-			<button type='Submit'>SEND</button>
+			<div className='my-2'>
+				<Button>
+					<i>Send</i>
+				</Button>
+			</div>
 		</form>
 	);
 };
 
 export default PatchEmail;
 
-const handleSubmit = (ev, token, setContent, setUser) => {
+const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
 
 	const userEmail = {
 		email: ev.target.mail.value
 	};
+	await pathEmail(token, userEmail, setUser);
 
-	setContent();
-
-	pathEmail(token, userEmail, setUser);
+	setContent(undefined);
 };

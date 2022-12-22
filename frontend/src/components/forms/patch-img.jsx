@@ -32,5 +32,5 @@ const handleSubmit = async (ev, token, setContent, setUser) => {
 	const user = new FormData(ev.target);
 	await pathUserImg(token, user, setUser);
 
-	setContent();
+	setContent(undefined);
 };

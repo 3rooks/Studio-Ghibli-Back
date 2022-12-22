@@ -36,5 +36,5 @@ const handleSubmit = async (ev, token, setContent, setUser) => {
 	};
 	await pathUsername(token, userUsername, setUser);
 
-	setContent();
+	setContent(undefined);
 };
