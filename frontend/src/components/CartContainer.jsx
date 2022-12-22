@@ -6,13 +6,13 @@ import Payment from './forms/Payment';
 import Modal from './modal/Modal';
 import ProductInCart from './ProductInCart';
 
-const CartContainer = ({ cart, setUserCart }) => {
+const CartContainer = ({ userCart, setUserCart }) => {
 	const value = useContext(UserContext);
 	const { user, setUser, token, setToken } = value;
 
 	const navigate = useNavigate();
 
-	const { products } = cart;
+	const { products } = userCart;
 	const [total, setTotal] = useState();
 	const [content, setContent] = useState(undefined);
 
@@ -28,9 +28,11 @@ const CartContainer = ({ cart, setUserCart }) => {
 		<>
 			<Modal closeModal={() => setContent()}>{content}</Modal>
 			{products.length === 0 ? (
-				<h1>EMPTY CART</h1>
+				<div className='w-full text-center'>
+					<b>EMPTY CART</b>
+				</div>
 			) : (
-				<div className='px-4'>
+				<div className='w-full flex flex-col items-center justify-center'>
 					{products.map((e) => (
 						<ProductInCart
 							key={e.product._id}
@@ -39,12 +41,15 @@ const CartContainer = ({ cart, setUserCart }) => {
 						/>
 					))}
 					<b>TOTAL: {total}</b>
-					<Button
-						name='BUY'
-						onClick={() =>
-							Payment({ setContent, total, token, navigate })
-						}
-					/>
+					<div>
+						<Button
+							onClick={() =>
+								Payment({ setContent, total, token, navigate })
+							}
+						>
+							<i>BUY</i>
+						</Button>
+					</div>
 				</div>
 			)}
 		</>

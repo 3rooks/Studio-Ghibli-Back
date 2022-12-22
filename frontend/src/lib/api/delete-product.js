@@ -16,14 +16,14 @@ const deleteProduct = async (token, cartId, productId, setUserCart) => {
 		);
 
 		if (res.status === 202) {
-			getUserCart(token, cartId, setUserCart);
+			await getUserCart(token, cartId, setUserCart);
 			emitEvent('product deleted');
 		} else if (res.status === 400) {
-			emitEvent('wrong inputs');
+			emitEvent('invalid inputs');
 		} else if (res.status === 401) {
-			emitEvent('user unauthorized');
+			emitEvent('unauthorized');
 		} else if (res.status === 404) {
-			emitEvent('product not found');
+			emitEvent('product not exist');
 		}
 	} catch (error) {
 		console.log(error);

@@ -1,28 +1,48 @@
 import { useContext } from 'react';
 import deleteProduct from '../lib/api/delete-product';
 import { UserContext } from '../lib/context/UserContext';
+import Button from './Button';
 
 const ProductInCart = ({ products, setUserCart }) => {
-	const { product, quantity } = products;
+	const { product } = products;
 
 	const value = useContext(UserContext);
-	const { user, setUser, token, setToken } = value;
+	const { user, token } = value;
 
 	return (
-		<div>
-			<img src={product.image} height='50px' width='50px' />
-			<p>Product: {product.title}</p>
-			<p>Price: ${product.price}</p>
-			<p>Quantity: {quantity}</p>
-			<button
-				onClick={() =>
-					deleteProduct(token, user.cart, product._id, setUserCart)
-				}
-			>
-				DELETE
-			</button>
-			<hr />
-			<br />
+		<div className='w-full sm:w-3/4 md:w-2/4 lg:w-2/5 xl:w-1/3 flex items-center justify-center mb-4 gap-4'>
+			<div className='w-1/4'>
+				<img
+					src={product.image}
+					width='100px'
+					className='shadow-md rounded-md'
+				/>
+			</div>
+			<div className='w-2/4'>
+				<p>
+					Product: <b>{product.title}</b>
+				</p>
+				<p>
+					Director: <b>{product.director}</b>
+				</p>
+				<p>
+					Price: <b>${product.price}</b>
+				</p>
+				<div>
+					<Button
+						onClick={() =>
+							deleteProduct(
+								token,
+								user.cart,
+								product._id,
+								setUserCart
+							)
+						}
+					>
+						<i>Delete product</i>
+					</Button>
+				</div>
+			</div>
 		</div>
 	);
 };
