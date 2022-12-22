@@ -1,12 +1,9 @@
 import pathPass from '../../lib/api/patch-user-password';
+import Button from '../Button';
 
 const PatchPassword = ({ setContent, token, setUser }) => {
 	return setContent(
-		<form
-			onSubmit={(ev) =>
-				handleSubmit(ev, token, setContent, setUser)
-			}
-		>
+		<form onSubmit={(ev) => handleSubmit(ev, token, setContent, setUser)}>
 			<label>
 				Current Password:
 				<input
@@ -21,7 +18,7 @@ const PatchPassword = ({ setContent, token, setUser }) => {
 				/>
 			</label>
 			<label>
-				New Password:
+				New Password: <b>[a-Z/0-9(8-20)]</b>
 				<input
 					className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
 					focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -33,22 +30,25 @@ const PatchPassword = ({ setContent, token, setUser }) => {
 					required={true}
 				/>
 			</label>
-			<button type='Submit'>SEND</button>
+			<div className='my-2'>
+				<Button>
+					<i>Send</i>
+				</Button>
+			</div>
 		</form>
 	);
 };
 
 export default PatchPassword;
 
-const handleSubmit = (ev, token, setContent, setUser) => {
+const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
 
 	const userPass = {
 		oldPassword: ev.target.oldpass.value,
 		newPassword: ev.target.newpass.value
 	};
+	await pathPass(token, userPass, setUser);
 
-	setContent();
-
-	pathPass(token, userPass, setUser);
+	setContent(undefined);
 };
