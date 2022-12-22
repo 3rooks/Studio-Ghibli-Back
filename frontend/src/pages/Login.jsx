@@ -11,7 +11,7 @@ const Login = () => {
 	const { token, setToken } = value;
 
 	return (
-		<div>
+		<>
 			{token ? (
 				<Navigate replace to={'/'} />
 			) : (
@@ -33,6 +33,7 @@ const Login = () => {
 					focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
 									type='email'
 									name='mail'
+									required={true}
 								/>
 							</label>
 							<label>
@@ -45,6 +46,7 @@ const Login = () => {
 					focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
 									type='password'
 									name='pass'
+									required={true}
 								/>
 							</label>
 							<Button>LOGIN</Button>
@@ -52,7 +54,7 @@ const Login = () => {
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 

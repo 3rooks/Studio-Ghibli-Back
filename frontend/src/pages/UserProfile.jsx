@@ -10,12 +10,12 @@ import Modal from '../components/modal/Modal';
 import { UserContext } from '../lib/context/UserContext';
 
 const UserProfile = () => {
+	const navigate = useNavigate();
+
 	const value = useContext(UserContext);
 	const { user, setUser, token, setToken } = value;
 
 	const [content, setContent] = useState(undefined);
-
-	const navigate = useNavigate();
 
 	return (
 		<div>

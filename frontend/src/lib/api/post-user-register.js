@@ -13,9 +13,9 @@ const postUserRegister = async (user, navigate) => {
 		if (res.status === 201) {
 			await res.json();
 			navigate('/login');
-			emitEvent('user created - you can login');
+			emitEvent('user created');
 		} else if (res.status === 400) {
-			emitEvent('Invalid inputs');
+			emitEvent('invalid inputs');
 		} else if (res.status === 409) {
 			emitEvent('user already exist');
 		}
