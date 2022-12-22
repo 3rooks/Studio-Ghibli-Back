@@ -14,12 +14,12 @@ const pathUsername = async (token, user, setUser) => {
 		});
 
 		if (res.status === 202) {
-			getUserProfile(token, setUser);
+			await getUserProfile(token, setUser);
 			emitEvent('username updated');
 		} else if (res.status === 400) {
-			emitEvent('wrong inputs');
+			emitEvent('invalid inputs');
 		} else if (res.status === 401) {
-			emitEvent('user unauthorized');
+			emitEvent('unauthorized');
 		}
 	} catch (error) {
 		console.log(error);

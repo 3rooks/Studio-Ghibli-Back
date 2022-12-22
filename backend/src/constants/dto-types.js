@@ -26,7 +26,7 @@ export const usernameDTOSchema = Type.String({
         type: '${0#} must be a string',
         format: '${0#} should be a string',
         minLength: '${0#} must have at least 2 letters',
-        maxLength: '${0#} must have a maximum of 15 letters'
+        maxLength: '${0#} must have a maximum of 20 letters'
     }
 });
 

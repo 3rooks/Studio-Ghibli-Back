@@ -7,7 +7,7 @@ const PatchImg = ({ setContent, token, setUser }) => {
 	return setContent(
 		<form onSubmit={(ev) => handleSubmit(ev, token, setContent, setUser)}>
 			<label>
-				EDIT IMAGE:
+				EDIT IMAGE: <b>[JPEG/PNG]</b>
 				<input
 					type='file'
 					name='image'
