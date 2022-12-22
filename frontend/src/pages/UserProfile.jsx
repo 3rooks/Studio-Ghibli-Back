@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 import DeleteUser from '../components/forms/delete-user';
 import PatchEmail from '../components/forms/patch-email';
 import PatchImg from '../components/forms/patch-img';
@@ -18,30 +19,35 @@ const UserProfile = () => {
 	const [content, setContent] = useState(undefined);
 
 	return (
-		<div>
+		<div className='w-1/2 mx-auto flex items-center justify-center xl:w-1/3 2xl:w-1/4'>
 			{!user ? (
 				<Loader />
 			) : (
-				<div className='px-4'>
+				<div className='w-full'>
 					<Modal closeModal={() => setContent()}>{content}</Modal>
-					<div>
-						<div className='flex'>
-							<img
-								src={user.image || '/img/cat.png'}
-								height='50px'
-								width='50px'
-							/>
-							<button
+					<div className='flex items-center justify-center flex-col mb-4'>
+						<img
+							src={user.image || '/img/cat.png'}
+							height='200px'
+							width='200px'
+							className='shadow-md rounded-md mb-2'
+						/>
+						<div>
+							<Button
 								onClick={() =>
 									PatchImg({ setContent, token, setUser })
 								}
 							>
-								Edit IMG
-							</button>
+								<i>Edit image</i>
+							</Button>
 						</div>
-						<div className='flex'>
-							<p>Username: {user.username}/</p>
-							<button
+					</div>
+					<div className='block md:flex justify-between mb-4'>
+						<p>
+							<i>Username:</i> <b>{user.username}</b>
+						</p>
+						<div>
+							<Button
 								onClick={() =>
 									PatchUsername({
 										setContent,
@@ -50,22 +56,34 @@ const UserProfile = () => {
 									})
 								}
 							>
-								Edit USERNAME
-							</button>
+								<i>Edit username</i>
+							</Button>
 						</div>
-						<div className='flex'>
-							<p>Email: {user.email}/</p>
-							<button
+					</div>
+					<div className='block md:flex justify-between mb-4'>
+						<p>
+							<i>Email:</i> <b>{user.email}</b>
+						</p>
+						<div>
+							<Button
 								onClick={() =>
-									PatchEmail({ setContent, token, setUser })
+									PatchEmail({
+										setContent,
+										token,
+										setUser
+									})
 								}
 							>
-								Edit EMAIL
-							</button>
+								<i>Edit email</i>
+							</Button>
 						</div>
-						<div className='flex'>
-							<p>Password/</p>
-							<button
+					</div>
+					<div className='block md:flex justify-between mb-4'>
+						<p>
+							<i>Password:</i> <b>********</b>
+						</p>
+						<div>
+							<Button
 								onClick={() =>
 									PatchPassword({
 										setContent,
@@ -74,25 +92,23 @@ const UserProfile = () => {
 									})
 								}
 							>
-								Edit PASSWORD
-							</button>
-						</div>
-						<div>
-							<button
-								onClick={() =>
-									DeleteUser({
-										setContent,
-										token,
-										setToken,
-										setUser,
-										navigate
-									})
-								}
-							>
-								Delete Account
-							</button>
+								<i>Edit password</i>
+							</Button>
 						</div>
 					</div>
+					<Button
+						onClick={() =>
+							DeleteUser({
+								setContent,
+								token,
+								setToken,
+								setUser,
+								navigate
+							})
+						}
+					>
+						<i>Delete account</i>
+					</Button>
 				</div>
 			)}
 		</div>
