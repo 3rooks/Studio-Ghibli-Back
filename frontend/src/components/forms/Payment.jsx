@@ -2,10 +2,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from './Payment-form';
 
-const publickey =
-	'pk_test_51M48DuBcDHSGoNoLokxLynE1crLbquTIpUOjIVfbhf1WUwhCShBPuXpgRDUZH3prpbOsvvMhmxE7scqYH8Iq0yGM00zdC5uZJt';
-
-const stripePromise = loadStripe(publickey);
+const stripePromise = loadStripe(import.meta.env.VITE_STRAPI_PUBLIC_KEY);
 
 const Payment = ({ setContent, token, total, navigate }) => {
 	return setContent(
