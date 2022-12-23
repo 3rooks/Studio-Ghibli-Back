@@ -50,13 +50,14 @@ const handleSubmit = async (
 		type: 'card',
 		card: elements.getElement(CardElement)
 	});
+
+	setContent(undefined);
+	navigate('/');
+
 	const paymentInfo = {
 		pmid: paymentMethod.id,
 		amount: total * 100,
 		total
 	};
-
 	await postUserPayment(token, paymentInfo);
-	setContent(undefined);
-	navigate('/');
 };

@@ -30,11 +30,10 @@ export default PatchUsername;
 
 const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
+	setContent(undefined);
 
 	const userUsername = {
 		username: ev.target.username.value
 	};
 	await pathUsername(token, userUsername, setUser);
-
-	setContent(undefined);
 };

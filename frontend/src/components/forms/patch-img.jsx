@@ -28,9 +28,8 @@ export default PatchImg;
 
 const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
+	setContent(undefined);
 
 	const user = new FormData(ev.target);
 	await pathUserImg(token, user, setUser);
-
-	setContent(undefined);
 };

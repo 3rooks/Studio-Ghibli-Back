@@ -30,11 +30,10 @@ export default PatchEmail;
 
 const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
+	setContent(undefined);
 
 	const userEmail = {
 		email: ev.target.mail.value
 	};
 	await pathEmail(token, userEmail, setUser);
-
-	setContent(undefined);
 };

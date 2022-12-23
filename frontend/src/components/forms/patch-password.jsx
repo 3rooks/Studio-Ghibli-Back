@@ -43,12 +43,11 @@ export default PatchPassword;
 
 const handleSubmit = async (ev, token, setContent, setUser) => {
 	ev.preventDefault();
+	setContent(undefined);
 
 	const userPass = {
 		oldPassword: ev.target.oldpass.value,
 		newPassword: ev.target.newpass.value
 	};
 	await pathPass(token, userPass, setUser);
-
-	setContent(undefined);
 };
