@@ -28,8 +28,8 @@ const ProductInfo = ({ product }) => {
 				<div className={user && 'mb-3'}>
 					{user && (
 						<Button
-							onClick={() => {
-								postUserCart(token, user.cart, _id);
+							onClick={async () => {
+								await postUserCart(token, user.cart, _id);
 							}}
 						>
 							<i>Add to cart</i>

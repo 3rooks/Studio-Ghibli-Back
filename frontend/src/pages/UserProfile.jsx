@@ -97,8 +97,8 @@ const UserProfile = () => {
 						</div>
 					</div>
 					<Button
-						onClick={() =>
-							DeleteUser({
+						onClick={async () =>
+							await DeleteUser({
 								setContent,
 								token,
 								setToken,

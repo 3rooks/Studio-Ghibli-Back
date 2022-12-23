@@ -60,13 +60,12 @@ const Login = () => {
 
 export default Login;
 
-const handleSubmit = (ev, navigate, setToken) => {
+const handleSubmit = async (ev, navigate, setToken) => {
 	ev.preventDefault();
 
 	const user = {
 		email: ev.target.mail.value,
 		password: ev.target.pass.value
 	};
-
-	postUserLogin(user, navigate, setToken);
+	await postUserLogin(user, navigate, setToken);
 };

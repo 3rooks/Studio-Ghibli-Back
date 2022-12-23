@@ -69,7 +69,7 @@ const Register = () => {
 	);
 };
 
-const handleSubmit = (ev, navigate) => {
+const handleSubmit = async (ev, navigate) => {
 	ev.preventDefault();
 
 	const user = {
@@ -77,8 +77,7 @@ const handleSubmit = (ev, navigate) => {
 		email: ev.target.mail.value,
 		password: ev.target.pass.value
 	};
-
-	postUserRegister(user, navigate);
+	await postUserRegister(user, navigate);
 };
 
 export default Register;

@@ -30,8 +30,8 @@ const ProductInCart = ({ products, setUserCart }) => {
 				</p>
 				<div>
 					<Button
-						onClick={() =>
-							deleteProduct(
+						onClick={async () =>
+							await deleteProduct(
 								token,
 								user.cart,
 								product._id,
