@@ -43,7 +43,7 @@ userRoutes.patch(
     userPasswordController
 );
 
-userRoutes.patch(
+userRoutes.post(
     '/update-image',
     userAuth,
     upload,
