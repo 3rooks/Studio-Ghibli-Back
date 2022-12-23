@@ -4,7 +4,7 @@ import { CartRepository } from '#repositories/cart.repository.js';
 import { ProductRepository } from '#repositories/product.repository.js';
 import { UserRepository } from '#repositories/user.repository.js';
 
-const url = process.env.DB_TEST || process.env.MONGODB_URL;
+const url = process.env.MONGODB_URL || process.env.MONGO_LOCAL;
 const per = PERSISTENCES[process.env.PERSISTENCE] || PERSISTENCES.FS;
 
 const PERSISTENCE = await FactoryPersistence.setPersistence(per, url);
