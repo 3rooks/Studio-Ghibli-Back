@@ -44,7 +44,7 @@ userRoutes.patch(
 );
 
 userRoutes.patch(
-    '/update-img',
+    '/update-image',
     userAuth,
     upload,
     uploadCloud,
