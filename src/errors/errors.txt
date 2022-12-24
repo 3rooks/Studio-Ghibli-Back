@@ -1,0 +1,53 @@
+ERROR [2022-12-24 12:04:49.1 +0000] (21720): request errored
+    req: {
+      "id": "b7f6654a-3844-4db0-b573-d0a153c162de",
+      "method": "GET",
+      "url": "/api/profile",
+      "query": {},
+      "params": {},
+      "headers": {
+        "host": "localhost:8080",
+        "connection": "keep-alive",
+        "sec-ch-ua": "\"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"108\", \"Google Chrome\";v=\"108\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0",
+        "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBlNzg2ZTlmLTNhNTQtNDA2MC1hNGI3LWZkYjdkMjI3NTZhZSIsImlhdCI6MTY3MTgwNzM4NywiZXhwIjoxNjcyNDEyMTg3fQ.pFpDOm0VcNDM-oeV5IeJ4iKLXgMrnZkDDNpW_X2bYwWtqVzT8AVKqx91wHP17DzEQrGMASx-9qfQ9w1ho2WNPA",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "accept": "*/*",
+        "origin": "http://127.0.0.1:5173",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:5173/",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "es-AR,es;q=0.9,en-US;q=0.8,en;q=0.7",
+        "sec-gpc": "1",
+        "if-none-match": "W/\"cd-TMTGAfxP3XGTVuoIUXguAkSk/NI\""
+      },
+      "remoteAddress": "::1",
+      "remotePort": 54547
+    }
+    res: {
+      "statusCode": 500,
+      "headers": {
+        "x-powered-by": "Express",
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "287",
+        "etag": "W/\"11f-/MXW4Y9C+15ri1b4uQl9DxM0JLE\""
+      }
+    }
+    responseTime: 30467
+    err: {
+      "message": "Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/",
+      "stack":
+          MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+              at Function.Model.$wrapCallback (C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\model.js:5214:32)
+              at C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\query.js:4908:21
+              at C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+              at new Promise (<anonymous>)
+              at promiseOrCallback (C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+              at model.Query.exec (C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\query.js:4907:10)
+              at model.Query.Query.then (C:\Users\Brooks'\projects\backend-coderhouse\node_modules\mongoose\lib\query.js:4990:15)
+    }
