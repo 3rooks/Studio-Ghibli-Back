@@ -158,6 +158,13 @@ paths:
                             schema:
                                 type: object
                                 $ref: '#/components/responseErrorBodies/WrongFields'
+                '409':
+                    description: Product already exists in the application - Conflict
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: '#/components/responseErrorBodies/ProductConflict'
         get:
             summary: Returns all products of the application
             tags:
