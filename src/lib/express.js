@@ -9,11 +9,7 @@ import express from 'express';
 import swaggerUiExpress from 'swagger-ui-express';
 
 const expressApp = express();
-expressApp.use(
-    cors({
-        origin: [process.env.FRONT_URL_PROD, process.env.FRONT_URL_DEV]
-    })
-);
+expressApp.use(cors());
 expressApp.use(express.json());
 expressApp.use(express.urlencoded({ extended: true }));
 expressApp.use(express.static(PUBLIC_PATH));
