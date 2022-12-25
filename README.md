@@ -16,7 +16,7 @@
 
 ## Frontend (recommended)
 
--   You have a frontend application available in [Studio-Ghibli-Front](https://github.com/3rooks/Studio-Ghibli-API)
+-   You have a frontend application available in [Studio-Ghibli-Front](https://github.com/3rooks/Studio-Ghibli-Front)
 
 ## About
 
